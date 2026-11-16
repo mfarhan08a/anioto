@@ -1,0 +1,37 @@
+{
+  "scope": "Actual compiled native executable and binary protocol, no audio; cold start only if first response says started.",
+  "first": {
+    "exitCode": 0,
+    "response": {
+      "ok": true,
+      "status": "started"
+    },
+    "elapsedSeconds": 2.074
+  },
+  "second": {
+    "exitCode": 0,
+    "response": {
+      "ok": true,
+      "status": "already-running"
+    },
+    "elapsedSeconds": 0.485
+  },
+  "sameHelperPid": true,
+  "unauthorized": {
+    "exitCode": 1,
+    "response": {
+      "ok": false,
+      "error": "This extension is not allowed to start the helper."
+    },
+    "elapsedSeconds": 0.373
+  },
+  "wrongCommand": {
+    "exitCode": 1,
+    "response": {
+      "ok": false,
+      "error": "Only helper startup is supported."
+    },
+    "elapsedSeconds": 0.353
+  },
+  "passed": true
+}

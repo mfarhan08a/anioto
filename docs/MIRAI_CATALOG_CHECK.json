@@ -1,0 +1,109 @@
+[
+  {
+    "query": {
+      "song_name_search_filter": {
+        "search": "Music Train",
+        "partial_match": false
+      }
+    },
+    "status": 200,
+    "ms": 1582,
+    "entries": []
+  },
+  {
+    "query": {
+      "artist_search_filter": {
+        "search": "Tatsuro Yamashita",
+        "partial_match": false
+      }
+    },
+    "status": 200,
+    "ms": 496,
+    "entries": [
+      {
+        "song": "Lucky Girl ni Hanataba o",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Agatha Christie's Great Detectives Poirot and Marple",
+        "animeJP": "Agatha Christie no Meitantei Poirot to Marple",
+        "ids": {
+          "myanimelist": 244,
+          "anidb": 2161,
+          "anilist": 244,
+          "kitsu": 219
+        }
+      },
+      {
+        "song": "Wasurenaide",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Agatha Christie's Great Detectives Poirot and Marple",
+        "animeJP": "Agatha Christie no Meitantei Poirot to Marple",
+        "ids": {
+          "myanimelist": 244,
+          "anidb": 2161,
+          "anilist": 244,
+          "kitsu": 219
+        }
+      },
+      {
+        "song": "Bokura no Natsu no Yume",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Summer Wars",
+        "animeJP": "Summer Wars",
+        "ids": {
+          "myanimelist": 5681,
+          "anidb": 6249,
+          "anilist": 5681,
+          "kitsu": 4241
+        }
+      },
+      {
+        "song": "Christmas Eve",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Shinkansen Henkei Robo Shinkalion The Animation",
+        "animeJP": "Shinkansen Henkei Robo Shinkalion The Animation",
+        "ids": {
+          "myanimelist": 36531,
+          "anidb": 13507,
+          "anilist": 100620,
+          "kitsu": 14143
+        }
+      },
+      {
+        "song": "Mirai no Theme",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Mirai",
+        "animeJP": "Mirai no Mirai",
+        "ids": {
+          "myanimelist": 36936,
+          "anidb": 13174,
+          "anilist": 100749,
+          "kitsu": 14083
+        }
+      },
+      {
+        "song": "Uta no Kisha",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Mirai",
+        "animeJP": "Mirai no Mirai",
+        "ids": {
+          "myanimelist": 36936,
+          "anidb": 13174,
+          "anilist": 100749,
+          "kitsu": 14083
+        }
+      },
+      {
+        "song": "ONOMATOPE ISLAND",
+        "artist": "Tatsuro Yamashita",
+        "anime": "Pokémon Concierge",
+        "animeJP": "Pokémon Concierge",
+        "ids": {
+          "myanimelist": 58953,
+          "anidb": null,
+          "anilist": 175035,
+          "kitsu": 48560
+        }
+      }
+    ]
+  }
+]

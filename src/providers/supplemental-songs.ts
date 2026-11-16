@@ -1,0 +1,525 @@
+import type { AnimeMatch, Song } from '../contracts';
+import { normalizeSongText as normalize } from './song-titles';
+import { canonicalArtist, CARNIVAL_PHANTASM_OPENING_CAST, INFINITE_STRATOS_2_ENDING_CAST } from './artist-aliases';
+import { canonicalArtistForTitle, canonicalBaseTitleFor, canonicalTitleFor } from './title-aliases';
+import { ALYA_SEASON_ONE, ALYA_SOLO, ALYA_SONG_CREDITS } from './alya-song-credits';
+
+/**
+ * Small, reviewed associations for featured songs and known catalog gaps.
+ * This registry must never infer arbitrary anime titles.
+ */
+export interface SupplementalSongAssociation {
+  /** Stable negative ID reserved for bundled associations, separate from AnimeThemes IDs. */
+  id: number;
+  title: string;
+  titleAliases?: readonly string[];
+  artistAliases: readonly string[];
+  allowUnverifiedArtist?: boolean;
+  onlineFirst?: boolean;
+  animeTitle: string;
+  romajiTitle?: string;
+  type: string;
+  sourceUrl: string;
+  evidence: string;
+}
+
+export const SUPPLEMENTAL_SONGS: readonly SupplementalSongAssociation[] = [
+  {
+    id: -1001,
+    title: 'I Really Want to Stay At Your House',
+    artistAliases: ['Rosa Walton', 'Rosa Walton & Hallie Coggins'],
+    allowUnverifiedArtist: true,
+    animeTitle: 'Cyberpunk: Edgerunners',
+    type: 'Featured song',
+    sourceUrl: 'https://www.youtube.com/watch?v=h4VJGNNSQnw',
+    evidence: 'Netflix’s official music video identifies “I Really Want to Stay At Your House” by Rosa Walton with Cyberpunk: Edgerunners.',
+  },
+  {
+    id: -1002,
+    title: 'Tagatame',
+    titleAliases: ['Ta ga Tame', '誰我為', 'たがため'],
+    artistAliases: ['TK from Ling tosite sigure', 'TK from 凛として時雨'],
+    animeTitle: 'My Hero Academia Season 7',
+    type: 'Opening 1',
+    sourceUrl: 'https://heroaca.com/special/oped-oneforall/',
+    evidence: 'The official My Hero Academia website credits “誰我為” (Tagatame) by TK from Ling tosite sigure as the first opening of Season 7.',
+  },
+  {
+    id: -1003,
+    title: 'STRAIGHT JET',
+    artistAliases: ['Minami Kuribayashi', '栗林みな実'],
+    onlineFirst: true,
+    animeTitle: 'Infinite Stratos',
+    type: 'Opening 1',
+    sourceUrl: 'https://lantis.jp/15th/special/kuribayashi.html',
+    evidence: 'Lantis credits “STRAIGHT JET” by Minami Kuribayashi as the opening theme of Infinite Stratos.',
+  },
+  {
+    id: -1004,
+    title: 'BEAUTIFUL SKY',
+    artistAliases: [INFINITE_STRATOS_2_ENDING_CAST],
+    onlineFirst: true,
+    animeTitle: 'Infinite Stratos 2',
+    type: 'Ending theme',
+    sourceUrl: 'https://www.tbs.co.jp/anime/is2/news/news1310.html',
+    evidence: 'The official Infinite Stratos 2 site credits “BEAUTIFUL SKY” as the ending theme and lists all seven performers.',
+  },
+  {
+    id: -1005,
+    title: 'Gekisou Gungnir',
+    artistAliases: ['Aoi Yuki'],
+    onlineFirst: true,
+    animeTitle: 'Symphogear',
+    type: 'Character song',
+    sourceUrl: 'https://www.symphogear.com/sound.html',
+    evidence: 'The official Symphogear soundtrack credits “撃槍・ガングニール” to Hibiki Tachibana, voiced by Aoi Yuki.',
+  },
+  {
+    id: -1006,
+    title: 'Yume Tabibito',
+    titleAliases: ['BLUE DREAM~夢旅人~(聖闘士星矢/TVサイズ)'],
+    artistAliases: ['Hironobu Kageyama & BROADWAY'],
+    allowUnverifiedArtist: true,
+    onlineFirst: true,
+    animeTitle: 'Saint Seiya',
+    type: 'Ending 2',
+    sourceUrl: 'https://columbia.jp/prod-info/COCX-35079-91/',
+    evidence: 'Nippon Columbia lists the Saint Seiya TV-size “夢旅人-BLUE DREAM-” with an official credit to Hironobu Kageyama & BROADWAY.',
+  },
+  {
+    id: -1007,
+    title: 'Hebi',
+    artistAliases: ['Yorushika'],
+    onlineFirst: true,
+    animeTitle: 'Orb: On the Movements of the Earth',
+    type: 'Ending 2',
+    sourceUrl: 'https://yorushika.com/news/detail/11658?lang=en',
+    evidence: 'Yorushika’s official site credits “へび” (Snake) as the second ending theme for Orb: On the Movements of the Earth.',
+  },
+  {
+    id: -1008,
+    title: 'Chiisana Bokura no Ookina Heart',
+    artistAliases: ['ICHIKO'],
+    onlineFirst: true,
+    animeTitle: 'Dinosaur King',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.sunrise-inc.co.jp/work/news.php?id=1804',
+    evidence: 'Sunrise credits ICHIKO’s “小さな僕らの大きなハート” as the theme song for Dinosaur King.',
+  },
+  {
+    id: -1009,
+    title: 'Boku ni Dekiru Koto',
+    artistAliases: ['HOW MERRY MARRY'],
+    onlineFirst: true,
+    animeTitle: "Natsume's Book of Friends Season 3",
+    type: 'Opening 1',
+    sourceUrl: 'https://www.sonymusic.co.jp/artist/howmerrymarry/discography/ESCL-3759',
+    evidence: 'Sony Music credits HOW MERRY MARRY’s “僕にできること” as the opening theme for the third season of Natsume’s Book of Friends.',
+  },
+  {
+    id: -1010,
+    title: 'Yume ni Yell! Pâtissière♪',
+    artistAliases: ['Mayumi Gojo'],
+    onlineFirst: true,
+    animeTitle: 'Yumeiro Pâtissière',
+    type: 'Opening 1',
+    sourceUrl: 'https://columbia.jp/prod-info/COCC-16319/',
+    evidence: 'Nippon Columbia credits Mayumi Gojo’s “夢にエール!パティシエール♪” as the opening theme of Yumeiro Pâtissière.',
+  },
+  {
+    id: -1011,
+    title: 'Ai Oboete Imasu ka ~bless the little queen',
+    artistAliases: ['Megumi Nakajima'],
+    onlineFirst: true,
+    animeTitle: 'Macross Frontier',
+    type: 'Soundtrack song',
+    sourceUrl: 'https://www.jvcmusic.co.jp/flyingdog/-/Discography/A008451/VTCL-60061.html',
+    evidence: 'FlyingDog lists the “bless the little queen” recording by Ranka Lee (Megumi Nakajima) on the Macross Frontier soundtrack.',
+  },
+  {
+    id: -1012,
+    title: 'Hana wa Odore ya Irohaniho',
+    artistAliases: ['Team "Hanayamata"'],
+    onlineFirst: true,
+    animeTitle: 'Hanayamata',
+    type: 'Opening 1',
+    sourceUrl: 'https://hanayamata.com/discography/detail.php?id=1008379',
+    evidence: 'The official Hanayamata opening single by Team “Hanayamata” includes both the vocal and instrumental recordings of “花ハ踊レヤいろはにほ”.',
+  },
+  {
+    id: -1013,
+    title: 'Kaze no Anthem',
+    artistAliases: ['Eve', 'Eve feat. suis from Yorushika'],
+    onlineFirst: true,
+    animeTitle: 'Witch Hat Atelier',
+    romajiTitle: 'Tongari Boushi no Atelier',
+    type: 'Opening 1',
+    sourceUrl: 'https://eveofficial.com/discography/kazenoanthem.html',
+    evidence: 'Eve’s official discography credits “風のアンセム” (Wind’s Anthem), featuring suis from Yorushika, as the opening theme of Witch Hat Atelier.',
+  },
+  {
+    id: -1014,
+    title: 'four',
+    artistAliases: ['Megumi Han'],
+    onlineFirst: true,
+    animeTitle: 'Black Clover',
+    type: 'Episode 50 ending',
+    sourceUrl: 'https://bclover.jp/season1/news/detail.php?id=1065606',
+    evidence: 'The official Black Clover website confirms that Kahono (Megumi Han) sings this cover of FAKY’s “four” in the ending of episode 50.',
+  },
+  {
+    id: -1015,
+    title: 'Dame wa Dame',
+    artistAliases: ['Minori Suzuki'],
+    onlineFirst: true,
+    animeTitle: 'Magical Sempai',
+    romajiTitle: 'Tejina Senpai',
+    type: 'Ending theme',
+    sourceUrl: 'https://www.jvcmusic.co.jp/flyingdog/-/Discography/A025540/VTZL-175.html',
+    evidence: 'FlyingDog lists Minori Suzuki’s album version of “ダメハダメ” and credits the song as the ending theme of Magical Sempai.',
+  },
+  {
+    id: -1016,
+    title: 'Koi no Himitsu',
+    artistAliases: ['pua:re'],
+    onlineFirst: true,
+    animeTitle: 'My Girlfriend is Shobitch',
+    romajiTitle: 'Boku no Kanojo ga Majimesugiru Sho-bitch na Ken',
+    type: 'Ending 1',
+    sourceUrl: 'https://columbia.jp/prod-info/COZC-1385-6/',
+    evidence: 'Nippon Columbia credits “恋のヒミツ” by pua:re as the ending theme of My Girlfriend is Shobitch.',
+  },
+  {
+    id: -1017,
+    title: 'Mermaid Lovestory',
+    artistAliases: ['Minori Chihara'],
+    onlineFirst: true,
+    animeTitle: 'Date A Live II',
+    type: 'Insert Song',
+    sourceUrl: 'https://columbia.jp/prod-info/COCX-38577/',
+    evidence: 'Nippon Columbia credits Miku Izayoi (Minori Chihara) on “マーメイド ラブストーリー” from the Date A Live II soundtrack.',
+  },
+  {
+    id: -1018,
+    title: 'Saibou Kioku',
+    artistAliases: ['nano.RIPE'],
+    onlineFirst: true,
+    animeTitle: 'Hanasaku Iroha: Blossoms for Tomorrow',
+    romajiTitle: 'Hanasaku Iroha',
+    type: 'Featured song',
+    sourceUrl: 'https://www.lantis.jp/special/nanoripe/saiboukioku/',
+    evidence: 'Lantis credits nano.RIPE’s “細胞キオク” as an insert song in Hanasaku Iroha.',
+  },
+  {
+    id: -1019,
+    title: 'Platinum 17',
+    artistAliases: ['yozuca*'],
+    allowUnverifiedArtist: true,
+    onlineFirst: true,
+    animeTitle: 'So, I Can’t Play H?',
+    romajiTitle: 'Dakara Boku wa, H ga Dekinai.',
+    type: 'Ending 1',
+    sourceUrl: 'https://boku-h.com/release/cd.html',
+    evidence: 'The official anime release credits the ending theme “プラチナ17” to yozuca*.',
+  },
+  {
+    id: -1020,
+    title: 'Fuyu Biyori',
+    artistAliases: ['Eri Sasaki'],
+    onlineFirst: true,
+    animeTitle: 'Laid-Back Camp',
+    romajiTitle: 'Yuru Camp△',
+    type: 'Ending 1',
+    sourceUrl: 'https://yurucamp.jp/first/music/',
+    evidence: 'The official Laid-Back Camp music page credits Eri Sasaki’s “ふゆびより” as the first season’s ending theme.',
+  },
+  {
+    id: -1021,
+    title: 'The Theme of Bangaichi (Celebration)',
+    artistAliases: ['Michael Kaneko'],
+    animeTitle: 'Megalobox',
+    type: 'Soundtrack track',
+    sourceUrl: 'https://mabanua.com/music/megalobox/',
+    evidence: 'Composer mabanua lists this exact Michael Kaneko recording on the Megalobox original soundtrack.',
+  },
+  ...ALYA_SONG_CREDITS.map(credit => ({
+    id: credit.id,
+    title: credit.title,
+    artistAliases: [credit.artist],
+    onlineFirst: true,
+    animeTitle: ALYA_SEASON_ONE.title,
+    romajiTitle: ALYA_SEASON_ONE.romajiTitle,
+    type: credit.type,
+    sourceUrl: credit.sourceUrl,
+    evidence: `The official anime credits list “${credit.nativeTitle}” by ${credit.artist === ALYA_SOLO[0] ? 'Alya (Sumire Uesaka)' : 'Alya (Sumire Uesaka) and KAF'} as ${credit.type} in season 1.`,
+  })),
+  {
+    id: -1035,
+    title: 'Stalemate!',
+    artistAliases: ['IOSYS jk Girls'],
+    onlineFirst: true,
+    animeTitle: 'D-Frag!',
+    type: 'Opening 1',
+    sourceUrl: 'https://d-fragments.net/products/music.html',
+    evidence: 'The official D-Frag! music page credits IOSYS jk Girls for the opening theme “すているめいと！”.',
+  },
+  {
+    id: -1036,
+    title: 'Mata Kimi ni Aeru Hi',
+    artistAliases: ['Shion Miyawaki'],
+    onlineFirst: true,
+    animeTitle: 'Assassination Classroom Second Season',
+    romajiTitle: 'Ansatsu Kyoushitsu 2nd Season',
+    type: 'Ending 2',
+    sourceUrl: 'https://www.ansatsu-anime.com/2014-2016/news/detail.php?id=1033336',
+    evidence: 'The official Assassination Classroom site credits Shion Miyawaki’s “また君に会える日” as the second ending of season 2.',
+  },
+  {
+    id: -1037,
+    title: 'Shunkashuutou',
+    artistAliases: ['sumika'],
+    onlineFirst: true,
+    animeTitle: 'I Want to Eat Your Pancreas',
+    romajiTitle: 'Kimi no Suizou wo Tabetai',
+    type: 'Ending 1',
+    sourceUrl: 'https://kimisui-anime.com/news/?article_id=47814',
+    evidence: 'The official film site credits sumika’s “春夏秋冬” as a theme, and AnisongDB lists it as the ending.',
+  },
+  {
+    id: -1038,
+    title: 'Soranetarium',
+    artistAliases: ['MICHI'],
+    onlineFirst: true,
+    animeTitle: 'The Girl in Twilight',
+    romajiTitle: 'Akanesasu Shoujo',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.ytv.co.jp/akanesasus/',
+    evidence: 'Broadcaster Yomiuri TV credits MICHI’s “ソラネタリウム” as the opening theme.',
+  },
+  {
+    id: -1039,
+    title: 'L・O・V・E・Ly Loco♡',
+    artistAliases: ['Yuuka Aisaka'],
+    onlineFirst: true,
+    animeTitle: 'Gushing Over Magical Girls',
+    romajiTitle: 'Mahou Shoujo ni Akogarete',
+    type: 'Insert Song',
+    sourceUrl: 'https://www.youtube.com/watch?v=uxPavPqtuGc',
+    evidence: 'KADOKAWA identifies this as Loco Musica’s insert song in episode 8 and credits Yuuka Aisaka as the character.',
+  },
+  {
+    id: -1040,
+    title: 'Kimi no Gin no Niwa',
+    titleAliases: ['Kimino Ginno Niwa'],
+    artistAliases: ['Kalafina'],
+    onlineFirst: true,
+    animeTitle: 'Puella Magi Madoka Magica the Movie: Rebellion',
+    romajiTitle: 'Mahou Shoujo Madoka☆Magica: Hangyaku no Monogatari',
+    type: 'Ending 1',
+    sourceUrl: 'https://www.madoka-magica.com/rebellion/news/?id=27218',
+    evidence: 'The official Rebellion site credits Kalafina’s “君の銀の庭” as a theme. AnisongDB lists it as Ending 1.',
+  },
+  {
+    id: -1041,
+    title: 'REVIVƎЯ',
+    titleAliases: ['REVIVER'],
+    artistAliases: ['Hiroyuki Sawano', 'Hiroyuki Sawano feat. SennaRin'],
+    onlineFirst: true,
+    animeTitle: 'Solo Leveling Season 2: Arise from the Shadow',
+    romajiTitle: 'Ore dake Level Up na Ken: Arise from the Shadow',
+    type: 'Insert Song',
+    sourceUrl: 'https://www.aniplex.co.jp/news/detail/?id=67275',
+    evidence: 'Aniplex credits Hiroyuki Sawano and SennaRin for this Solo Leveling Season 2 insert song.',
+  },
+  {
+    id: -1042,
+    title: 'Shounen Kenya',
+    artistAliases: ['Noriko Watanabe'],
+    onlineFirst: true,
+    animeTitle: 'Kenya Boy',
+    romajiTitle: 'Shounen Kenya',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.kadokawa.co.jp/product/video1107/',
+    evidence: 'KADOKAWA credits Noriko Watanabe with the film’s theme “少年ケニヤ”. AnisongDB lists it as Opening 1.',
+  },
+  {
+    id: -1043,
+    title: 'Super☆Affection',
+    artistAliases: [CARNIVAL_PHANTASM_OPENING_CAST],
+    onlineFirst: true,
+    animeTitle: 'Carnival Phantasm',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.typemoon.com/products/cp/outline.html',
+    evidence: 'TYPE-MOON credits these six performers for the Carnival Phantasm opening “すーぱー☆あふぇくしょん”.',
+  },
+  {
+    id: -1044,
+    title: 'Deneb to Spica',
+    artistAliases: ['DIALOGUE+'],
+    onlineFirst: true,
+    animeTitle: "My Stepmom's Daughter Is My Ex",
+    romajiTitle: 'Mamahaha no Tsurego ga Motokano Datta',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.ponycanyon.co.jp/music/PCCG000002164',
+    evidence: 'Pony Canyon credits DIALOGUE+ for the opening “デネブとスピカ”.',
+  },
+  {
+    id: -1045,
+    title: 'Zankoku na Tenshi no Thesis',
+    artistAliases: ['Yoko Takahashi'],
+    onlineFirst: true,
+    animeTitle: 'Neon Genesis Evangelion',
+    romajiTitle: 'Shinseiki Evangelion',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.youtube.com/watch?v=o6wtDPVkKqI',
+    evidence: 'King Records credits Yoko Takahashi for the original TV opening “残酷な天使のテーゼ”.',
+  },
+  {
+    id: -1046,
+    title: 'CURE ~Boku ga Koko ni Iru yo~',
+    artistAliases: ['Aya Hirano'],
+    onlineFirst: true,
+    animeTitle: 'Dragon Ball Z Kai',
+    romajiTitle: 'Dragon Ball Kai',
+    type: 'Insert Song',
+    sourceUrl: 'https://columbia.jp/prod-info/COCX-35798/',
+    evidence: 'Nippon Columbia’s Dragon Ball Kai soundtrack credits Dende (Aya Hirano) for “CURE〜僕がここにいるよ〜”. AnisongDB lists it as an insert song.',
+  },
+  {
+    id: -1047,
+    title: 'Musubime',
+    artistAliases: ['Yuiko Ohara'],
+    onlineFirst: true,
+    animeTitle: 'Mushoku Tensei: Jobless Reincarnation Season 2',
+    romajiTitle: 'Mushoku Tensei II: Isekai Ittara Honki Dasu',
+    type: 'Ending 1',
+    sourceUrl: 'https://mushokutensei.jp/news/230526_2/',
+    evidence: 'The official anime site credits Yuiko Ohara’s “ムスビメ” as the second season’s first ending theme.',
+  },
+  {
+    id: -1048,
+    title: 'SymphonicSuite (AoT), Pt. 2-1st: Attack on Titan (WMId)',
+    titleAliases: ['SymphonicSuite (AoT) Part2-1st: Attack on Titan (WMId)', 'SymphonicSuite[AoT]Part2-1st:ətˈæk 0N tάɪtn <WMId>'],
+    artistAliases: ['Hiroyuki Sawano', 'Sawano Hiroyuki', '澤野弘之'],
+    animeTitle: 'Attack on Titan Season 3',
+    romajiTitle: 'Shingeki no Kyojin Season 3',
+    type: 'Soundtrack track',
+    sourceUrl: 'https://www.ponycanyon.co.jp/music/PCCG000001800',
+    evidence: 'Pony Canyon lists this exact WMId suite on Hiroyuki Sawano’s Attack on Titan Season 3 soundtrack.',
+  },
+  {
+    id: -1049,
+    title: 'Watashi wa, Watashi no Koto ga Suki.',
+    artistAliases: ['Yuuko Natsuyoshi'],
+    onlineFirst: true,
+    animeTitle: 'Cosmic Princess Kaguya!',
+    romajiTitle: 'Chou Kaguya-hime!',
+    type: 'Insert Song',
+    sourceUrl: 'https://www.youtube.com/watch?v=J5tRnYiHifE',
+    evidence: 'The official film music video credits HoneyWorks and Kaguya (Yuko Natsuyoshi) for this insert song.',
+  },
+  {
+    id: -1050,
+    title: 'Black★Rock Shooter',
+    artistAliases: ['supercell feat. Hatsune Miku'],
+    onlineFirst: true,
+    animeTitle: 'Black★Rock Shooter',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.fujitv.co.jp/b_hp/noitamina-brs/index.html',
+    evidence: 'Fuji TV credits ryo of supercell and Hatsune Miku for the underlying song, which AnisongDB lists as the TV series opening.',
+  },
+  {
+    id: -1051,
+    title: 'βίος <MK+nZk Version>',
+    artistAliases: ['Mika Kobayashi'],
+    onlineFirst: true,
+    animeTitle: 'Guilty Crown',
+    type: 'Insert Song',
+    sourceUrl: 'https://www.sonymusic.co.jp/jlist/soundtrack/SVWC-70156',
+    evidence: 'Sony Music lists this exact MK+nZk arrangement on Hiroyuki Sawano’s Guilty Crown soundtrack. AnisongDB credits vocalist Mika Kobayashi for it.',
+  },
+  {
+    id: -1052,
+    title: 'Inori no Uta',
+    artistAliases: ['Tomoyo Kurosawa'],
+    onlineFirst: true,
+    animeTitle: 'Yuki Yuna Is a Hero',
+    romajiTitle: 'Yuuki Yuuna wa Yuusha de Aru',
+    type: 'Ending 3',
+    sourceUrl: 'https://yuyuyu.tv/season1/music/pccg70231.php',
+    evidence: 'The official anime release lists the acoustic guitar arrangement of Itsuki Inubouzaki’s prayer song and credits Tomoyo Kurosawa.',
+  },
+  {
+    id: -1053,
+    title: 'Donna Hoshizora yori mo, Donna Omoide yori mo',
+    artistAliases: ['Aira Yuuki'],
+    onlineFirst: true,
+    animeTitle: "A Sister's All You Need.",
+    romajiTitle: 'Imouto sae Ireba Ii.',
+    type: 'Ending 2',
+    sourceUrl: 'https://www.imotosae.com/products/cd/ed.php',
+    evidence: 'The official anime music page credits Aira Yuuki for the ending theme. AnisongDB lists the standard release as Ending 2 and the piano arrangement separately.',
+  },
+  {
+    id: -1054,
+    title: 'Koi no Balloon',
+    artistAliases: ['Haruna Ooshima'],
+    onlineFirst: true,
+    animeTitle: 'My Sweet Tyrant',
+    romajiTitle: 'Akkun to Kanojo',
+    type: 'Opening 1',
+    sourceUrl: 'https://www.youtube.com/watch?v=t3Xvy8tGyRc',
+    evidence: 'Haruna Ooshima’s official music video identifies “恋のバルーン” as the theme for Akkun to Kanojo.',
+  },
+  {
+    id: -1055,
+    title: 'ドイツに捧げるイタリアのうた',
+    titleAliases: ['Doitsu ni Sasageru Italia no Uta'],
+    artistAliases: ['イタリア(CV:浪川大輔)', 'Italy (CV: Daisuke Namikawa)', 'Daisuke Namikawa', '浪川大輔'],
+    animeTitle: 'Hetalia Axis Powers',
+    type: 'Insert Song',
+    sourceUrl: 'https://www.fwinc.co.jp/cd/32962/',
+    evidence: 'Publisher Frontier Works credits Italy (Daisuke Namikawa) for this Hetalia Axis Powers insert song.',
+  },
+];
+
+/**
+ * Resolve only exact title/artist pairs present in the reviewed registry.
+ * Explicit recording versions can match the registered base song. A reviewed
+ * song can opt in to showing title-only matches as possible.
+ */
+export function resolveSupplemental(song: Song, mode: 'bundled' | 'fallback' = 'bundled'): AnimeMatch[] {
+  const title = normalize(canonicalTitleFor(song.title, song.artist));
+  const artist = canonicalArtist(song.artist);
+  if (!title || !artist) return [];
+
+  const versionBase = canonicalBaseTitleFor(song.title, song.artist);
+  const normalizedBase = versionBase === undefined ? undefined : normalize(versionBase);
+  const matches: AnimeMatch[] = [];
+  for (const association of SUPPLEMENTAL_SONGS) {
+    if (Boolean(association.onlineFirst) !== (mode === 'fallback')) continue;
+    const registeredTitles = [association.title, ...(association.titleAliases ?? [])].map(normalize);
+    const exactTitle = registeredTitles.includes(title);
+    const explicitVersion = normalizedBase !== undefined && registeredTitles.includes(normalizedBase);
+    if (!exactTitle && !explicitVersion) continue;
+
+    const creditArtist = canonicalArtistForTitle(association.title, song.artist);
+    const artistMatched = association.artistAliases.some(alias => canonicalArtistForTitle(association.title, alias) === creditArtist);
+    if (!artistMatched && !association.allowUnverifiedArtist) continue;
+    const matchKind = artistMatched ? (explicitVersion ? 'version' : 'confirmed') : 'possible';
+    matches.push({
+      id: association.id,
+      title: association.animeTitle,
+      ...(association.romajiTitle ? { romajiTitle: association.romajiTitle } : {}),
+      sourceUrl: association.sourceUrl,
+      type: association.type,
+      matchKind,
+      evidence: matchKind === 'possible'
+        ? `Possible association: the exact title appears in the supplemental registry, but ${song.artist} is not a registered artist alias. ${association.evidence}`
+        : matchKind === 'version'
+          ? `The explicit recording version “${song.title}” matches a registered artist alias for the base song. ${association.evidence}`
+          : association.evidence,
+    });
+  }
+  return matches;
+}

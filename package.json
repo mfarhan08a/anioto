@@ -1,0 +1,31 @@
+{
+  "name": "anime-song-finder",
+  "version": "0.10.5",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:chrome": "node scripts/build.mjs --browser=chrome",
+    "build:firefox": "node scripts/build.mjs --browser=firefox",
+    "build:safari": "node scripts/build.mjs --browser=safari",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "@vitest/coverage-v8": "^5.0.5",
+    "eslint": "^9.17.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.7.2",
+    "vitest": "^5.0.5"
+  }
+}

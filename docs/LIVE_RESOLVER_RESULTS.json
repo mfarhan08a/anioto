@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-01T17:25:07.521Z",
+  "scope": "Live metadata resolver using supplied song fields; not audio recognition. Cover-performer input is synthetic; database responses are live.",
+  "observations": [
+    {
+      "song": {
+        "title": "Sign (Live)",
+        "artist": "FLOW"
+      },
+      "elapsedMs": 23596,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2029,
+          "title": "Naruto: Shippuden",
+          "sourceUrl": "https://animethemes.moe/anime/naruto_shippuuden",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx1735-kGfVm0YqCPcu.png",
+          "type": "OP",
+          "matchKind": "version",
+          "evidence": "AnimeThemes credits a recording of “Sign” to FLOW. AnimeThemes credits FLOW."
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Sign",
+        "artist": "Test cover performer"
+      },
+      "elapsedMs": 25018,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2029,
+          "title": "Naruto: Shippuuden",
+          "sourceUrl": "https://animethemes.moe/anime/naruto_shippuuden",
+          "type": "OP",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Sign” to FLOW; the recording performer Test cover performer is not confirmed."
+        },
+        {
+          "id": 136,
+          "title": "Ano Natsu de Matteru",
+          "sourceUrl": "https://animethemes.moe/anime/ano_natsu_de_matteru",
+          "type": "OP",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “sign” to Ray; the recording performer Test cover performer is not confirmed."
+        },
+        {
+          "id": 968,
+          "title": "Gotoubun no Hanayome",
+          "sourceUrl": "https://animethemes.moe/anime/gotoubun_no_hanayome",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Sign” to Aya Uchida, Inori Minase; the recording performer Test cover performer is not confirmed."
+        },
+        {
+          "id": 1745,
+          "title": "Maesetsu!",
+          "sourceUrl": "https://animethemes.moe/anime/maesetsu",
+          "type": "OP",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Sign” to Naomi Oozora; the recording performer Test cover performer is not confirmed."
+        },
+        {
+          "id": 4261,
+          "title": "Ookami to Koushinryou: Merchant Meets the Wise Wolf",
+          "sourceUrl": "https://animethemes.moe/anime/ookami_to_koushinryou_merchant_meets_the_wise_wolf",
+          "type": "OP",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Sign” to Aimer; the recording performer Test cover performer is not confirmed."
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "I Really Want to Stay At Your House",
+        "artist": "Rosa Walton & Hallie Coggins"
+      },
+      "elapsedMs": 0,
+      "passed": true,
+      "matches": [
+        {
+          "id": -1001,
+          "title": "Cyberpunk: Edgerunners",
+          "sourceUrl": "https://www.youtube.com/watch?v=h4VJGNNSQnw",
+          "type": "Featured song",
+          "matchKind": "confirmed",
+          "evidence": "Netflix’s official music video identifies “I Really Want to Stay At Your House” by Rosa Walton with Cyberpunk: Edgerunners."
+        }
+      ]
+    }
+  ]
+}

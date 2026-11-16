@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="popup-root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anioto · Anime from sound</title>
+  <link rel="stylesheet" href="anioto.css">
+</head>
+<body class="anioto-popup">
+  <div id="popup-shell" class="popup-shell" data-view="result">
+    <header class="topbar">
+      <button id="home" class="brand" type="button" aria-label="Anioto home">
+        <svg class="brand-mark" aria-hidden="true"><use href="anioto-icons.svg#mark"></use></svg>
+        <span class="brand-name">anioto <span lang="ja">アニオト</span></span>
+      </button>
+      <button id="settings" class="settings-button" type="button" aria-label="Settings" title="Settings"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#settings"></use></svg></button>
+    </header>
+
+    <main id="view-scroll" class="view-scroll">
+      <section id="result-view" class="view-panel" aria-labelledby="result-heading">
+        <h1 id="result-heading" class="visually-hidden" tabindex="-1">Anime match</h1>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-record" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#signal"></use></svg></div>
+          <h2>Find the anime<br>behind the song.</h2>
+          <p>Play a song in this tab, then start a scan to find its anime connection.</p>
+        </div>
+
+        <section id="progress" class="progress-panel" aria-labelledby="progress-title" hidden>
+          <h2 id="progress-title">Identification in progress</h2>
+          <ol id="progress-steps" aria-label="Identification steps">
+            <li data-step="0"><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#signal"></use></svg></span><span>Capture tab audio</span></li>
+            <li data-step="1"><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#search"></use></svg></span><span>Recognize song</span></li>
+            <li data-step="2"><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#film"></use></svg></span><span>Find anime</span></li>
+          </ol>
+          <div class="panel progress-card">
+            <p id="progress-label" role="status"></p>
+            <div class="progress-track" aria-hidden="true"><div id="progress-fill"></div></div>
+            <div id="progress-bar" role="progressbar" aria-labelledby="progress-label" aria-describedby="progress-detail" aria-valuemin="0" aria-valuemax="100"></div>
+            <p id="progress-value"></p>
+            <p id="progress-detail"></p>
+            <svg class="progress-wave" aria-hidden="true"><use href="anioto-icons.svg#wave"></use></svg>
+          </div>
+        </section>
+        <section id="result" class="result-list" aria-label="Identification result"></section>
+      </section>
+
+      <section id="search-view" class="view-panel utility-panel" aria-labelledby="search-heading" hidden>
+        <h1 id="search-heading" class="panel-heading" tabindex="-1">Search by song</h1>
+        <p class="lede">Find the anime a song is from.</p>
+        <form id="lookup">
+          <label for="title"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#note"></use></svg>Song title</label>
+          <input id="title" required maxlength="200" autocomplete="off" placeholder="e.g. Akuma no Ko">
+          <label for="artist"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#person"></use></svg>Artist</label>
+          <input id="artist" required maxlength="200" autocomplete="off" placeholder="e.g. Ai Higuchi">
+          <button class="button-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#search"></use></svg><span>Find anime</span><svg class="button-chevron" aria-hidden="true"><use href="anioto-icons.svg#next"></use></svg></button>
+        </form>
+      </section>
+
+      <section id="history-view" class="view-panel utility-panel" aria-labelledby="history-heading" hidden>
+        <div class="history-heading-row">
+          <h1 id="history-heading" class="panel-heading" tabindex="-1">Recent matches</h1>
+          <button id="clear" class="secondary" type="button" aria-label="Clear history">Clear</button>
+        </div>
+        <div id="history"></div>
+      </section>
+
+      <section id="more-view" class="view-panel utility-panel" aria-labelledby="more-heading" hidden>
+        <h1 id="more-heading" class="panel-heading" tabindex="-1">System &amp; audio</h1>
+        <p class="lede">Test tab capture and view extension information.</p>
+        <div class="panel audio-card">
+          <svg class="audio-icon" aria-hidden="true"><use href="anioto-icons.svg#signal"></use></svg>
+          <div>
+            <h2>Audio check</h2>
+            <p>Record a 15-second preview to check your tab audio. No audio is uploaded.</p>
+            <button id="test-capture" class="button-primary" type="button"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#mic"></use></svg><span>Test tab audio locally</span><svg class="button-chevron" aria-hidden="true"><use href="anioto-icons.svg#next"></use></svg></button>
+            <div id="preview"></div>
+          </div>
+        </div>
+        <dl class="system-info">
+          <div><dt><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#database"></use></svg>Data sources</dt><dd>AnisongDB · AnimeThemes · AniList</dd></div>
+          <div><dt><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#info"></use></svg>Extension version</dt><dd>v0.10.5</dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <div class="bottom-bar">
+      <div class="scan-dock">
+        <div class="status-row">
+          <p id="status" class="status-line" role="status">Ready to scan.</p>
+          <p id="elapsed-summary" class="elapsed-summary" hidden></p>
+        </div>
+        <div class="actions">
+          <button id="identify" class="button-primary" type="button"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#scan"></use></svg><span>Detect anime from this tab</span><svg class="button-chevron" aria-hidden="true"><use href="anioto-icons.svg#next"></use></svg></button>
+          <button id="cancel" class="button-primary" type="button" disabled hidden><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#stop"></use></svg><span>Cancel scan</span><svg class="button-chevron" aria-hidden="true"><use href="anioto-icons.svg#next"></use></svg></button>
+        </div>
+      </div>
+      <nav class="bottom-nav" aria-label="Popup views">
+        <button id="nav-result" class="nav-button" type="button" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#scan"></use></svg><span>Result</span></button>
+        <button id="nav-search" class="nav-button" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#search"></use></svg><span>Search</span></button>
+        <button id="nav-history" class="nav-button" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#history"></use></svg><span>History</span></button>
+        <button id="nav-more" class="nav-button" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="anioto-icons.svg#more"></use></svg><span>More</span></button>
+      </nav>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-01T17:57:47.530Z",
+  "song": {
+    "title": "Akane Sasu (instrumental)",
+    "artist": "Aimer"
+  },
+  "scope": "Metadata only; Node 22 on this Windows machine over the current connection. One sample per condition; network latency varies. Before/after both use the corrected instrumental normalization. Warm cache lives only in the offscreen process.",
+  "observations": [
+    {
+      "resolver": "before: sequential enrichment, no cache (instrumental normalization held constant)",
+      "run": "cold",
+      "firstTitleMs": 21210,
+      "completeMs": 21210,
+      "requests": 3,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2033,
+          "title": "Natsume's Book of Friends Season 5",
+          "sourceUrl": "https://animethemes.moe/anime/natsume_yuujinchou_go",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21710-Y20fKQviC3hL.jpg",
+          "type": "ED",
+          "matchKind": "version",
+          "evidence": "AnimeThemes credits a recording of “Akane Sasu” to Aimer. AnimeThemes credits Aimer."
+        }
+      ]
+    },
+    {
+      "resolver": "after: title-first, bounded enrichment, cache",
+      "run": "cold",
+      "firstTitleMs": 5467,
+      "completeMs": 6985,
+      "requests": 2,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2033,
+          "title": "Natsume Yuujinchou Go",
+          "sourceUrl": "https://animethemes.moe/anime/natsume_yuujinchou_go",
+          "type": "ED",
+          "matchKind": "version",
+          "evidence": "AnimeThemes credits a recording of “Akane Sasu” to Aimer. AnimeThemes credits Aimer."
+        }
+      ]
+    },
+    {
+      "resolver": "after: title-first, bounded enrichment, cache",
+      "run": "warm",
+      "firstTitleMs": 0,
+      "completeMs": 0,
+      "requests": 0,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2033,
+          "title": "Natsume Yuujinchou Go",
+          "sourceUrl": "https://animethemes.moe/anime/natsume_yuujinchou_go",
+          "type": "ED",
+          "matchKind": "version",
+          "evidence": "AnimeThemes credits a recording of “Akane Sasu” to Aimer. AnimeThemes credits Aimer."
+        }
+      ]
+    }
+  ]
+}

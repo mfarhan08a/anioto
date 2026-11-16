@@ -1,0 +1,567 @@
+{
+  "date": "2026-11-01T19:25:19.971Z",
+  "scope": "Client-observed full HTTP response + body; Node 22 on user computer, no app cache; metadata only, no audio or recognition credits. Jikan is given the expected anime ID and cannot perform this reverse lookup itself. Three sequential rounds, providers in parallel per song, 1-second spacing. HTTP connection/provider cache may be reused. 15-second timeout.",
+  "summary": [
+    {
+      "provider": "AnisongDB",
+      "attempts": 9,
+      "validResponses": 9,
+      "failures": 0,
+      "medianSuccessMs": 328,
+      "minSuccessMs": 305,
+      "maxSuccessMs": 427,
+      "expectedAnimeHits": 6
+    },
+    {
+      "provider": "Jikan",
+      "attempts": 9,
+      "validResponses": 0,
+      "failures": 9,
+      "medianSuccessMs": null,
+      "minSuccessMs": null,
+      "maxSuccessMs": null
+    }
+  ],
+  "observations": [
+    {
+      "provider": "AnisongDB",
+      "round": 1,
+      "song": "Orange",
+      "artist": "seven oops",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Orange",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 427,
+      "bytes": 16390,
+      "validResponse": true,
+      "expectedAnimeFound": true,
+      "candidates": [
+        {
+          "anime": "Ajimu: Kaigan Monogatari",
+          "animeJP": "Ajimu: Kaigan Monogatari",
+          "song": "ORANGE",
+          "artist": "Saeko Chiba",
+          "type": "Ending 1",
+          "malId": 1734
+        },
+        {
+          "anime": "10 Tokyo Warriors",
+          "animeJP": "Tokyo Juushouden",
+          "song": "Orange",
+          "artist": "Sayaka Ishijima",
+          "type": "Ending 4",
+          "malId": 1052
+        },
+        {
+          "anime": "Bleach",
+          "animeJP": "Bleach",
+          "song": "Orange",
+          "artist": "Lil'B",
+          "type": "Ending 15",
+          "malId": 269
+        },
+        {
+          "anime": "Toradora!",
+          "animeJP": "Toradora!",
+          "song": "Orange",
+          "artist": "Rie Kugimiya, Yui Horie, Eri Kitamura",
+          "type": "Ending 2",
+          "malId": 4224
+        },
+        {
+          "anime": "Oreimo",
+          "animeJP": "Ore no Imouto ga Konnani Kawaii Wake ga Nai",
+          "song": "Orange",
+          "artist": "Ayana Taketatsu",
+          "type": "Ending 5",
+          "malId": 8769
+        },
+        {
+          "anime": "Your Lie in April",
+          "animeJP": "Shigatsu wa Kimi no Uso",
+          "song": "Orange",
+          "artist": "7!!",
+          "type": "Ending 2",
+          "malId": 23273
+        },
+        {
+          "anime": "Futari H: The One And Only Step Up Love Story",
+          "animeJP": "Futari Ecchi",
+          "song": "Orange",
+          "artist": "The Zig Zags",
+          "type": "Insert Song",
+          "malId": 23985
+        },
+        {
+          "anime": "Cheburashka",
+          "animeJP": "Cheburashka",
+          "song": "orange",
+          "artist": "Kaela Kimura",
+          "type": "Ending 1",
+          "malId": 9340
+        },
+        {
+          "anime": "PuraOre! Pride of Orange",
+          "animeJP": "PuraOre! Pride of Orange",
+          "song": "Orange",
+          "artist": "May'n",
+          "type": "Ending 1",
+          "malId": 44274
+        },
+        {
+          "anime": "Haikyu!! The Dumpster Battle",
+          "animeJP": "Gekijouban Haikyuu!!: Gomi Suteba no Kessen",
+          "song": "Orange",
+          "artist": "SPYAIR",
+          "type": "Ending 1",
+          "malId": 52742
+        }
+      ]
+    },
+    {
+      "provider": "Jikan",
+      "round": 1,
+      "song": "Orange",
+      "elapsedMs": 10543,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 1,
+      "song": "Akane Sasu",
+      "artist": "Aimer",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Akane Sasu",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 346,
+      "bytes": 984,
+      "validResponse": true,
+      "expectedAnimeFound": true,
+      "candidates": [
+        {
+          "anime": "Natsume's Book of Friends Season 5",
+          "animeJP": "Natsume Yuujinchou Go",
+          "song": "Akane Sasu",
+          "artist": "Aimer",
+          "type": "Ending 1",
+          "malId": 32983
+        }
+      ]
+    },
+    {
+      "provider": "Jikan",
+      "round": 1,
+      "song": "Akane Sasu",
+      "elapsedMs": 10520,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 1,
+      "song": "Yuki no Oto",
+      "artist": "Novelbright",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Yuki no Oto",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 318,
+      "bytes": 2,
+      "validResponse": true,
+      "expectedAnimeFound": false,
+      "candidates": []
+    },
+    {
+      "provider": "Jikan",
+      "round": 1,
+      "song": "Yuki no Oto",
+      "elapsedMs": 10552,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 2,
+      "song": "Orange",
+      "artist": "seven oops",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Orange",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 328,
+      "bytes": 16390,
+      "validResponse": true,
+      "expectedAnimeFound": true,
+      "candidates": [
+        {
+          "anime": "Ajimu: Kaigan Monogatari",
+          "animeJP": "Ajimu: Kaigan Monogatari",
+          "song": "ORANGE",
+          "artist": "Saeko Chiba",
+          "type": "Ending 1",
+          "malId": 1734
+        },
+        {
+          "anime": "10 Tokyo Warriors",
+          "animeJP": "Tokyo Juushouden",
+          "song": "Orange",
+          "artist": "Sayaka Ishijima",
+          "type": "Ending 4",
+          "malId": 1052
+        },
+        {
+          "anime": "Bleach",
+          "animeJP": "Bleach",
+          "song": "Orange",
+          "artist": "Lil'B",
+          "type": "Ending 15",
+          "malId": 269
+        },
+        {
+          "anime": "Toradora!",
+          "animeJP": "Toradora!",
+          "song": "Orange",
+          "artist": "Rie Kugimiya, Yui Horie, Eri Kitamura",
+          "type": "Ending 2",
+          "malId": 4224
+        },
+        {
+          "anime": "Oreimo",
+          "animeJP": "Ore no Imouto ga Konnani Kawaii Wake ga Nai",
+          "song": "Orange",
+          "artist": "Ayana Taketatsu",
+          "type": "Ending 5",
+          "malId": 8769
+        },
+        {
+          "anime": "Your Lie in April",
+          "animeJP": "Shigatsu wa Kimi no Uso",
+          "song": "Orange",
+          "artist": "7!!",
+          "type": "Ending 2",
+          "malId": 23273
+        },
+        {
+          "anime": "Futari H: The One And Only Step Up Love Story",
+          "animeJP": "Futari Ecchi",
+          "song": "Orange",
+          "artist": "The Zig Zags",
+          "type": "Insert Song",
+          "malId": 23985
+        },
+        {
+          "anime": "Cheburashka",
+          "animeJP": "Cheburashka",
+          "song": "orange",
+          "artist": "Kaela Kimura",
+          "type": "Ending 1",
+          "malId": 9340
+        },
+        {
+          "anime": "PuraOre! Pride of Orange",
+          "animeJP": "PuraOre! Pride of Orange",
+          "song": "Orange",
+          "artist": "May'n",
+          "type": "Ending 1",
+          "malId": 44274
+        },
+        {
+          "anime": "Haikyu!! The Dumpster Battle",
+          "animeJP": "Gekijouban Haikyuu!!: Gomi Suteba no Kessen",
+          "song": "Orange",
+          "artist": "SPYAIR",
+          "type": "Ending 1",
+          "malId": 52742
+        }
+      ]
+    },
+    {
+      "provider": "Jikan",
+      "round": 2,
+      "song": "Orange",
+      "elapsedMs": 10533,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 2,
+      "song": "Akane Sasu",
+      "artist": "Aimer",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Akane Sasu",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 344,
+      "bytes": 984,
+      "validResponse": true,
+      "expectedAnimeFound": true,
+      "candidates": [
+        {
+          "anime": "Natsume's Book of Friends Season 5",
+          "animeJP": "Natsume Yuujinchou Go",
+          "song": "Akane Sasu",
+          "artist": "Aimer",
+          "type": "Ending 1",
+          "malId": 32983
+        }
+      ]
+    },
+    {
+      "provider": "Jikan",
+      "round": 2,
+      "song": "Akane Sasu",
+      "elapsedMs": 10526,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 2,
+      "song": "Yuki no Oto",
+      "artist": "Novelbright",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Yuki no Oto",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 305,
+      "bytes": 2,
+      "validResponse": true,
+      "expectedAnimeFound": false,
+      "candidates": []
+    },
+    {
+      "provider": "Jikan",
+      "round": 2,
+      "song": "Yuki no Oto",
+      "elapsedMs": 10557,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 3,
+      "song": "Orange",
+      "artist": "seven oops",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Orange",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 315,
+      "bytes": 16390,
+      "validResponse": true,
+      "expectedAnimeFound": true,
+      "candidates": [
+        {
+          "anime": "Ajimu: Kaigan Monogatari",
+          "animeJP": "Ajimu: Kaigan Monogatari",
+          "song": "ORANGE",
+          "artist": "Saeko Chiba",
+          "type": "Ending 1",
+          "malId": 1734
+        },
+        {
+          "anime": "10 Tokyo Warriors",
+          "animeJP": "Tokyo Juushouden",
+          "song": "Orange",
+          "artist": "Sayaka Ishijima",
+          "type": "Ending 4",
+          "malId": 1052
+        },
+        {
+          "anime": "Bleach",
+          "animeJP": "Bleach",
+          "song": "Orange",
+          "artist": "Lil'B",
+          "type": "Ending 15",
+          "malId": 269
+        },
+        {
+          "anime": "Toradora!",
+          "animeJP": "Toradora!",
+          "song": "Orange",
+          "artist": "Rie Kugimiya, Yui Horie, Eri Kitamura",
+          "type": "Ending 2",
+          "malId": 4224
+        },
+        {
+          "anime": "Oreimo",
+          "animeJP": "Ore no Imouto ga Konnani Kawaii Wake ga Nai",
+          "song": "Orange",
+          "artist": "Ayana Taketatsu",
+          "type": "Ending 5",
+          "malId": 8769
+        },
+        {
+          "anime": "Your Lie in April",
+          "animeJP": "Shigatsu wa Kimi no Uso",
+          "song": "Orange",
+          "artist": "7!!",
+          "type": "Ending 2",
+          "malId": 23273
+        },
+        {
+          "anime": "Futari H: The One And Only Step Up Love Story",
+          "animeJP": "Futari Ecchi",
+          "song": "Orange",
+          "artist": "The Zig Zags",
+          "type": "Insert Song",
+          "malId": 23985
+        },
+        {
+          "anime": "Cheburashka",
+          "animeJP": "Cheburashka",
+          "song": "orange",
+          "artist": "Kaela Kimura",
+          "type": "Ending 1",
+          "malId": 9340
+        },
+        {
+          "anime": "PuraOre! Pride of Orange",
+          "animeJP": "PuraOre! Pride of Orange",
+          "song": "Orange",
+          "artist": "May'n",
+          "type": "Ending 1",
+          "malId": 44274
+        },
+        {
+          "anime": "Haikyu!! The Dumpster Battle",
+          "animeJP": "Gekijouban Haikyuu!!: Gomi Suteba no Kessen",
+          "song": "Orange",
+          "artist": "SPYAIR",
+          "type": "Ending 1",
+          "malId": 52742
+        }
+      ]
+    },
+    {
+      "provider": "Jikan",
+      "round": 3,
+      "song": "Orange",
+      "elapsedMs": 10566,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 3,
+      "song": "Akane Sasu",
+      "artist": "Aimer",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Akane Sasu",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 318,
+      "bytes": 984,
+      "validResponse": true,
+      "expectedAnimeFound": true,
+      "candidates": [
+        {
+          "anime": "Natsume's Book of Friends Season 5",
+          "animeJP": "Natsume Yuujinchou Go",
+          "song": "Akane Sasu",
+          "artist": "Aimer",
+          "type": "Ending 1",
+          "malId": 32983
+        }
+      ]
+    },
+    {
+      "provider": "Jikan",
+      "round": 3,
+      "song": "Akane Sasu",
+      "elapsedMs": 10507,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "provider": "AnisongDB",
+      "round": 3,
+      "song": "Yuki no Oto",
+      "artist": "Novelbright",
+      "url": "https://anisongdb.com/api/search_request",
+      "requestBody": {
+        "song_name_search_filter": {
+          "search": "Yuki no Oto",
+          "partial_match": false,
+          "match_case": false
+        },
+        "ignore_duplicate": true
+      },
+      "status": 200,
+      "elapsedMs": 364,
+      "bytes": 2,
+      "validResponse": true,
+      "expectedAnimeFound": false,
+      "candidates": []
+    },
+    {
+      "provider": "Jikan",
+      "round": 3,
+      "song": "Yuki no Oto",
+      "elapsedMs": 10526,
+      "validResponse": false,
+      "error": "TypeError: fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT"
+    }
+  ]
+}

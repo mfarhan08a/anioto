@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03T16:12:32.345Z",
+  "version": "0.6.1",
+  "scope": "Actual production resolver with live public metadata; not an audio recognition test.",
+  "observations": [
+    {
+      "song": {
+        "title": "リテラチュア",
+        "artist": "Reina Ueda"
+      },
+      "elapsedMs": 2157,
+      "firstPublishedMs": 1691,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Literature",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 112609,
+          "title": "Wandering Witch: The Journey of Elaina",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Literature” by Reina Ueda for Wandering Witch: The Journey of Elaina.",
+          "matchKind": "confirmed",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx112609-hBCbnYlEHluz.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "リテラチュア",
+        "artist": "上田麗奈"
+      },
+      "elapsedMs": 590,
+      "firstPublishedMs": 248,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Literature",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 112609,
+          "title": "Wandering Witch: The Journey of Elaina",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Literature” by Reina Ueda for Wandering Witch: The Journey of Elaina.",
+          "matchKind": "confirmed",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx112609-hBCbnYlEHluz.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Riterachua (Instrumental)",
+        "artist": "Ueda Reina"
+      },
+      "elapsedMs": 908,
+      "firstPublishedMs": 594,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Literature",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 112609,
+          "title": "Wandering Witch: The Journey of Elaina",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Literature” by Ueda Reina for Wandering Witch: The Journey of Elaina.",
+          "matchKind": "version",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx112609-hBCbnYlEHluz.jpg"
+        }
+      ]
+    }
+  ]
+}

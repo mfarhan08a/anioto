@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03T17:03:49.383Z",
+  "scope": "axe-core 4.10.3 WCAG tags on built-popup mocked browser fixtures; not a conformance claim.",
+  "reports": [
+    {
+      "view": "result-view",
+      "loading": false,
+      "violations": []
+    },
+    {
+      "view": "search-view",
+      "loading": false,
+      "violations": []
+    },
+    {
+      "view": "history-view",
+      "loading": false,
+      "violations": []
+    },
+    {
+      "view": "more-view",
+      "loading": false,
+      "violations": []
+    },
+    {
+      "view": "result-view",
+      "loading": true,
+      "violations": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light;
+  --paper: #f6f2eb;
+  --surface: #fffdf8;
+  --ink: #211f1c;
+  --muted: #58514b;
+  --line: #b8afa5;
+  --line-dark: #6e665d;
+  --red: #b51f28;
+  --red-dark: #8d1821;
+  --red-light: #f3d9d8;
+  --charcoal: #232120;
+  --wash: #ece5dc;
+  --focus: #1c647d;
+  --radius: 8px;
+  --font: system-ui, "Noto Sans", "Yu Gothic UI", Meiryo, sans-serif;
+  --display: "Arial Black", system-ui, sans-serif;
+  --dots: radial-gradient(circle, #463e37 0.65px, transparent 0.9px) 0 0 / 4px 4px;
+}

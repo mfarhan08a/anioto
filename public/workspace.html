@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anioto</title><link rel="stylesheet" href="style.css"></head>
+<body class="options"><main class="options">
+  <p class="eyebrow">PORTABLE WORKSPACE</p>
+  <h1 class="app-brand">anioto <span lang="ja">アニオト</span></h1>
+  <p class="muted">Find the music. Discover its anime. Live tab audio capture is unavailable in Firefox and Safari; use an audio file or search a song manually.</p>
+
+  <section aria-labelledby="file-title">
+    <h2 id="file-title">Identify an audio file</h2>
+    <p>Select a file only when you are ready to submit it. Supported formats depend on your browser’s audio decoder. Files must be 10 MB or smaller, no longer than 60 seconds, and contain one or two channels. The local helper accepts files at least 5 seconds long and processes up to 12 seconds; AudioTag requires at least 15 seconds and processes the first 15 seconds.</p>
+    <form id="audio-form">
+      <label for="provider">Recognition service</label>
+      <select id="provider">
+        <option value="local-shazam">ShazamIO (local helper, 12 seconds)</option>
+        <option value="songrec">SongRec (local helper, 12 seconds)</option>
+        <option value="audiotag">AudioTag (15 seconds)</option>
+      </select>
+      <label for="api-key">AudioTag API key</label>
+      <input id="api-key" type="password" autocomplete="off" spellcheck="false" aria-describedby="key-note">
+      <p id="key-note" class="muted">Used only for this search and kept in memory. It is never saved. Required only for AudioTag.</p>
+      <label for="audio-file">Audio file</label>
+      <input id="audio-file" type="file" accept="audio/*" required>
+      <p id="consent-note">The first 12 seconds will be processed and sent to the local Shazam helper configured for this extension. The helper runs on this computer.</p>
+      <label class="check"><input id="consent" type="checkbox" required><span>I understand the selected audio clip will be sent to the selected recognition service.</span></label>
+      <button id="identify-file" type="submit">Identify audio file</button>
+    </form>
+    <details>
+      <summary>Configure the local helper for this browser</summary>
+      <p>Add this extension origin to the helper’s allowed origins. The origin is shown here so it can be copied accurately.</p>
+      <p><code id="extension-origin">Loading extension origin…</code></p>
+      <p>Up to the first 12 seconds are sent to the local helper. The helper runs on this computer, then queries Shazam online, so the clip is sent to Shazam for recognition. Configure the helper using its installation instructions; this page does not create or run shell commands.</p>
+    </details>
+  </section>
+
+  <section aria-labelledby="manual-title">
+    <h2 id="manual-title">Search a song manually</h2>
+    <form id="manual-form">
+      <label for="song-title">Song title</label><input id="song-title" maxlength="200" required>
+      <label for="song-artist">Artist</label><input id="song-artist" maxlength="200" required>
+      <button id="lookup-song" type="submit">Find related anime</button>
+    </form>
+  </section>
+
+  <section id="activity" aria-labelledby="activity-title" hidden>
+    <h2 id="activity-title">Search progress</h2>
+    <p id="status" role="status" aria-live="polite">Ready when you are.</p>
+    <p id="elapsed" class="elapsed-summary" hidden></p>
+    <progress id="progress" aria-label="Search in progress"></progress>
+    <button id="cancel" class="secondary" type="button">Cancel search</button>
+  </section>
+  <p id="idle-status" role="status" aria-live="polite">Ready when you are.</p>
+  <section id="result" aria-label="Identification result" aria-live="polite"></section>
+  <footer><span>Song recognition · AnisongDB · AniList</span><span>v0.10.5</span></footer>
+</main><script src="portable-workspace.js"></script></body>
+</html>

@@ -1,0 +1,41 @@
+# Dependencies and generated output
+node_modules/
+dist/
+dist-chrome/
+dist-firefox/
+dist-safari/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Private runtime data and recognition samples
+local-data/
+private-fixtures/
+recordings/
+browser-profile/
+playwright/.auth/
+
+# Local diagnostics and test artifacts
+*.log
+test-results/
+playwright-report/
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python runtime caches
+__pycache__/
+*.pyc

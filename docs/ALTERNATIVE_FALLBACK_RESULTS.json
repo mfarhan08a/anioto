@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-01T19:25:34.433Z",
+  "scope": "Metadata only; exact recognized title then artist discovery. Expected anime ID validates benchmark coverage, not an implemented production matching algorithm.",
+  "observations": [
+    {
+      "round": 1,
+      "elapsedMs": 1038,
+      "requests": [
+        {
+          "filter": {
+            "song_name_search_filter": {
+              "search": "Yuki no Oto",
+              "partial_match": false
+            }
+          },
+          "elapsedMs": 744,
+          "count": 0
+        },
+        {
+          "filter": {
+            "artist_search_filter": {
+              "search": "Novelbright",
+              "partial_match": false
+            }
+          },
+          "elapsedMs": 293,
+          "count": 7
+        }
+      ],
+      "expectedCatalogEntry": {
+        "song": "Yuki no Ne",
+        "artist": "Novelbright",
+        "anime": "A Sign of Affection",
+        "malId": 55866
+      }
+    },
+    {
+      "round": 2,
+      "elapsedMs": 514,
+      "requests": [
+        {
+          "filter": {
+            "song_name_search_filter": {
+              "search": "Yuki no Oto",
+              "partial_match": false
+            }
+          },
+          "elapsedMs": 276,
+          "count": 0
+        },
+        {
+          "filter": {
+            "artist_search_filter": {
+              "search": "Novelbright",
+              "partial_match": false
+            }
+          },
+          "elapsedMs": 237,
+          "count": 7
+        }
+      ],
+      "expectedCatalogEntry": {
+        "song": "Yuki no Ne",
+        "artist": "Novelbright",
+        "anime": "A Sign of Affection",
+        "malId": 55866
+      }
+    },
+    {
+      "round": 3,
+      "elapsedMs": 483,
+      "requests": [
+        {
+          "filter": {
+            "song_name_search_filter": {
+              "search": "Yuki no Oto",
+              "partial_match": false
+            }
+          },
+          "elapsedMs": 258,
+          "count": 0
+        },
+        {
+          "filter": {
+            "artist_search_filter": {
+              "search": "Novelbright",
+              "partial_match": false
+            }
+          },
+          "elapsedMs": 225,
+          "count": 7
+        }
+      ],
+      "expectedCatalogEntry": {
+        "song": "Yuki no Ne",
+        "artist": "Novelbright",
+        "anime": "A Sign of Affection",
+        "malId": 55866
+      }
+    }
+  ]
+}

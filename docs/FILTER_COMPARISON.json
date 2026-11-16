@@ -1,0 +1,271 @@
+{
+  "date": "2026-11-01T19:01:18.366Z",
+  "scope": "One live sample per query, two requests at a time; network/cache effects prevent a reliable speed ranking.",
+  "observations": [
+    {
+      "label": "like30",
+      "status": 200,
+      "elapsedMs": 16018,
+      "bytes": 4545,
+      "count": 7,
+      "hasNext": false,
+      "songs": [
+        {
+          "id": 1334,
+          "title": "Orange",
+          "artists": [
+            "Saeko Chiba"
+          ],
+          "anime": [
+            "Ajimu: Kaigan Monogatari"
+          ]
+        },
+        {
+          "id": 1819,
+          "title": "Orange",
+          "artists": [
+            "Lil`B"
+          ],
+          "anime": [
+            "BLEACH"
+          ]
+        },
+        {
+          "id": 3043,
+          "title": "Orange",
+          "artists": [
+            "Eri Kitamura",
+            "Rie Kugimiya",
+            "Yui Horie"
+          ],
+          "anime": [
+            "Toradora!"
+          ]
+        },
+        {
+          "id": 3638,
+          "title": "Orange",
+          "artists": [
+            "Ayana Taketatsu"
+          ],
+          "anime": [
+            "Ore no Imouto ga Konnani Kawaii Wake ga Nai"
+          ]
+        },
+        {
+          "id": 5522,
+          "title": "Orange",
+          "artists": [
+            "Seven Oops"
+          ],
+          "anime": [
+            "Shigatsu wa Kimi no Uso"
+          ]
+        },
+        {
+          "id": 10845,
+          "title": "Orange",
+          "artists": [
+            "May'n"
+          ],
+          "anime": [
+            "Puraore! Pride of Orange"
+          ]
+        },
+        {
+          "id": 13423,
+          "title": "Orange",
+          "artists": [
+            "SPYAIR"
+          ],
+          "anime": [
+            "Haikyuu!! Movie: Gomisuteba no Kessen"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "like10",
+      "status": 200,
+      "elapsedMs": 16064,
+      "bytes": 4545,
+      "count": 7,
+      "hasNext": false,
+      "songs": [
+        {
+          "id": 1334,
+          "title": "Orange",
+          "artists": [
+            "Saeko Chiba"
+          ],
+          "anime": [
+            "Ajimu: Kaigan Monogatari"
+          ]
+        },
+        {
+          "id": 1819,
+          "title": "Orange",
+          "artists": [
+            "Lil`B"
+          ],
+          "anime": [
+            "BLEACH"
+          ]
+        },
+        {
+          "id": 3043,
+          "title": "Orange",
+          "artists": [
+            "Eri Kitamura",
+            "Rie Kugimiya",
+            "Yui Horie"
+          ],
+          "anime": [
+            "Toradora!"
+          ]
+        },
+        {
+          "id": 3638,
+          "title": "Orange",
+          "artists": [
+            "Ayana Taketatsu"
+          ],
+          "anime": [
+            "Ore no Imouto ga Konnani Kawaii Wake ga Nai"
+          ]
+        },
+        {
+          "id": 5522,
+          "title": "Orange",
+          "artists": [
+            "Seven Oops"
+          ],
+          "anime": [
+            "Shigatsu wa Kimi no Uso"
+          ]
+        },
+        {
+          "id": 10845,
+          "title": "Orange",
+          "artists": [
+            "May'n"
+          ],
+          "anime": [
+            "Puraore! Pride of Orange"
+          ]
+        },
+        {
+          "id": 13423,
+          "title": "Orange",
+          "artists": [
+            "SPYAIR"
+          ],
+          "anime": [
+            "Haikyuu!! Movie: Gomisuteba no Kessen"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "partialWithoutWildcard",
+      "status": 200,
+      "elapsedMs": 18702,
+      "bytes": 726,
+      "count": 0,
+      "hasNext": false,
+      "songs": []
+    },
+    {
+      "label": "exact10",
+      "status": 200,
+      "elapsedMs": 19184,
+      "bytes": 4535,
+      "count": 7,
+      "hasNext": false,
+      "songs": [
+        {
+          "id": 1334,
+          "title": "Orange",
+          "artists": [
+            "Saeko Chiba"
+          ],
+          "anime": [
+            "Ajimu: Kaigan Monogatari"
+          ]
+        },
+        {
+          "id": 1819,
+          "title": "Orange",
+          "artists": [
+            "Lil`B"
+          ],
+          "anime": [
+            "BLEACH"
+          ]
+        },
+        {
+          "id": 3043,
+          "title": "Orange",
+          "artists": [
+            "Eri Kitamura",
+            "Rie Kugimiya",
+            "Yui Horie"
+          ],
+          "anime": [
+            "Toradora!"
+          ]
+        },
+        {
+          "id": 3638,
+          "title": "Orange",
+          "artists": [
+            "Ayana Taketatsu"
+          ],
+          "anime": [
+            "Ore no Imouto ga Konnani Kawaii Wake ga Nai"
+          ]
+        },
+        {
+          "id": 5522,
+          "title": "Orange",
+          "artists": [
+            "Seven Oops"
+          ],
+          "anime": [
+            "Shigatsu wa Kimi no Uso"
+          ]
+        },
+        {
+          "id": 10845,
+          "title": "Orange",
+          "artists": [
+            "May'n"
+          ],
+          "anime": [
+            "Puraore! Pride of Orange"
+          ]
+        },
+        {
+          "id": 13423,
+          "title": "Orange",
+          "artists": [
+            "SPYAIR"
+          ],
+          "anime": [
+            "Haikyuu!! Movie: Gomisuteba no Kessen"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "contains10",
+      "elapsedMs": 25032,
+      "error": "TimeoutError: The operation was aborted due to timeout"
+    },
+    {
+      "label": "exactArtist10",
+      "elapsedMs": 25032,
+      "error": "TimeoutError: The operation was aborted due to timeout"
+    }
+  ]
+}

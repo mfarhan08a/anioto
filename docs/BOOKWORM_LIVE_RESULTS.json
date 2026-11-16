@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03T16:27:51.241Z",
+  "version": "0.6.4",
+  "scope": "Actual production resolver with live public metadata; not a tab-audio test.",
+  "observations": [
+    {
+      "song": {
+        "title": "Kamikazari No Tenshi TV size ver.",
+        "artist": "Megumi Nakajima"
+      },
+      "elapsedMs": 1248,
+      "firstPublishedMs": 772,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Kami-kazari no Tenshi",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 108268,
+          "title": "Ascendance of a Bookworm",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Kami-kazari no Tenshi” by Megumi Nakajima for Ascendance of a Bookworm.",
+          "matchKind": "version",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx108268-Dtt82uOi3vq5.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "髪飾りの天使（TVサイズ）",
+        "artist": "中島 愛"
+      },
+      "elapsedMs": 729,
+      "firstPublishedMs": 390,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Kami-kazari no Tenshi",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 108268,
+          "title": "Ascendance of a Bookworm",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Kami-kazari no Tenshi” by 中島 愛 for Ascendance of a Bookworm.",
+          "matchKind": "version",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx108268-Dtt82uOi3vq5.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Kamikazari no Tenshi",
+        "artist": "Megumi Nakajima"
+      },
+      "elapsedMs": 663,
+      "firstPublishedMs": 345,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Kami-kazari no Tenshi",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 108268,
+          "title": "Ascendance of a Bookworm",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Kami-kazari no Tenshi” by Megumi Nakajima, Megumi Nakajima (from Eclipse) for Ascendance of a Bookworm.",
+          "matchKind": "confirmed",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx108268-Dtt82uOi3vq5.jpg"
+        }
+      ]
+    }
+  ]
+}

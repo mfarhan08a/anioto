@@ -1,0 +1,8 @@
+{
+  "httpStatus": 200,
+  "response": {
+    "songs": []
+  },
+  "elapsedSeconds": 2.27,
+  "scope": "Generated 12-second tone through real local helper. A no-match is expected; this is connectivity validation, not a positive music identification test."
+}

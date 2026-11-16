@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-03T16:32:16.382Z",
+  "version": "0.6.5",
+  "scope": "Actual production resolver with live public metadata; not a tab-audio test.",
+  "observations": [
+    {
+      "song": {
+        "title": "Red Swan - TV Edit - (feat. HYDE)",
+        "artist": "YOSHIKI"
+      },
+      "elapsedMs": 2780,
+      "firstPublishedMs": 1214,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Red Swan",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 99147,
+          "title": "Attack on Titan Season 3",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Red Swan” by YOSHIKI for Attack on Titan Season 3.",
+          "matchKind": "version",
+          "type": "Opening 1"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Red Swan (TV Edit) [ft. HYDE]",
+        "artist": "YOSHIKI"
+      },
+      "elapsedMs": 653,
+      "firstPublishedMs": 260,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Red Swan",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 99147,
+          "title": "Attack on Titan Season 3",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Red Swan” by YOSHIKI for Attack on Titan Season 3.",
+          "matchKind": "version",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx99147-AiPDD8cwlCfi.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Red Swan (feat. HYDE)",
+        "artist": "YOSHIKI"
+      },
+      "elapsedMs": 841,
+      "firstPublishedMs": 292,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Red Swan",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 99147,
+          "title": "Attack on Titan Season 3",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Red Swan” by YOSHIKI feat. HYDE, HYDE, hyde, YOSHIKI for Attack on Titan Season 3.",
+          "matchKind": "confirmed",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx99147-AiPDD8cwlCfi.jpg"
+        }
+      ]
+    }
+  ]
+}

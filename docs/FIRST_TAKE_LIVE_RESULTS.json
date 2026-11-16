@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03T17:11:20.785Z",
+  "version": "0.7.2",
+  "scope": "Actual production resolver with live public metadata; not a tab-audio test.",
+  "observations": [
+    {
+      "song": {
+        "title": "Akuma no Ko - From the First Take",
+        "artist": "Ai Higuchi"
+      },
+      "elapsedMs": 1838,
+      "firstPublishedMs": 429,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Akuma no Ko",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 131681,
+          "title": "Attack on Titan Final Season Part 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Akuma no Ko” by Ai Higuchi for Attack on Titan Final Season.",
+          "matchKind": "version",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx131681-5ooUqvqNtee1.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Akuma no Ko (From THE FIRST TAKE)",
+        "artist": "Ai Higuchi"
+      },
+      "elapsedMs": 553,
+      "firstPublishedMs": 258,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Akuma no Ko",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 131681,
+          "title": "Attack on Titan Final Season Part 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Akuma no Ko” by Ai Higuchi for Attack on Titan Final Season.",
+          "matchKind": "version",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx131681-5ooUqvqNtee1.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Akuma no Ko",
+        "artist": "Ai Higuchi"
+      },
+      "elapsedMs": 707,
+      "firstPublishedMs": 416,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Akuma no Ko",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 131681,
+          "title": "Attack on Titan Final Season Part 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Akuma no Ko” by Ai Higuchi for Attack on Titan Final Season.",
+          "matchKind": "confirmed",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx131681-5ooUqvqNtee1.jpg"
+        }
+      ]
+    }
+  ]
+}

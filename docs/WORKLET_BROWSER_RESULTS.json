@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-03T15:58:40.467Z",
+  "passed": true,
+  "frames": 48000,
+  "batches": 12,
+  "wavBytes": 64044,
+  "wavRate": 32000,
+  "mixedPeak": 0.20000000298023224,
+  "processorOutputPeak": 0,
+  "scope": "Actual packaged AudioWorklet and production mixing/WAV resampling in Chrome offline audio engine. Synthetic stereo input; no tab capture or song recognition."
+}

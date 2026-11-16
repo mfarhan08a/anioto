@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-01T18:26:16.441Z",
+  "scope": "Live anime metadata; supplied title/artist inputs, not audio recognition.",
+  "observations": [
+    {
+      "song": {
+        "title": "Orange (Underwater)",
+        "artist": "Kaori Miyazono & Zero Two"
+      },
+      "elapsedMs": 16947,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2583,
+          "title": "Shigatsu wa Kimi no Uso",
+          "sourceUrl": "https://animethemes.moe/anime/shigatsu_wa_kimi_no_uso",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to Seven Oops; the recording performer Kaori Miyazono & Zero Two is not confirmed. The listed release names Shigatsu wa Kimi no Uso; this supports the anime candidate, not an original-performer match.",
+          "recordingReferenceUrl": "https://open.spotify.com/track/50kfguKW1syfBC7YslSvfu"
+        },
+        {
+          "id": 72,
+          "title": "Ajimu: Kaigan Monogatari",
+          "sourceUrl": "https://animethemes.moe/anime/ajimu_kaigan_monogatari",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to Saeko Chiba; the recording performer Kaori Miyazono & Zero Two is not confirmed."
+        },
+        {
+          "id": 318,
+          "title": "BLEACH",
+          "sourceUrl": "https://animethemes.moe/anime/bleach",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to Lil`B; the recording performer Kaori Miyazono & Zero Two is not confirmed."
+        },
+        {
+          "id": 2984,
+          "title": "Toradora!",
+          "sourceUrl": "https://animethemes.moe/anime/toradora",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to Eri Kitamura, Rie Kugimiya, Yui Horie; the recording performer Kaori Miyazono & Zero Two is not confirmed."
+        },
+        {
+          "id": 2184,
+          "title": "Ore no Imouto ga Konnani Kawaii Wake ga Nai",
+          "sourceUrl": "https://animethemes.moe/anime/ore_no_imouto_ga_konnani_kawaii_wake_ga_nai",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to Ayana Taketatsu; the recording performer Kaori Miyazono & Zero Two is not confirmed."
+        },
+        {
+          "id": 3529,
+          "title": "Puraore! Pride of Orange",
+          "sourceUrl": "https://animethemes.moe/anime/puraore_pride_of_orange",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to May'n; the recording performer Kaori Miyazono & Zero Two is not confirmed."
+        },
+        {
+          "id": 4513,
+          "title": "Haikyuu!! Movie: Gomisuteba no Kessen",
+          "sourceUrl": "https://animethemes.moe/anime/haikyuu_movie_gomisuteba_no_kessen",
+          "type": "ED",
+          "matchKind": "possible",
+          "evidence": "Possible underlying song: AnimeThemes credits “Orange” to SPYAIR; the recording performer Kaori Miyazono & Zero Two is not confirmed."
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Orange (Instrumental)",
+        "artist": "seven oops"
+      },
+      "elapsedMs": 17296,
+      "passed": true,
+      "matches": [
+        {
+          "id": 2583,
+          "title": "Shigatsu wa Kimi no Uso",
+          "sourceUrl": "https://animethemes.moe/anime/shigatsu_wa_kimi_no_uso",
+          "type": "ED",
+          "matchKind": "version",
+          "evidence": "AnimeThemes credits a recording of “Orange” to seven oops. AnimeThemes credits Seven Oops."
+        }
+      ]
+    }
+  ]
+}

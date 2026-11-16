@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03T16:20:20.215Z",
+  "version": "0.6.3",
+  "scope": "Actual production resolver with live public metadata, fresh cache per case. Not a tab-audio test.",
+  "observations": [
+    {
+      "song": {
+        "title": "君が夢を連れてきた(TVサイズ)",
+        "artist": "Ai Kayano, 中津真莉子 & Natsumi Takamori"
+      },
+      "elapsedMs": 1902,
+      "firstPublishedMs": 454,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Kimi ga Yume o Tsuretekita",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 13759,
+          "title": "The Pet Girl of Sakurasou",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Kimi ga Yume o Tsuretekita” by Ai Kayano, 中津真莉子 & Natsumi Takamori for The Pet Girl of Sakurasou.",
+          "matchKind": "version",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx13759-xNf0gJK4Axt2.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "君が夢を連れてきた（ＴＶサイズ）",
+        "artist": "ペットな彼女たち"
+      },
+      "elapsedMs": 562,
+      "firstPublishedMs": 249,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Kimi ga Yume o Tsuretekita",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 13759,
+          "title": "The Pet Girl of Sakurasou",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Kimi ga Yume o Tsuretekita” by ペットな彼女たち for The Pet Girl of Sakurasou.",
+          "matchKind": "version",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx13759-xNf0gJK4Axt2.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Kimi ga Yume wo Tsuretekita",
+        "artist": "Ai Kayano, Mariko Nakatsu & Natsumi Takamori"
+      },
+      "elapsedMs": 573,
+      "firstPublishedMs": 254,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Kimi ga Yume o Tsuretekita",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 13759,
+          "title": "The Pet Girl of Sakurasou",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Kimi ga Yume o Tsuretekita” by Pet na Kanojo-tachi for The Pet Girl of Sakurasou.",
+          "matchKind": "confirmed",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx13759-xNf0gJK4Axt2.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "provider": "shazamio",
+  "allowedOrigins": [
+    "chrome-extension://oeamoddpghhjhhakjimcelbhjpjfboba"
+  ],
+  "helperPid": 11404,
+  "scope": "Helper was stopped, then installed Edge Otone 0.8.0 popup was opened; no startup script or direct native launcher was invoked between those actions."
+}

@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03T16:17:36.423Z",
+  "version": "0.6.2",
+  "scope": "Actual production resolver, live metadata, fresh cache per case. Not an audio-recognition test.",
+  "observations": [
+    {
+      "song": {
+        "title": "おねがい☆すにゃいぱー",
+        "artist": "初瀬いづな(CV:沢城みゆき)"
+      },
+      "elapsedMs": 1222,
+      "firstPublishedMs": 852,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Onegai☆Snyaiper",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 19815,
+          "title": "No Game, No Life",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Onegai☆Snyaiper” by Miyuki Sawashiro for No Game No Life.",
+          "matchKind": "confirmed",
+          "type": "Opening 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b19815-sEOQ9yQaPKlk.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "おねがい☆すにゃいぱー",
+        "artist": "初瀬いづな（ＣＶ：沢城みゆき）"
+      },
+      "elapsedMs": 570,
+      "firstPublishedMs": 273,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Onegai☆Snyaiper",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 19815,
+          "title": "No Game, No Life",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Onegai☆Snyaiper” by Miyuki Sawashiro for No Game No Life.",
+          "matchKind": "confirmed",
+          "type": "Opening 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b19815-sEOQ9yQaPKlk.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "おねがい☆すにゃいぱー (Instrumental)",
+        "artist": "Miyuki Sawashiro"
+      },
+      "elapsedMs": 570,
+      "firstPublishedMs": 272,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "query": {
+            "song_name_search_filter": {
+              "search": "Onegai☆Snyaiper",
+              "partial_match": false,
+              "match_case": false
+            },
+            "ignore_duplicate": true
+          }
+        },
+        {
+          "host": "graphql.anilist.co"
+        }
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 19815,
+          "title": "No Game, No Life",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Onegai☆Snyaiper” by Miyuki Sawashiro for No Game No Life.",
+          "matchKind": "version",
+          "type": "Opening 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b19815-sEOQ9yQaPKlk.jpg"
+        }
+      ]
+    }
+  ]
+}

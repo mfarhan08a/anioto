@@ -1,0 +1,230 @@
+{
+  "date": "2026-11-02T05:26:15.309Z",
+  "version": "0.4.0",
+  "scope": "Actual bundled production resolver in Node 22, live public metadata. No audio recognition. First publication measures source title delivery before optional artwork.",
+  "observations": [
+    {
+      "song": {
+        "title": "Sound of Snow",
+        "artist": "Novelbright"
+      },
+      "elapsedMs": 1273,
+      "firstPublishedMs": 835,
+      "requests": [
+        "anisongdb.com",
+        "anisongdb.com",
+        "graphql.anilist.co"
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 166794,
+          "title": "A Sign of Affection",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Yuki no Ne” by Novelbright for A Sign of Affection.",
+          "matchKind": "confirmed",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx166794-1MAXFMgND6qS.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Akane Sasu (instrumental)",
+        "artist": "Aimer"
+      },
+      "elapsedMs": 570,
+      "firstPublishedMs": 263,
+      "requests": [
+        "anisongdb.com",
+        "graphql.anilist.co"
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 21710,
+          "title": "Natsume's Book of Friends Season 5",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Akane Sasu” by Aimer for Natsume's Book of Friends Season 5.",
+          "matchKind": "version",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21710-Y20fKQviC3hL.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Orange (Instrumental)",
+        "artist": "seven oops"
+      },
+      "elapsedMs": 565,
+      "firstPublishedMs": 248,
+      "requests": [
+        "anisongdb.com",
+        "graphql.anilist.co"
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 20665,
+          "title": "Your lie in April",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Orange” by seven oops for Your Lie in April.",
+          "matchKind": "version",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20665-TLgkL8T8IRFd.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Orange (Underwater)",
+        "artist": "Kaori Miyazono & Zero Two"
+      },
+      "elapsedMs": 1200,
+      "firstPublishedMs": 821,
+      "requests": [
+        "anisongdb.com",
+        "anisongdb.com",
+        "graphql.anilist.co",
+        "graphql.anilist.co",
+        "graphql.anilist.co"
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 20665,
+          "title": "Your lie in April",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by 7!! for Your Lie in April; the performer Kaori Miyazono & Zero Two is not confirmed. The listed release names Shigatsu wa Kimi no Uso; this supports the anime candidate, not an original-performer match.",
+          "matchKind": "possible",
+          "type": "Ending 2",
+          "recordingReferenceUrl": "https://open.spotify.com/track/50kfguKW1syfBC7YslSvfu",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20665-TLgkL8T8IRFd.png"
+        },
+        {
+          "id": 1734,
+          "title": "Ajimu: Kaigan Monogatari",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “ORANGE” by Saeko Chiba for Ajimu: Kaigan Monogatari; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/1734.jpg"
+        },
+        {
+          "id": 1052,
+          "title": "Ten Tokyo Warriors",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by Sayaka Ishijima for 10 Tokyo Warriors; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 4",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b1052-WibX4en0qto6.jpg"
+        },
+        {
+          "id": 269,
+          "title": "Bleach",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by Lil'B for Bleach; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 15"
+        },
+        {
+          "id": 4224,
+          "title": "Toradora!",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by Rie Kugimiya, Yui Horie, Eri Kitamura, Yui Horie, Rie Kugimiya, Eri Kitamura for Toradora!; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 2"
+        },
+        {
+          "id": 8769,
+          "title": "Oreimo",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by Ayana Taketatsu for Oreimo; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 5"
+        },
+        {
+          "id": 21280,
+          "title": "Futari H: The One And Only Step Up Love Story",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by The Zig Zags for Futari H: The One And Only Step Up Love Story; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Insert Song"
+        },
+        {
+          "id": 9340,
+          "title": "Cheburashka",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “orange” by Kaela Kimura for Cheburashka; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 1"
+        },
+        {
+          "id": 126793,
+          "title": "PuraOre! Pride of Orange",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by May'n, Mei Nakabayashi for PuraOre! Pride of Orange; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 1"
+        },
+        {
+          "id": 153658,
+          "title": "Haikyu!! The Dumpster Battle",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Orange” by SPYAIR for Haikyu!! The Dumpster Battle; the performer Kaori Miyazono & Zero Two is not confirmed.",
+          "matchKind": "possible",
+          "type": "Ending 1"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Sign (Live)",
+        "artist": "FLOW"
+      },
+      "elapsedMs": 593,
+      "firstPublishedMs": 265,
+      "requests": [
+        "anisongdb.com",
+        "graphql.anilist.co"
+      ],
+      "passed": true,
+      "matches": [
+        {
+          "id": 1735,
+          "title": "Naruto: Shippuden",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Sign” by FLOW for Naruto Shippuuden.",
+          "matchKind": "version",
+          "type": "Opening 6",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx1735-kGfVm0YqCPcu.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "I Really Want to Stay At Your House",
+        "artist": "Rosa Walton & Hallie Coggins"
+      },
+      "elapsedMs": 0,
+      "requests": [],
+      "passed": true,
+      "matches": [
+        {
+          "id": -1001,
+          "title": "Cyberpunk: Edgerunners",
+          "sourceUrl": "https://www.youtube.com/watch?v=h4VJGNNSQnw",
+          "type": "Featured song",
+          "matchKind": "confirmed",
+          "evidence": "Netflix’s official music video identifies “I Really Want to Stay At Your House” by Rosa Walton with Cyberpunk: Edgerunners."
+        }
+      ]
+    }
+  ],
+  "cached": {
+    "elapsedMs": 0,
+    "requests": [],
+    "passed": true
+  }
+}

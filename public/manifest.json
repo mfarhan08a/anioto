@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Anioto - Anime Song Finder",
+  "version": "0.10.5",
+  "description": "Identify music in the current tab and find documented anime associations.",
+  "icons": { "128": "anioto-icon.png" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Anioto · Detect anime from this tab",
+    "default_icon": "anioto-icon.png"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "tabCapture",
+    "offscreen",
+    "storage",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:18742/*",
+    "https://audiotag.info/*",
+    "https://anisongdb.com/*",
+    "https://api.animethemes.moe/*",
+    "https://graphql.anilist.co/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
