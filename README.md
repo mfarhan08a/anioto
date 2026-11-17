@@ -88,15 +88,9 @@ Each scan uses its selected provider. SongRec and ShazamIO both use Shazam’s o
 
 ```mermaid
 flowchart LR
-    A[Start scan] --> B[Capture active-tab audio]
-    B --> C[Selected song recognizer]
-    C --> D[Song title and artist]
-    D --> E[AnisongDB song credits]
-    E --> F[AnimeThemes fallback when needed]
-    E --> G[Anime connections]
-    F --> G
-    G --> H[AniList titles and artwork]
-    H --> I[Results with source links]
+    A[Tab audio] --> B[Song recognition]
+    B --> C[Anime credits]
+    C --> D[Result and sources]
 ```
 
 The resolver handles Japanese and romanized metadata, common recording suffixes, and documented aliases. Artist and credit checks distinguish confirmed associations, alternate recordings, and possible cover connections. A small source-backed supplement covers selected credits outside the main catalogs. See [the matching evidence](docs/VERSION_MATCHING_EVIDENCE.md) and [data-source implementation](src/providers/anime.ts).
