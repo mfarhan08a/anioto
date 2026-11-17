@@ -14,6 +14,10 @@ Anioto identifies a song from the current tab’s audio and looks up its documen
 
 > **Release status** · Version 0.10.5 is available as source for local development. Microsoft Edge store certification is in preparation. Generated store test packages contain placeholder service links. See the [release checklist](docs/STORE_RELEASE.md) and [verification record](docs/STORE_VERIFICATION.md).
 
+![Anioto result interface with illustrative song data](docs/store-assets/anioto-result.png)
+
+Store descriptions, image specifications, and the other screenshots are in [the listing materials](docs/EDGE_STORE_LISTING.md).
+
 ## What you can do
 
 | | |
