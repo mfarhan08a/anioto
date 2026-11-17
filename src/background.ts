@@ -1,6 +1,8 @@
 import { JOB_STORAGE_KEY, SETTINGS_LOCAL_KEY, SETTINGS_SESSION_KEY, isLocalRecognitionProvider, isSong } from './contracts';
 import type { ClientMessage, Job, Settings, Song } from './contracts';
 import { ensureLocalHelper, releaseLocalHelper } from './native-helper';
+import { AUDD_SAMPLE_SECONDS } from './providers/audd';
+import { storeConfig } from './release';
 
 const OFFSCREEN_URL = 'offscreen.html';
 const ACTIVE_STAGES = new Set(['capturing', 'listening and recognizing', 'submitting', 'awaiting recognition', 'resolving anime']);
@@ -65,7 +67,7 @@ chrome.runtime.onStartup.addListener(() => { void recoverJob(); });
 chrome.runtime.onInstalled.addListener(() => { void recoverJob(); });
 void recoverJob();
 
-async function startCapture(diagnostic = false): Promise<{ ok: true; job: Job } | { error: string }> {
+async function startCapture(diagnostic = false): Promise<{ ok: true; job: Job } | { error: string; helperSetup?: true }> {
   if (cancelling) await cancelling;
   if (startingCapture) return { error: 'An identification is already starting.' };
   const attempt = Symbol();
@@ -77,7 +79,11 @@ async function startCapture(diagnostic = false): Promise<{ ok: true; job: Job } 
   }
   const settings = diagnostic ? undefined : await readSettings();
   const provider = settings?.provider ?? 'audiotag';
-  if (!diagnostic && isLocalRecognitionProvider(provider)) await ensureLocalHelper();
+  if (!diagnostic && isLocalRecognitionProvider(provider)) {
+    try { await ensureLocalHelper(); }
+    catch (error) { return { error: errorMessage(error), helperSetup: true }; }
+  }
+  if (!diagnostic && provider === 'audd' && !settings?.auddConsent) return { error: 'Allow AudD audio uploads in Settings before scanning.' };
   if (!diagnostic && provider === 'audiotag' && !settings?.freeAccessConfirmed) return { error: 'Confirm the provider’s free access and usage terms in Settings before uploading audio.' };
   if (!diagnostic && provider === 'audiotag' && !settings?.apiKey.trim()) return { error: 'Add your AudioTag API key in Settings.' };
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
@@ -91,8 +97,8 @@ async function startCapture(diagnostic = false): Promise<{ ok: true; job: Job } 
     await chrome.storage.local.set({ dailyUsage: { date: today, count: count + 1 } });
   }
   const id = crypto.randomUUID();
-  const captureSeconds = !diagnostic && isLocalRecognitionProvider(provider) ? 12 : 15;
-  const providerName = provider === 'songrec' ? 'SongRec' : provider === 'local-shazam' ? 'ShazamIO' : 'AudioTag';
+  const captureSeconds = diagnostic ? 15 : provider === 'audd' ? AUDD_SAMPLE_SECONDS : isLocalRecognitionProvider(provider) ? 12 : 15;
+  const providerName = provider === 'songrec' ? 'SongRec' : provider === 'local-shazam' ? 'ShazamIO' : provider === 'audd' ? 'AudD' : 'AudioTag';
   const job: Job = { id, stage: 'capturing', captureSeconds, message: diagnostic ? 'Preparing a local 15-second audio capture.' : `Preparing to capture up to ${captureSeconds} seconds of tab audio for ${providerName}.` };
   activeId = id;
   targetTabId = tab.id;
@@ -183,6 +189,11 @@ async function readSettings(): Promise<Settings> {
   ]);
   const sessionSettings = session[SETTINGS_SESSION_KEY] as Partial<Settings> | undefined;
   const localSettings = local[SETTINGS_LOCAL_KEY] as Partial<Settings> | undefined;
+  if (storeConfig) return {
+    apiKey: '', remember: false, freeAccessConfirmed: false,
+    auddConsent: localSettings?.auddConsent === true,
+    provider: isLocalRecognitionProvider(local.preferredProvider) || local.preferredProvider === 'audd' ? local.preferredProvider : 'songrec',
+  };
   return {
     apiKey: sessionSettings?.apiKey ?? (localSettings?.remember ? localSettings.apiKey ?? '' : ''),
     remember: localSettings?.remember ?? false,

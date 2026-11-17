@@ -10,6 +10,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:chrome": "node scripts/build.mjs --browser=chrome",
+    "build:store": "node scripts/build.mjs --store",
     "build:firefox": "node scripts/build.mjs --browser=firefox",
     "build:safari": "node scripts/build.mjs --browser=safari",
     "typecheck": "tsc --noEmit",

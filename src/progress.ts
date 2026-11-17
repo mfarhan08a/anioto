@@ -12,7 +12,7 @@ export interface ProgressView {
   detail: string;
   determinate: boolean;
   percent?: number;
-  captureSeconds?: 12 | 15;
+  captureSeconds?: 8 | 12 | 15;
   captureElapsedSeconds?: number;
 }
 
@@ -38,7 +38,7 @@ export function progressView(job: Job, now = Date.now()): ProgressView {
     : ['submitting', 'recognizing', 'awaiting recognition'].includes(job.stage) ? 1 : 2;
   if (step === 0) {
     const requestedSeconds = (job as Job & { captureSeconds?: number }).captureSeconds;
-    const captureSeconds = requestedSeconds === 12 ? 12 : 15;
+    const captureSeconds = requestedSeconds === 8 || requestedSeconds === 12 ? requestedSeconds : 15;
     const startedAt = typeof job.stageStartedAt === 'number' ? job.stageStartedAt : now;
     const elapsedSeconds = Math.max(0, (now - startedAt) / 1000);
     // Stop short of 100% until the

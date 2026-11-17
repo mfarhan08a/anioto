@@ -2,6 +2,7 @@ import type { Job, Result } from './contracts';
 import { identity, parsePersonal, safeUrl } from './personal';
 import { elapsedView, progressView } from './progress';
 import { createAnimeTitleDisplay } from './anime-title';
+import { storeConfig } from './release';
 
 const get = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const shell = get('popup-shell');
@@ -274,6 +275,7 @@ async function update(job: Job | undefined) {
 async function send(message: object) {
   if ('type' in message && ['START', 'LOOKUP', 'TEST_CAPTURE'].includes(String(message.type))) showView('result', message.type !== 'START');
   if ('type' in message && message.type === 'START') {
+    get('helper-setup').hidden = true;
     get<HTMLButtonElement>('identify').disabled = true;
     statusElement.hidden = false;
     statusElement.textContent = 'Preparing recognition…';
@@ -281,6 +283,7 @@ async function send(message: object) {
   try {
     const response = await chrome.runtime.sendMessage(message);
     if (response?.error) {
+      if (storeConfig && response.helperSetup) get('helper-setup').hidden = false;
       get<HTMLButtonElement>('identify').disabled = false;
       statusElement.hidden = false;
       statusElement.textContent = response.error;
@@ -347,6 +350,10 @@ get('test-capture').onclick = () => void send({ type: 'TEST_CAPTURE' });
 get('identify').onclick = () => void send({ type: 'START' });
 get('cancel').onclick = () => void send({ type: 'CANCEL' });
 get('settings').onclick = () => void chrome.runtime.openOptionsPage();
+if (storeConfig) {
+  get<HTMLAnchorElement>('helper-install').href = storeConfig.helperUrl;
+  get('change-provider').onclick = () => void chrome.runtime.openOptionsPage();
+}
 get('clear').onclick = async () => {
   await chrome.storage.local.remove('history');
   await historyView();
@@ -368,6 +375,7 @@ void chrome.runtime.sendMessage({ type: 'ENSURE_HELPER' }).then(async response =
   if (response?.error && currentView === 'result' && get('progress').hidden) {
     statusElement.hidden = false;
     statusElement.textContent = response.error;
+    if (storeConfig) get('helper-setup').hidden = false;
   } else if (response?.localReady && /helper is not running|helper.*not allow/i.test(statusElement.textContent ?? '')) {
     statusElement.textContent = 'Local recognition is ready. Identify this tab to try again.';
   }
