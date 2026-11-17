@@ -4,6 +4,8 @@ dist/
 dist-chrome/
 dist-firefox/
 dist-safari/
+dist-store-*/
+release-out/
 coverage/
 .vite/
 *.tsbuildinfo

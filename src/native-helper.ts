@@ -1,4 +1,6 @@
-const HOST = 'com.otone.helper';
+import { storeConfig } from './release';
+
+const HOST = storeConfig ? 'com.anioto.companion' : 'com.otone.helper';
 let pending: Promise<void> | undefined;
 let closeConnection: ((error?: Error) => void) | undefined;
 let session = 0;
@@ -19,6 +21,7 @@ async function isHealthy(): Promise<boolean> {
 }
 
 function setupError(): Error {
+  if (storeConfig) return new Error('Install the Anioto Windows helper or change the recognition provider in Settings.');
   return new Error('Automatic helper startup is unavailable. Install the Anioto native helper once using scripts/install-native-helper.ps1, then reload Anioto.');
 }
 

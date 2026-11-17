@@ -1,6 +1,8 @@
 import { captureTabAudio } from './capture';
 import { resolveAnime } from './providers/anime';
 import { recognize } from './providers/audiotag';
+import { AUDD_SAMPLE_SECONDS, recognizeAudD } from './providers/audd';
+import { storeConfig } from './release';
 import { recognizeProgressive } from './providers/progressive-shazam';
 import type { Job, RecognitionProvider, Result, Song } from './contracts';
 import { isLocalRecognitionProvider, isSong } from './contracts';
@@ -26,7 +28,7 @@ chrome.runtime.onMessage.addListener((raw: unknown, sender, sendResponse) => {
   }
   if (message.type === 'OFFSCREEN_START' && message.streamId) {
     const provider = message.provider ?? 'audiotag';
-    if (isLocalRecognitionProvider(provider) || (provider === 'audiotag' && typeof message.apiKey === 'string')) {
+    if (isLocalRecognitionProvider(provider) || (storeConfig ? provider === 'audd' : provider === 'audiotag' && typeof message.apiKey === 'string')) {
       sendResponse({ ok: true });
       void runCapture(message.id, message.streamId, provider, message.apiKey);
       return;
@@ -47,7 +49,7 @@ chrome.runtime.onMessage.addListener((raw: unknown, sender, sendResponse) => {
 async function runCapture(id: string, streamId: string, provider: RecognitionProvider, apiKey?: string): Promise<void> {
   const controller = register(id);
   try {
-    const providerName = provider === 'songrec' ? 'SongRec' : provider === 'local-shazam' ? 'Local Shazam' : 'AudioTag';
+    const providerName = provider === 'songrec' ? 'SongRec' : provider === 'local-shazam' ? 'Local Shazam' : provider === 'audd' ? 'AudD' : 'AudioTag';
     let songs: Song[];
     if (isLocalRecognitionProvider(provider)) {
       const phaseStartedAt = Date.now();
@@ -64,18 +66,19 @@ async function runCapture(id: string, streamId: string, provider: RecognitionPro
         await update(id, 'listening and recognizing', message, undefined, undefined, 12, phaseStartedAt);
       }, provider);
     } else {
-      await update(id, 'capturing', 'Listening to the selected tab for 15 seconds. Playback continues through your speakers.', undefined, undefined, 15);
-      const blob = await captureTabAudio(streamId, controller.signal, 15);
+      const seconds = provider === 'audd' ? AUDD_SAMPLE_SECONDS : 15;
+      await update(id, 'capturing', `Listening to the selected tab for ${seconds} seconds. Playback continues through your speakers.`, undefined, undefined, seconds);
+      const blob = await captureTabAudio(streamId, controller.signal, seconds);
       if (controller.signal.aborted) throw new DOMException('Cancelled', 'AbortError');
-      await update(id, 'submitting', 'Audio captured. Sending the short sample to AudioTag for recognition.');
-      songs = await recognize(blob, apiKey ?? '', controller.signal);
+      await update(id, 'submitting', `Audio captured. Sending the short sample to ${providerName} for recognition.`);
+      songs = provider === 'audd' ? await recognizeAudD(blob, controller.signal) : await recognize(blob, apiKey ?? '', controller.signal);
     }
     if (controller.signal.aborted) throw new DOMException('Cancelled', 'AbortError');
     const uniqueSongs = [...new Map(songs.filter(isSong).map((song) => [songIdentity(song), song])).values()];
     if (!uniqueSongs.length) {
       await update(id, 'no song', isLocalRecognitionProvider(provider)
         ? `${providerName} found no song after checking the available samples up to 12 seconds. Try a clear music section or search manually.`
-        : 'AudioTag returned no match for this 15-second sample. Try a clear music section with minimal dialogue, or search the song manually.');
+        : `${providerName} returned no match. Try a clear music section with minimal dialogue, or search the song manually.`);
       return;
     }
     if (uniqueSongs.length > 1) {

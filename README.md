@@ -2,6 +2,8 @@
 
 A browser extension that identifies music playing in a browser tab and finds documented anime associations for the song.
 
+The Windows store edition is being prepared with SongRec as the default, Local Shazam and AudD in Settings, and a separate companion installer. See the [store release instructions](docs/STORE_RELEASE.md) for builds, privacy disclosures, and the remaining publication gates.
+
 **Status: v0.10.5 local browser builds.** Edge retains the tested tab-audio flow, Chrome has a separate Chromium build, and Firefox/Safari have limited audio-file/manual lookup workspaces. Safari still needs Xcode packaging and native testing on a Mac. See [browser support and installation](docs/BROWSER_SUPPORT.md), [live Edge evidence](docs/ANISONGDB_EDGE_EVIDENCE.md), and [verification](docs/VERIFICATION.md) for the tested scope and remaining limits.
 
 ## On-demand local recognition

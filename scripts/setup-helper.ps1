@@ -1,3 +1,5 @@
+param([switch]$Store)
+
 $ErrorActionPreference = 'Stop'
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -9,6 +11,7 @@ $pythonZip = Join-Path $cache 'python-3.13.17-embed-amd64.zip'
 $getPip = Join-Path $cache 'get-pip.py'
 $sitePackages = Join-Path $runtime 'Lib\site-packages'
 $requirements = Join-Path $repoRoot 'helper\requirements.txt'
+if ($Store) { $requirements = Join-Path $repoRoot 'helper\requirements-store.lock.txt' }
 
 New-Item -ItemType Directory -Force -Path $localData, $cache | Out-Null
 

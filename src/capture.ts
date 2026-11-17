@@ -16,7 +16,7 @@ const SNAPSHOT_SECONDS = [3, 6, 9, 12] as const;
 export async function captureTabAudio(
   streamId: string,
   signal: AbortSignal,
-  sampleSeconds: 12 | 15 = SAMPLE_SECONDS,
+  sampleSeconds: 8 | 12 | 15 = SAMPLE_SECONDS,
   onSnapshot?: (snapshot: AudioSnapshot) => void
 ): Promise<Blob> {
   if (signal.aborted) throw new DOMException('Capture cancelled', 'AbortError');

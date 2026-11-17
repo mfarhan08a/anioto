@@ -121,6 +121,33 @@ describe('background job lifecycle', () => {
     expect(sendMessage).not.toHaveBeenCalled();
   });
 
+  async function useStoreEdition() {
+    vi.stubGlobal('ANIOTO_STORE_CONFIG', { recognitionUrl: 'https://release.example/v1/recognize', helperUrl: 'https://release.example/companion' });
+    messageListeners.length = 0;
+    vi.resetModules();
+    await import('../src/background');
+    await flush();
+  }
+
+  it('defaults the store edition to SongRec without starting the helper during background startup', async () => {
+    await useStoreEdition();
+    expect(ensureHelperMock).not.toHaveBeenCalled();
+    await expect(dispatch({ type: 'START' })).resolves.toMatchObject({ ok: true });
+    expect(sendMessage).toHaveBeenCalledWith(expect.objectContaining({ type: 'OFFSCREEN_START', provider: 'songrec' }));
+    expect(ensureHelperMock).toHaveBeenCalledOnce();
+  });
+
+  it('requires explicit AudD consent before capture and uses only that provider when enabled', async () => {
+    await useStoreEdition();
+    local.preferredProvider = 'audd';
+    await expect(dispatch({ type: 'START' })).resolves.toMatchObject({ error: expect.stringContaining('Allow AudD') });
+    expect(getMediaStreamId).not.toHaveBeenCalled();
+    local.settings = { auddConsent: true };
+    await expect(dispatch({ type: 'START' })).resolves.toMatchObject({ ok: true, job: { captureSeconds: 8 } });
+    expect(sendMessage).toHaveBeenCalledWith(expect.objectContaining({ type: 'OFFSCREEN_START', provider: 'audd' }));
+    expect(ensureHelperMock).not.toHaveBeenCalled();
+  });
+
   it('records stream acquisition failures and permits a later retry', async () => {
     session.settings = { apiKey: 'test-key', freeAccessConfirmed: true, remember: false };
     getMediaStreamId.mockImplementationOnce((_options: unknown, callback: (streamId: string) => void) => {

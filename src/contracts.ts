@@ -34,13 +34,14 @@ export interface Job {
 }
 
 export type LocalRecognitionProvider = 'local-shazam' | 'songrec';
-export type RecognitionProvider = 'audiotag' | LocalRecognitionProvider;
+export type RecognitionProvider = 'audiotag' | 'audd' | LocalRecognitionProvider;
 
 export function isLocalRecognitionProvider(value: unknown): value is LocalRecognitionProvider {
   return value === 'local-shazam' || value === 'songrec';
 }
 
 export interface Settings {
+  auddConsent?: boolean;
   apiKey: string;
   remember: boolean;
   freeAccessConfirmed: boolean;

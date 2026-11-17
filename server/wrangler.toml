@@ -1,0 +1,17 @@
+name = "anioto-recognition"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+
+[vars]
+RECOGNITION_ENABLED = "false"
+
+[observability]
+enabled = false
+
+[[durable_objects.bindings]]
+name = "QUOTAS"
+class_name = "RecognitionQuota"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RecognitionQuota"]
