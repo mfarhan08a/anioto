@@ -1,65 +1,138 @@
-# Anioto
+<div align="center">
 
-A browser extension that identifies music playing in a browser tab and finds documented anime associations for the song.
+<img src="public/anioto-icon.png" width="76" height="76" alt="Anioto logo">
 
-The Windows store edition is being prepared with SongRec as the default, Local Shazam and AudD in Settings, and a separate companion installer. See the [store release instructions](docs/STORE_RELEASE.md) for builds, privacy disclosures, and the remaining publication gates.
+# anioto · アニオト
 
-**Status: v0.10.5 local browser builds.** Edge retains the tested tab-audio flow, Chrome has a separate Chromium build, and Firefox/Safari have limited audio-file/manual lookup workspaces. Safari still needs Xcode packaging and native testing on a Mac. See [browser support and installation](docs/BROWSER_SUPPORT.md), [live Edge evidence](docs/ANISONGDB_EDGE_EVIDENCE.md), and [verification](docs/VERIFICATION.md) for the tested scope and remaining limits.
+**Find the anime behind the music playing in your browser.**
 
-## On-demand local recognition
+[Get started](#get-started) · [How it works](#how-it-works) · [Contribute](CONTRIBUTING.md) · [Privacy](PRIVACY.md) · [Report an issue](https://github.com/mfarhan08a/anioto/issues)
 
-On Windows, install the native launcher once with `scripts/install-native-helper.ps1`, then reload Anioto. Opening the popup starts the helper if needed, including after reboot; Windows sign-in and browser startup do not launch it. See [setup, removal and test evidence](docs/ON_DEMAND_HELPER.md).
+</div>
 
-## Anioto artwork UI
+Anioto identifies a song from the current tab’s audio and looks up its documented anime connections. Results bring together anime artwork, English and romaji titles, song credits, and links to the sources.
 
-Edge and Chrome show the anime and artwork first, with compact song details, expandable source credits, a persistent Identify/Cancel control and elapsed timer. Search, History and audio diagnostics have separate views. Reload the existing unpacked extension after building to apply changes. See [UI verification](docs/OTONE_UI_VERIFICATION.md).
+> **Release status** · Version 0.10.5 is available as source for local development. Microsoft Edge store certification is in preparation. Generated store test packages contain placeholder service links. See the [release checklist](docs/STORE_RELEASE.md) and [verification record](docs/STORE_VERIFICATION.md).
 
-## Experience
+## What you can do
 
-1. Play a video or stream in Microsoft Edge.
-2. Select **Identify this tab** in the extension.
-3. Capture a short audio sample and identify the song.
-4. Display the song, artist, related anime, artwork, and available source links.
+| | |
+| --- | --- |
+| **Identify tab audio** | Start a scan while a video or stream plays. See the current step, elapsed time, and a cancel action. |
+| **Find anime connections** | Look up opening, ending, insert-song, and documented cover or alternate-version connections. Possible matches show their supporting credits. |
+| **Copy either anime title** | View English and romaji titles and copy either when available. |
+| **Search by song** | Enter a known song title and artist to look up its anime credits. |
+| **Revisit results** | Browse up to 100 recent results stored on your device in the Chromium popup. |
+| **Check capture locally** | Play a short preview to check what the tab capture hears. |
 
-The result describes anime associated with the music; it does not identify the visible footage. Song-only and ambiguous results are shown explicitly.
+Anioto finds anime associated with the music. Accuracy depends on recognition coverage and documented song credits. A recognized song can have several anime connections or none, and metadata services can become unavailable.
 
-## Stack
+## Browser support
 
-- Manifest V3, TypeScript, and esbuild, with separate Chrome/Edge and Firefox/Safari entry points. Portable builds do not request Chromium tabCapture/offscreen permissions.
-- Select **SongRec**, **ShazamIO**, or **AudioTag** in Settings. The first two use the project-local helper and query Shazam’s online catalog. AudioTag uses your personal free API allowance.
-- AnisongDB for primary song-to-anime lookup, AnimeThemes as a bounded fallback, and AniList for optional artwork/metadata. Recording suffixes (live/acoustic/remaster/piano/cover/instrumental/off-vocal/karaoke/TV-size) resolve to base-song credits. Different-artist title matches are labeled possible, with the catalog artist shown.
-- A small reviewed supplemental registry covers sourced featured songs missing from the OP/ED catalog, starting with Netflix’s Cyberpunk: Edgerunners music video. This is not comprehensive background OST coverage. New entries require a source and explicit artist aliases.
-- SongRec and ShazamIO check cumulative samples after 3, 6, 9, and 12 seconds while listening continues, and stop on the first match. Only one helper request runs at a time; busy checkpoints are coalesced to the latest sample. Up to four samples may be submitted; provider errors stop without retry. AudioTag and diagnostic preview remain fixed at 15 seconds. Portable audio-file recognition remains a single request. Source-backed anime titles display before optional artwork, with a shared 1.5-second enrichment budget. Successful results are cached in memory for one hour, up to 100 songs, until the offscreen context closes.
-- Capture uses 32 kHz mono PCM for analysis and keeps live stereo playback on its direct path. Explicit edit labels (Underwater/Slowed/Sped Up/Nightcore) can find possible base-song anime connections. Recognition services can still choose alternate catalog releases.
-- Animated recording/recognition/anime-lookup progress, total and current-stage elapsed timers, and a frozen completion duration. Timers survive closing/reopening the popup.
-- Local settings and history. SongRec and ShazamIO use the included local helper.
+| Browser | Tab audio | Audio-file recognition | Manual song search |
+| --- | --- | --- | --- |
+| **Edge 120+** | Supported | — | Supported |
+| **Chrome 120+** | Implemented; verify on your installed browser | — | Supported |
+| **Firefox 128+ desktop** | — | Development workspace | Supported |
+| **Safari** | — | Portable source build | Portable source build |
 
-Recognition and anime lookup require internet access. SongRec and ShazamIO generate fingerprints locally and query Shazam online without an API key. Anime metadata queries go to AnisongDB, AnimeThemes, and AniList.
+The automatic companion installer targets **Windows x64 and Chromium browsers**. Firefox and Safari have different setup requirements. Safari packaging and native testing remain pending. Read [browser support](docs/BROWSER_SUPPORT.md) for the tested scope and [cross-browser verification](docs/CROSS_BROWSER_VERIFICATION.md) for historical evidence.
 
-For the version/cover improvements and timer test evidence, see [0.3.0 verification](docs/VERSION_MATCHING_EVIDENCE.md).
+## Get started
 
-For the instrumental fix and measured lookup timings, see [0.3.1 performance evidence](docs/PERFORMANCE_EVIDENCE.md).
+You need **Node.js 22.12 or newer**, npm, and Edge or Chrome. SongRec and Local Shazam also need the Windows companion. Internet access is required for recognition and anime metadata.
 
-For the Orange alternate-release issue and capture fidelity checks, see [0.3.2 audio evidence](docs/AUDIO_QUALITY_EVIDENCE.md).
+### 1. Build the extension
 
-## Implementation plan
+```sh
+git clone https://github.com/mfarhan08a/anioto.git
+cd anioto
+npm ci
+npm run build
+```
 
-See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for researched choices, architecture, implementation phases, verification, and the eventual installation workflow. This copy inside the repository is the project plan going forward.
+In Edge, open `edge://extensions`, enable **Developer mode**, select **Load unpacked**, and choose `dist`. For Chrome, use `chrome://extensions` and choose `dist-chrome`.
 
-See [EXECUTION_LOOP_PLAN.md](EXECUTION_LOOP_PLAN.md) for the proposed delegated build/review loop, model allocation, token-efficiency controls, and prerequisites.
+### 2. Set up local recognition on Windows
 
-## Development
+Run these commands in PowerShell from the repository folder.
 
-See [local installation](docs/INSTALL.md). Development uses Node 22.12 or newer. Build with `npm ci` followed by `npm run build`, then load `dist/` as an unpacked extension. Run `npm run typecheck`, `npm run lint`, and `npm test` to check changes. The install guide explains how to use temporary Node 22 when your global version is older.
+```powershell
+.\scripts\setup-helper.ps1
+.\scripts\setup-songrec.ps1
+.\scripts\install-native-helper.ps1 -ExtensionId YOUR_EXTENSION_ID
+```
 
-For local recognition, follow [helper setup](helper/README.md). Run `scripts/setup-songrec.ps1` once on Windows for SongRec, and select **SongRec** or **ShazamIO** in extension Settings. Provider preference is saved locally independently of API-key retention. With native helper setup, Anioto starts the helper when needed.
+Replace `YOUR_EXTENSION_ID` with the ID on your browser’s extension card. For both Edge and Chrome, add the other ID using `-AdditionalExtensionId`. These scripts install a private runtime under `local-data` and register the native launcher for your user account.
 
-Never commit API credentials, captured audio, browser profiles, or personal recognition history. When sample configuration is introduced, use placeholders in `.env.example`.
+Open Anioto’s **Settings**, choose **SongRec**, and save. The local development build initially offers AudioTag, so choose SongRec explicitly. The separate store build defaults to SongRec. Opening Anioto starts an installed helper when a local provider is selected.
 
-## Contributing
+### 3. Find a song’s anime
 
-Issues and contributions will be welcome once this repository is published. Describe the intended behavior and relevant verification with each change. Use synthetic or appropriately licensed fixtures; do not commit private or copyrighted audio samples without the necessary rights.
+Play a clear music section, open Anioto, and select **Detect anime from this tab**. SongRec starts checking after three seconds while listening continues, with longer samples up to twelve seconds when needed. A match stops capture automatically.
 
-## License
+For troubleshooting and installation details, see [the installation guide](docs/INSTALL.md) and [helper setup](helper/README.md).
 
-Project code and original documentation are provided under the [MIT License](LICENSE). Third-party services, metadata, artwork, and music retain their own terms and rights. This project is independent and is not affiliated with its planned data providers.
+## Recognition providers
+
+| Provider | Available in | Setup and behavior |
+| --- | --- | --- |
+| **SongRec** | Local and store builds | Default in the store edition. The Windows helper creates fingerprints locally and queries Shazam. |
+| **Local Shazam / ShazamIO** | Local and store builds | Uses the same helper with the ShazamIO recognizer. Select it in Settings. |
+| **AudD** | Store build | Optional cloud recognition through a configured Anioto server. Requires explicit upload consent. Production deployment is pending. |
+| **AudioTag** | Local development build | Uses your personal API key and checks your account’s free allowance before an upload. |
+
+Each scan uses its selected provider. SongRec and ShazamIO both use Shazam’s online catalog through unofficial integrations. Their coverage and availability depend on that service. Provider keys for the hosted AudD integration belong on the server.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Start scan] --> B[Capture active-tab audio]
+    B --> C[Selected song recognizer]
+    C --> D[Song title and artist]
+    D --> E[AnisongDB song credits]
+    E --> F[AnimeThemes fallback when needed]
+    E --> G[Anime connections]
+    F --> G
+    G --> H[AniList titles and artwork]
+    H --> I[Results with source links]
+```
+
+The resolver handles Japanese and romanized metadata, common recording suffixes, and documented aliases. Artist and credit checks distinguish confirmed associations, alternate recordings, and possible cover connections. A small source-backed supplement covers selected credits outside the main catalogs. See [the matching evidence](docs/VERSION_MATCHING_EVIDENCE.md) and [data-source implementation](src/providers/anime.ts).
+
+## Develop and contribute
+
+```sh
+npm run build
+npm run typecheck
+npm run lint
+npm test
+```
+
+| Directory | Purpose |
+| --- | --- |
+| `src` | Popup, settings, capture, recognition adapters, and anime lookup |
+| `public` | Extension pages, styles, artwork, and manifest |
+| `helper` | Local recognition service and native bridge |
+| `server` | Optional AudD proxy and usage limits |
+| `scripts` | Builds, setup, packaging, and verification tools |
+| `tests` | Capture, lifecycle, provider, UI, and server regression tests |
+
+The latest release-preparation checks passed 364 JavaScript tests and 30 helper tests. The full development-dependency audit still has findings. Current evidence and unverified release work are recorded in [store verification](docs/STORE_VERIFICATION.md).
+
+Bug reports, documentation improvements, and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for reproduction details and the checks to run. [Open an issue](https://github.com/mfarhan08a/anioto/issues/new) with the browser version, selected provider, and the exact status shown by Anioto.
+
+## Privacy
+
+Capture starts when you request it. Settings, history, and saved personal matches are stored on your device. Local recognizers send fingerprints to Shazam. Cloud recognizers receive a short audio sample after the applicable upload consent. Anime services receive song or anime metadata for lookup.
+
+The [privacy policy](PRIVACY.md) explains each build’s data flow, temporary files, service providers, and data controls.
+
+## License and acknowledgements
+
+Anioto’s original code and documentation use the **[MIT License](LICENSE)**. You may use, modify, and redistribute that code, including commercially, while preserving its copyright and license notice.
+
+SongRec uses GPLv3, and other third-party components retain their respective licenses. Redistribution of a Windows companion must include the required component notices and corresponding source. See [companion notices](docs/COMPANION-NOTICES.md). Music, anime artwork, and third-party metadata retain their respective rights and service terms.
+
+Recognition is made possible by [SongRec](https://github.com/marin-m/SongRec), [ShazamIO](https://github.com/shazamio/ShazamIO), [AudD](https://audd.io/), and [AudioTag](https://audiotag.info/). Anime lookup uses [AnisongDB](https://anisongdb.com/), [AnimeThemes](https://animethemes.moe/), and [AniList](https://anilist.co/). Anioto is an independent project.
