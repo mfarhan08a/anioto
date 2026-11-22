@@ -13,6 +13,71 @@ export interface VerifiedTitleAlias {
 
 export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
   {
+    artist: 'Rie Murakawa',
+    canonicalTitle: 'Hajimari no Basho',
+    aliases: ['Hajimari no Basho', 'はじまりの場所'],
+    evidence: ['https://columbia.jp/artist-info/murakawarie/discography/COCC-17555.html'],
+  },
+  {
+    artist: 'Mitsuki Saiga',
+    // The OST release is credited to its composer; this is not a global artist equivalence.
+    artistAliases: ['Kevin Penkin', 'ベラフ(CV:斎賀みつき)'],
+    canonicalTitle: 'Belaf no Komoriuta',
+    aliases: ['Belaf no Komoriuta', 'ベラフの子守歌', "Belaf's Lullaby"],
+    evidence: ['https://miabyss.com/2nd_music_ost.html', 'https://www.youtube.com/watch?v=BCBcTjDEnmM', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Maki Kawase',
+    artistAliases: ['Yuna (CV: Maki Kawase)', 'ユナ(CV:河瀬茉希)'],
+    canonicalTitle: 'Ano ne.',
+    aliases: ['Ano ne.', 'Anone', 'あのね。'],
+    evidence: ['https://columbia.jp/prod-info/COCC-17809/'],
+  },
+  {
+    artist: 'Masakatsu Takagi',
+    canonicalTitle: 'Hidamari no Mori Uta',
+    aliases: ['Hidamari no Mori Uta', 'Lullaby In the Peaceful Light', '陽だまりの守唄'],
+    evidence: ['https://www.youtube.com/watch?v=8oaYiL_JQaI', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Gen Hoshino',
+    canonicalTitle: 'Kigeki',
+    aliases: ['Kigeki', 'Comedy', '喜劇'],
+    evidence: ['https://www.hoshinogen.com/works/detail/?id=39'],
+  },
+  {
+    artist: 'Akane Kumada',
+    canonicalTitle: 'Happy no Hiketsu',
+    aliases: ['Happy no Hiketsu', 'The secret of happiness', 'ハッピーの秘訣'],
+    evidence: ['https://www.youtube.com/watch?v=DiDDWexFjmg', 'https://www.youtube.com/watch?v=AQYoAXuHqzE'],
+  },
+  {
+    artist: 'fhána',
+    canonicalTitle: 'Aozora no Rhapsody',
+    aliases: ['Aozora no Rhapsody', 'Rhapsody of Blue Sky', '青空のラプソディ'],
+    evidence: ['https://fhana.jp/works/', 'https://www.lantis.jp/artist/fhana/news_1482462002.html'],
+  },
+  {
+    artist: 'MAYUKO & Luminous',
+    artistAliases: ['Kenichirou Suehiro', 'Kenichiro Suehiro', '末廣健一郎'],
+    canonicalTitle: 'Hitomi ni Utsuru Keshiki',
+    aliases: ['Hitomi ni Utsuru Keshiki', '瞳ニ映ル景色'],
+    evidence: ['https://girls-last-tour.com/products/music.html', 'https://www.youtube.com/watch?v=HMAfMwLVLdU', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Hina Kino, Rika Nagae, Konomi Kohara feat. Ikepy & KSKN',
+    artistAliases: ['本田華子(CV:木野日菜), オリヴィア(CV:長江里加), 野村香純(CV:小原好美) feat. Ikepy & KSKN'],
+    canonicalTitle: 'Inkya Impulse',
+    aliases: ['Inkya Impulse', 'インキャインパルス'],
+    evidence: ['https://asobiasobase.com/products/music.html'],
+  },
+  {
+    artist: 'GRANRODEO',
+    canonicalTitle: 'Hengenjizai no Magical Star',
+    aliases: ['Hengenjizai no Magical Star', 'Hengen Jizaino Majikaru Star', '変幻自在のマジカルスター'],
+    evidence: ['https://www.youtube.com/watch?v=c0aDpjEebpw'],
+  },
+  {
     artist: 'Madoka Yonezawa',
     artistAliases: ['Setsuna Ogiso (CV: Madoka Yonezawa)', '小木曽雪菜(CV:米澤円)'],
     canonicalTitle: 'SOUND OF DESTINY',

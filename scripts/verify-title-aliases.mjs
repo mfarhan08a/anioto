@@ -31,6 +31,16 @@ const cases = [
   { title: "After All Tsuduru Omoi '13", artist: 'Rena Uehara', expected: /White Album 2/i },
   { title: '夏を見ていた～「蛍火の杜へ」エンディングテーマ', artist: 'Sizzle Ohtaka', expected: /Forest of Fireflies|Firefly Forest|Hotarubi/i },
   { title: 'Wrong World', artist: 'TOGENASHI TOGEARI', expected: /Girls Band Cry/i },
+  { title: 'はじまりの場所', artist: 'Rie Murakawa', expected: /Forest of Piano|Piano no Mori/i },
+  { title: 'ベラフの子守歌', artist: 'Kevin Penkin', expected: /Made in Abyss.*Golden City/i },
+  { title: 'Anone', artist: 'Yuna (CV: Maki Kawase)', expected: /Kuma Kuma Kuma Bear/i },
+  { title: 'Lullaby In the Peaceful Light', artist: 'Masakatsu Takagi', expected: /Wolf Children/i },
+  { title: 'Comedy', artist: 'Gen Hoshino', expected: /Spy.*Family/i },
+  { title: 'The secret of happiness', artist: 'Akane Kumada', expected: /7th Prince/i },
+  { title: 'Rhapsody of Blue Sky', artist: 'Fhána', expected: /Kobayashi.*Dragon Maid/i },
+  { title: '瞳ニ映ル景色', artist: 'Kenichirou Suehiro', expected: /Girls.? Last Tour/i },
+  { title: 'インキャインパルス (feat. Ikepy & KSKN)', artist: '本田華子(CV:木野日菜), オリヴィア(CV:長江里加), 野村香純(CV:小原好美) feat. Ikepy & KSKN', expected: /Asobi Asobase/i },
+  { title: 'Hengen Jizaino Majikaru Star', artist: 'GRANRODEO', expected: /Kuroko/i },
 ];
 const observations = [];
 for (const { expected, kind = 'confirmed', ...song } of cases) {

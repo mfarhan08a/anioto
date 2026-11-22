@@ -74,3 +74,49 @@ and release announcement for Wrong World.
 live metadata resolver tests, not new audio-recognition tests. AnimeThemes HTTP
 503 remains an upstream availability issue; these inputs resolve from AnisongDB
 without needing that fallback.
+
+## Eleven further reports
+
+Ten reports were metadata mismatches against existing AnisongDB entries. Each
+fix uses an artist-scoped title alias or a song-scoped release-credit alias;
+no anime title or ID was hardcoded for these inputs.
+
+| Recognized metadata | Root cause | Live result |
+| --- | --- | --- |
+| はじまりの場所 / Rie Murakawa | Japanese title versus Hajimari no Basho | Forest of Piano Season 2 |
+| ベラフの子守歌 / Kevin Penkin | Japanese title and OST composer credit versus Belaf no Komoriuta / Mitsuki Saiga | Made in Abyss: The Golden City of the Scorching Sun |
+| Anone / Yuna (CV: Maki Kawase) | Joined-word title and character credit versus Ano ne. / Maki Kawase | Kuma Kuma Kuma Bear |
+| Lullaby In the Peaceful Light / Masakatsu Takagi | English release title versus Hidamari no Mori Uta | Wolf Children |
+| Comedy / Gen Hoshino | English title versus Kigeki | SPY x FAMILY |
+| The secret of happiness / Akane Kumada | English title versus Happy no Hiketsu | I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability |
+| Rhapsody of Blue Sky / Fhána | English title versus Aozora no Rhapsody | Miss Kobayashi's Dragon Maid |
+| 瞳ニ映ル景色 / Kenichirou Suehiro | Japanese title and composer credit versus Hitomi ni Utsuru Keshiki / MAYUKO & Luminous | Girls' Last Tour |
+| インキャインパルス (feat. Ikepy & KSKN) / Japanese character trio with guests | Japanese title and compound character credit versus Inkya Impulse / romanized cast and guests | Asobi Asobase |
+| Hengen Jizaino Majikaru Star / GRANRODEO | Joined-word boundaries and phonetic English transcription versus Hengenjizai no Magical Star | Kuroko's Basketball 2 |
+
+Composer and vocalist equivalence remains limited to the documented song. The
+Ano ne solo recording does not become equivalent to the loved-ones duet. Artist
+accent normalization already handles Fhána; no global artist rewrite was added.
+
+Primary sources are linked alongside the aliases: Columbia's Rie Murakawa and
+Kuma Kuma Kuma Bear releases, the Made in Abyss official OST page and label
+track, Milan's Wolf Children track, Gen Hoshino's release page, Akane Kumada's
+official Japanese/English tracks, fhána/Lantis releases, the Girls' Last Tour
+soundtrack page and label track, Asobi Asobase's music page, and Lantis's
+GRANRODEO video. AnisongDB supplies the actual anime associations.
+
+### Unresolved: Milky Way War History / Nash Music Library
+
+The user suggested Gintama as a possible source. Searches did not establish a
+documented connection. The [publisher-distributed release](https://linkco.re/5FU0MdEd/songs/1299944/lyrics?lang=en)
+establishes the library track's identity, but does not identify an anime usage.
+This may be missing anime-use metadata or an incorrect recognition result; the
+screenshots alone cannot distinguish them. A source video or episode number is
+needed to investigate further. No speculative Gintama association or permanent
+negative override was added. Future valid catalog results can still be used.
+
+The accumulated live check now covers 25 verified inputs, excluding this
+unresolved library track. `reported-metadata-third.test.ts` adds ten positive
+regressions, a solo/duet guard, and a no-catalog-evidence guard for the library
+track. The latter is a mocked negative test, not proof that the song has never
+been used in an anime.
