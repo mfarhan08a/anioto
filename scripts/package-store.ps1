@@ -32,17 +32,22 @@ foreach ($browser in $browsers) {
 }
 
 New-Item -ItemType Directory -Path (Join-Path $payload 'local-data/native-host'), (Join-Path $payload 'helper') -Force | Out-Null
-Copy-Item -LiteralPath $runtime, $songrec -Destination (Join-Path $payload 'local-data') -Recurse
+Copy-Item -LiteralPath $runtime -Destination (Join-Path $payload 'local-data') -Recurse
+# Test archives may include the existing SongRec payload. Production installers
+# obtain the pinned original release directly from its official distributor.
+if ($AllowTestConfiguration) { Copy-Item -LiteralPath $songrec -Destination (Join-Path $payload 'local-data') -Recurse }
+else { Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'setup-songrec.ps1') -Destination (Join-Path $payload 'helper/Download-SongRec.ps1') }
 foreach ($file in @('native_host.py', 'server.py', 'browser_session.py', 'requirements.txt', 'requirements-store.lock.txt', 'NativeHost.cs')) {
     Copy-Item -LiteralPath (Join-Path $root "helper/$file") -Destination (Join-Path $payload 'helper')
 }
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'store-companion.ps1') -Destination (Join-Path $payload 'Install-Anioto.ps1')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'store-companion.cmd') -Destination (Join-Path $payload 'Install-Anioto.cmd')
-Copy-Item -LiteralPath (Join-Path $root 'docs/COMPANION-NOTICES.md'), (Join-Path $root 'LICENSE') -Destination $payload
+Copy-Item -LiteralPath (Join-Path $root 'docs/COMPANION-NOTICES.md'), (Join-Path $root 'docs/COMPANION_PYTHON_COMPONENTS.json'), (Join-Path $root 'LICENSE') -Destination $payload
 $exe = Join-Path $payload 'local-data/native-host/AniotoNativeHost.exe'
 & (Join-Path $env:WINDIR 'Microsoft.NET/Framework64/v4.0.30319/csc.exe') /nologo /target:exe ("/out:" + $exe) (Join-Path $root 'helper/NativeHost.cs')
 if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath $exe -PathType Leaf)) { throw 'Could not compile the Anioto native host.' }
 $config = [ordered]@{ version = $version; edge = $ids.edge; chrome = $ids.chrome }
+if (-not $AllowTestConfiguration) { $config.downloadSongRec = $true }
 $config | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $payload 'companion.json') -Encoding ascii
 
 function Write-Package($Directory, $File) {

@@ -2,7 +2,29 @@
 
 The Windows store edition uses SongRec by default. Settings also offers Local Shazam and AudD. Each scan uses the selected recognizer. The development build still supports its existing personal AudioTag setup.
 
-## Build and run a release candidate
+For the first public Edge release, AudD is visibly unavailable. Build with
+`--local-only`; this mode has no cloud endpoint or cloud host permission.
+
+## First public Edge build (local recognizers)
+
+1. Use Node 22.12 or newer. Run the normal build, typecheck, lint, extension
+   tests and helper tests.
+2. Set `ANIOTO_HELPER_URL` to
+   `https://github.com/mfarhan08a/anioto/blob/main/docs/WINDOWS_COMPANION.md`.
+   Run `node scripts/build.mjs --store --local-only --browser=edge`.
+3. Verify the pinned helper runtime with `setup-helper.ps1 -Store` in a clean
+   release checkout. Run
+   `scripts/package-store.ps1 -EdgeId jbnlofkgdcmfkpafncbenbhbmoicpnnk` without
+   `-AllowTestConfiguration`. The production ZIP's installer obtains SongRec
+   directly from its official release rather than redistributing its runtime.
+4. Inspect the ZIPs, verify checksums, and test companion install, native-host
+   startup, registration and browser-disconnect cleanup. Publish the Windows ZIP,
+   checksum, source/build information and installation instructions on GitHub.
+5. Upload `Anioto-0.10.6-edge.zip` to the existing Partner Center product. Update
+   privacy/disclosures and reviewer instructions to match local-only behavior.
+   Submit for certification, then verify the resulting store status.
+
+## Future cloud-enabled release candidates
 
 1. From a clean checkout, use Node 22.12 or newer and `npm ci`. Run `npm run build`, `npm run typecheck`, `npm run lint`, and `npm test`.
 2. Deploy `server/wrangler.toml` to a dedicated Cloudflare account with the recognition switch set to `false`. Set `AUDD_TOKEN` and `QUOTA_SECRET` through Wrangler secrets. Use separate deployments and credentials for tests and production. Generate `QUOTA_SECRET` with a cryptographic random generator. Configure AudD’s provider-side hard cap and confirm audio handling terms before setting `RECOGNITION_ENABLED` to `true`.

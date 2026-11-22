@@ -16,7 +16,13 @@ New-Item -ItemType Directory -Path $staging | Out-Null
 try {
     if (-not $StandalonePath) {
         $StandalonePath = Join-Path $staging 'SongRec-0.8.2-standalone.exe'
-        Invoke-WebRequest -Uri 'https://github.com/marin-m/SongRec/releases/download/0.8.2/SongRec-0.8.2-standalone.exe' -OutFile $StandalonePath
+        $downloadUrl = 'https://github.com/marin-m/SongRec/releases/download/0.8.2/SongRec-0.8.2-standalone.exe'
+        if (Get-Command curl.exe -ErrorAction SilentlyContinue) {
+            & curl.exe --fail --location --silent --show-error --connect-timeout 30 --max-time 300 --retry 1 --output $StandalonePath $downloadUrl
+            if ($LASTEXITCODE -ne 0) { throw 'Could not download the official SongRec release. Check your connection and retry setup.' }
+        } else {
+            Invoke-WebRequest -UseBasicParsing -TimeoutSec 300 -Uri $downloadUrl -OutFile $StandalonePath
+        }
     }
     $source = (Resolve-Path -LiteralPath $StandalonePath).Path
     $expectedHash = '7356F40C66A0524C8C52916EDE3C9582A424FAC4A43E516BD81FA362D1C71A2B'

@@ -1,0 +1,213 @@
+[
+  {
+    "name": "aiohappyeyeballs",
+    "version": "2.7.1",
+    "license": "PSF-2.0",
+    "source": "https://pypi.org/project/aiohappyeyeballs/2.7.1/#files",
+    "licenseFiles": [
+      "aiohappyeyeballs-2.7.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "aiohttp",
+    "version": "3.14.5",
+    "license": "Apache-2.0 AND MIT",
+    "source": "https://pypi.org/project/aiohttp/3.14.5/#files",
+    "licenseFiles": [
+      "aiohttp-3.14.5.dist-info/licenses/LICENSE.txt",
+      "aiohttp-3.14.5.dist-info/licenses/vendor/llhttp/LICENSE"
+    ]
+  },
+  {
+    "name": "aiohttp-retry",
+    "version": "2.9.1",
+    "license": "MIT",
+    "source": "https://pypi.org/project/aiohttp-retry/2.9.1/#files",
+    "licenseFiles": [
+      "aiohttp_retry-2.9.1.dist-info/LICENSE"
+    ]
+  },
+  {
+    "name": "aiosignal",
+    "version": "1.4.0",
+    "license": "Apache 2.0",
+    "source": "https://pypi.org/project/aiosignal/1.4.0/#files",
+    "licenseFiles": [
+      "aiosignal-1.4.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "annotated-types",
+    "version": "0.8.0",
+    "license": "MIT",
+    "source": "https://pypi.org/project/annotated-types/0.8.0/#files",
+    "licenseFiles": [
+      "annotated_types-0.8.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "attrs",
+    "version": "26.1.0",
+    "license": "MIT",
+    "source": "https://pypi.org/project/attrs/26.1.0/#files",
+    "licenseFiles": [
+      "attrs-26.1.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "frozenlist",
+    "version": "1.8.0",
+    "license": "Apache-2.0",
+    "source": "https://pypi.org/project/frozenlist/1.8.0/#files",
+    "licenseFiles": [
+      "frozenlist-1.8.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "idna",
+    "version": "3.20",
+    "license": "BSD-3-Clause",
+    "source": "https://pypi.org/project/idna/3.20/#files",
+    "licenseFiles": [
+      "idna-3.20.dist-info/licenses/LICENSE.md"
+    ]
+  },
+  {
+    "name": "multidict",
+    "version": "7.2.1",
+    "license": "Apache-2.0",
+    "source": "https://pypi.org/project/multidict/7.2.1/#files",
+    "licenseFiles": [
+      "multidict-7.2.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "pip",
+    "version": "26.2.2",
+    "license": "MIT",
+    "source": "https://pypi.org/project/pip/26.2.2/#files",
+    "licenseFiles": [
+      "pip-26.2.2.dist-info/licenses/AUTHORS.txt",
+      "pip-26.2.2.dist-info/licenses/LICENSE.txt",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/cachecontrol/LICENSE.txt",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/certifi/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/distlib/LICENSE.txt",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/distro/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/idna/LICENSE.md",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/msgpack/COPYING",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/packaging/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/packaging/LICENSE.APACHE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/packaging/LICENSE.BSD",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/pkg_resources/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/platformdirs/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/pygments/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/pyproject_hooks/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/requests/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/resolvelib/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/rich/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/tomli/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/tomli_w/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/truststore/LICENSE",
+      "pip-26.2.2.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt",
+      "pip/_vendor/cachecontrol/LICENSE.txt",
+      "pip/_vendor/certifi/LICENSE",
+      "pip/_vendor/distlib/LICENSE.txt",
+      "pip/_vendor/distro/LICENSE",
+      "pip/_vendor/idna/LICENSE.md",
+      "pip/_vendor/msgpack/COPYING",
+      "pip/_vendor/packaging/LICENSE",
+      "pip/_vendor/packaging/LICENSE.APACHE",
+      "pip/_vendor/packaging/LICENSE.BSD",
+      "pip/_vendor/packaging/licenses/__init__.py",
+      "pip/_vendor/packaging/licenses/__pycache__/__init__.cpython-313.pyc",
+      "pip/_vendor/packaging/licenses/__pycache__/_spdx.cpython-313.pyc",
+      "pip/_vendor/packaging/licenses/_spdx.py",
+      "pip/_vendor/pkg_resources/LICENSE",
+      "pip/_vendor/platformdirs/LICENSE",
+      "pip/_vendor/pygments/LICENSE",
+      "pip/_vendor/pyproject_hooks/LICENSE",
+      "pip/_vendor/requests/LICENSE",
+      "pip/_vendor/resolvelib/LICENSE",
+      "pip/_vendor/rich/LICENSE",
+      "pip/_vendor/tomli/LICENSE",
+      "pip/_vendor/tomli_w/LICENSE",
+      "pip/_vendor/truststore/LICENSE",
+      "pip/_vendor/urllib3/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "propcache",
+    "version": "0.5.4",
+    "license": "Apache-2.0",
+    "source": "https://pypi.org/project/propcache/0.5.4/#files",
+    "licenseFiles": [
+      "propcache-0.5.4.dist-info/licenses/LICENSE",
+      "propcache-0.5.4.dist-info/licenses/NOTICE"
+    ]
+  },
+  {
+    "name": "pydantic",
+    "version": "2.14.2",
+    "license": "MIT",
+    "source": "https://pypi.org/project/pydantic/2.14.2/#files",
+    "licenseFiles": [
+      "pydantic-2.14.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "pydantic_core",
+    "version": "2.50.2",
+    "license": "MIT",
+    "source": "https://pypi.org/project/pydantic_core/2.50.2/#files",
+    "licenseFiles": [
+      "pydantic_core-2.50.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "shazamio",
+    "version": "0.9.0",
+    "license": "MIT",
+    "source": "https://pypi.org/project/shazamio/0.9.0/#files",
+    "licenseFiles": [
+      "shazamio-0.9.0.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "shazamio_core",
+    "version": "2.0.0",
+    "license": "MIT",
+    "source": "https://pypi.org/project/shazamio_core/2.0.0/#files",
+    "licenseFiles": [
+      "shazamio_core-2.0.0.dist-info/licenses/LICENSE",
+      "shazamio_core-2.0.0.dist-info/licenses/THIRD-PARTY-NOTICES.md"
+    ]
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "license": "PSF-2.0",
+    "source": "https://pypi.org/project/typing_extensions/4.16.0/#files",
+    "licenseFiles": [
+      "typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "typing-inspection",
+    "version": "0.4.4",
+    "license": "MIT",
+    "source": "https://pypi.org/project/typing-inspection/0.4.4/#files",
+    "licenseFiles": [
+      "typing_inspection-0.4.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "name": "yarl",
+    "version": "1.25.1",
+    "license": "Apache-2.0",
+    "source": "https://pypi.org/project/yarl/1.25.1/#files",
+    "licenseFiles": [
+      "yarl-1.25.1.dist-info/licenses/LICENSE",
+      "yarl-1.25.1.dist-info/licenses/NOTICE"
+    ]
+  }
+]

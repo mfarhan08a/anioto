@@ -5,6 +5,8 @@ import { browserManifest } from './browser-manifests.mjs';
 
 const root = process.cwd();
 const store = process.argv.includes('--store');
+const localOnly = process.argv.includes('--local-only');
+if (localOnly && !store) throw new Error('--local-only requires --store.');
 const httpsUrl = (name, value) => {
   let url;
   try { url = new URL(value); } catch { throw new Error(`${name} must be an absolute HTTPS URL.`); }
@@ -14,10 +16,10 @@ const httpsUrl = (name, value) => {
   return url;
 };
 const storeConfig = store ? {
-  recognitionUrl: httpsUrl('ANIOTO_RECOGNITION_URL', process.env.ANIOTO_RECOGNITION_URL).href,
+  recognitionUrl: localOnly ? null : httpsUrl('ANIOTO_RECOGNITION_URL', process.env.ANIOTO_RECOGNITION_URL).href,
   helperUrl: httpsUrl('ANIOTO_HELPER_URL', process.env.ANIOTO_HELPER_URL).href,
 } : null;
-if (storeConfig && new URL(storeConfig.recognitionUrl).pathname !== '/v1/recognize') throw new Error('ANIOTO_RECOGNITION_URL must end in /v1/recognize.');
+if (storeConfig?.recognitionUrl && new URL(storeConfig.recognitionUrl).pathname !== '/v1/recognize') throw new Error('ANIOTO_RECOGNITION_URL must end in /v1/recognize.');
 const selected = process.argv.find(arg => arg.startsWith('--browser='))?.split('=')[1] ?? 'all';
 const targets = selected === 'all' ? (store ? ['edge', 'chrome'] : ['edge', 'chrome', 'firefox', 'safari']) : [selected];
 if (targets.some(target => !['edge', 'chrome', 'firefox', 'safari'].includes(target))) throw new Error(`Invalid browser target: ${selected}`);
@@ -40,12 +42,13 @@ for (const browser of targets) {
   const manifest = browserManifest(base, browser);
   if (storeConfig) {
     manifest.host_permissions = manifest.host_permissions.filter(permission => permission !== 'https://audiotag.info/*');
-    manifest.host_permissions.push(`${new URL(storeConfig.recognitionUrl).origin}/*`);
+    if (storeConfig.recognitionUrl) manifest.host_permissions.push(`${new URL(storeConfig.recognitionUrl).origin}/*`);
     const localOptions = await readFile('public/options.html', 'utf8');
     const start = localOptions.indexOf('<p>SongRec');
     const end = localOptions.indexOf('<h2>Personal matches</h2>');
     if (start < 0 || end < start) throw new Error('Could not locate shared settings markup.');
-    const storeOptions = await readFile('public/store-settings.html', 'utf8');
+    let storeOptions = await readFile('public/store-settings.html', 'utf8');
+    if (localOnly) storeOptions = storeOptions.replace('<option value="audd">AudD (cloud recognition)</option>', '<option value="audd" disabled>AudD (not available in this release)</option>');
     await writeFile(path.join(outdir, 'options.html'), localOptions.slice(0, start) + storeOptions + localOptions.slice(end));
   }
   await writeFile(path.join(outdir, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');

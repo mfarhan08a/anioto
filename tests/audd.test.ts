@@ -10,6 +10,15 @@ beforeEach(() => {
 
 afterEach(() => vi.unstubAllGlobals());
 
+it('rejects local-only store calls without sending any network request', async () => {
+  vi.stubGlobal('ANIOTO_STORE_CONFIG', { recognitionUrl: null, helperUrl: 'https://github.com/mfarhan08a/anioto' });
+  const fetchMock = vi.fn();
+  vi.stubGlobal('fetch', fetchMock);
+  const { recognizeAudD } = await import('../src/providers/audd');
+  await expect(recognizeAudD(clip, new AbortController().signal)).rejects.toThrow('not available');
+  expect(fetchMock).not.toHaveBeenCalled();
+});
+
 it('makes one request without credentials in the client and distinguishes a miss from quota exhaustion', async () => {
   const fetchMock = vi.fn().mockResolvedValueOnce(Response.json(null)).mockResolvedValueOnce(new Response(null, { status: 429 }));
   vi.stubGlobal('fetch', fetchMock);

@@ -46,6 +46,13 @@ $browsers = @('edge', 'chrome') | Where-Object { $config.$_ }
 if (-not $browsers -or @($browsers | Where-Object { $config.$_ -notmatch '^[a-p]{32}$' }).Count) { throw 'Invalid store extension ID.' }
 $origins = @($browsers | ForEach-Object { 'chrome-extension://{0}/' -f $config.$_ } | Select-Object -Unique)
 $hostRelative = 'local-data\native-host\AniotoNativeHost.exe'
+if ($config.downloadSongRec -eq $true -and -not (Test-Path -LiteralPath (Join-Path $PSScriptRoot 'local-data/songrec/songrec.exe') -PathType Leaf)) {
+    $downloadScript = Join-Path $PSScriptRoot 'helper/Download-SongRec.ps1'
+    if (-not (Test-Path -LiteralPath $downloadScript -PathType Leaf)) { throw 'The SongRec download helper is missing.' }
+    Write-Output 'Downloading the pinned SongRec release from github.com/marin-m/SongRec. An internet connection is required.'
+    & $downloadScript
+    if (-not (Test-Path -LiteralPath (Join-Path $PSScriptRoot 'local-data/songrec/songrec.exe') -PathType Leaf)) { throw 'SongRec setup did not complete.' }
+}
 $paths = @($hostRelative, 'local-data\runtime\python.exe', 'local-data\songrec\songrec.exe', 'helper\native_host.py')
 foreach ($file in $paths) {
     if (-not (Test-Path -LiteralPath (Join-Path $PSScriptRoot $file) -PathType Leaf)) { throw "The companion package is missing $file." }
@@ -56,7 +63,7 @@ if ((Get-Item -LiteralPath $root).Attributes -band [IO.FileAttributes]::ReparseP
 if (-not (Test-Path -LiteralPath $installation)) {
     $staging = Join-Path $root ('.install-' + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $staging | Out-Null
-    foreach ($file in @('helper', 'local-data', 'companion.json', 'Install-Anioto.ps1', 'Install-Anioto.cmd', 'COMPANION-NOTICES.md', 'LICENSE')) {
+    foreach ($file in @('helper', 'local-data', 'companion.json', 'Install-Anioto.ps1', 'Install-Anioto.cmd', 'COMPANION-NOTICES.md', 'COMPANION_PYTHON_COMPONENTS.json', 'LICENSE')) {
         Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination $staging -Recurse
     }
     Move-Item -LiteralPath $staging -Destination $installation

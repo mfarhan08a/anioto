@@ -1,5 +1,30 @@
 # Store edition implementation verification
 
+## Production local-only package: 0.10.6 — 23 November 2026
+
+The user approved launching with SongRec and Local Shazam. The production Edge
+ZIP has no `.example` host permission or cloud endpoint. AudD is visibly
+disabled; stale cloud preferences recover to SongRec, and direct AudD calls
+fail without a network request. Cloud-enabled build support remains available
+for a future configured release.
+
+Build/typecheck/lint, 410 extension tests and 30 helper tests passed. ZIP contents
+and checksums passed. The production installer was run for the current Windows
+user: pinned official SongRec download/hash verification, repeat installation,
+official Edge ID registration, native messaging startup, website-origin rejection,
+SongRec version, ShazamIO import and disconnect shutdown all passed.
+
+The companion ZIP does not redistribute SongRec's Windows runtime. It downloads
+the pinned original release during installation. All 18 redistributed Python
+distributions retain installed license files; inventory is published alongside
+the source. Companion download/install and privacy pages are prepared for GitHub.
+
+See [production artifact report](PRODUCTION_PACKAGE_0.10.6.json),
+[native test report](PRODUCTION_NATIVE_TEST.json), and
+[publication plan](EDGE_PUBLICATION_PLAN.md). These checks do not themselves
+constitute Microsoft approval or a live store installation. The historical
+test/cloud-preparation records below remain for traceability.
+
 ## Latest package build: 0.10.6 — 23 November 2026
 
 The latest merged lookup fixes have been rebuilt into version 0.10.6. All six

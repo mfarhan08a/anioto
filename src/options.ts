@@ -12,17 +12,26 @@ function setupLocalSettings(): void {
 }
 
 async function setupStoreSettings(helperUrl: string): Promise<void> {
+  const cloudAvailable = Boolean(storeConfig?.recognitionUrl);
   const consent = get<HTMLInputElement>('audd-consent');
+  if (!cloudAvailable) {
+    consent.disabled = true;
+    get('audd-settings').hidden = true;
+  }
   get<HTMLAnchorElement>('install-companion').href = helperUrl;
   const saved = await chrome.storage.local.get(['preferredProvider', 'settings']);
-  provider.value = isLocalRecognitionProvider(saved.preferredProvider) || saved.preferredProvider === 'audd' ? saved.preferredProvider : 'songrec';
-  consent.checked = saved.settings?.auddConsent === true;
+  provider.value = isLocalRecognitionProvider(saved.preferredProvider) || (cloudAvailable && saved.preferredProvider === 'audd') ? saved.preferredProvider : 'songrec';
+  consent.checked = cloudAvailable && saved.settings?.auddConsent === true;
   provider.disabled = false;
   get<HTMLButtonElement>('save-provider').disabled = false;
   get('settings-form').onsubmit = async event => {
     event.preventDefault();
+    if (!isLocalRecognitionProvider(provider.value) && !(cloudAvailable && provider.value === 'audd')) {
+      statusElement.textContent = 'This provider is not available in this release.';
+      return;
+    }
     try {
-      await chrome.storage.local.set({ preferredProvider: provider.value, settings: { auddConsent: consent.checked } });
+      await chrome.storage.local.set({ preferredProvider: provider.value, settings: { auddConsent: cloudAvailable && consent.checked } });
       statusElement.textContent = 'Settings saved.';
     } catch {
       statusElement.textContent = 'Could not save settings.';

@@ -1,8 +1,8 @@
 # Anioto privacy policy
 
-Effective November 18, 2026.
+Effective November 23, 2026.
 
-Anioto is an open-source browser extension maintained by [mfarhan08a](https://github.com/mfarhan08a). It identifies songs and finds their documented anime connections. This policy describes the local development builds and the store edition in preparation. The repository’s optional AudD server must be configured and deployed before cloud recognition is available.
+Anioto is an open-source browser extension maintained by [mfarhan08a](https://github.com/mfarhan08a). It identifies songs and finds their documented anime connections. This policy describes local development builds and the first Edge store release. The first store release enables SongRec and Local Shazam. AudD is visibly unavailable, and that package has no configured cloud recognition endpoint.
 
 ## Tab audio and local previews
 
@@ -18,9 +18,9 @@ Anioto passes the sample over localhost to a companion running on your device. S
 
 SongRec can create a temporary WAV file while recognizing a sample. The helper removes that file after the recognition worker finishes, including cancellation and error cleanup. The helper stores no recognition history and its request logger is disabled.
 
-### AudD in the store edition
+### AudD in future cloud-enabled editions
 
-When you select AudD and enable its upload consent, Anioto sends the clip to the configured Anioto HTTPS server, which forwards it to AudD. The server processes the clip in memory. Application code does not save audio, tab URLs, or song results on the server.
+AudD cannot be selected in the first Edge store release. In a future cloud-enabled edition, selecting AudD and enabling upload consent will send the clip to the configured Anioto HTTPS server, which forwards it to AudD. The repository's server implementation processes the clip in memory and does not save audio, tab URLs, or song results on the server.
 
 The server processes the connecting network address to enforce usage limits. It stores a keyed daily hash derived from that address, a daily usage counter, and a monthly total. Expired quota records are deleted during a subsequent quota reservation. The production service is not deployed as of this policy’s effective date.
 
@@ -51,6 +51,11 @@ Anioto uses these data flows to recognize music, retrieve anime credits, display
 Anioto’s use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
 
 ## GitHub support and policy updates
+
+The Windows installer downloads a pinned SongRec release directly from GitHub
+and verifies its SHA-256. GitHub receives normal download-request information.
+The installer stores runtime files and registers a native host for the current
+Windows user. It does not register a startup task or request administrator access.
 
 For questions, use [Anioto’s GitHub Issues](https://github.com/mfarhan08a/anioto/issues). Issues are public, so share only information you intend to make public. GitHub processes visits and contributions under its [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
