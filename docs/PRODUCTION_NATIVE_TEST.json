@@ -1,0 +1,12 @@
+{
+  "version": "0.10.6",
+  "edgeId": "jbnlofkgdcmfkpafncbenbhbmoicpnnk",
+  "installer": "passed",
+  "nativeRegistration": "passed",
+  "nativeMessagingStartup": "passed",
+  "allowedOriginHealth": "passed",
+  "websiteOriginRejected": "passed",
+  "songrecVersion": "songrec 0.8.2",
+  "shazamioImport": "passed",
+  "disconnectShutdown": "passed"
+}

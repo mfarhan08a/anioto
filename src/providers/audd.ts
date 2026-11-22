@@ -5,6 +5,7 @@ export const AUDD_SAMPLE_SECONDS = 8;
 
 export async function recognizeAudD(sample: Blob, signal: AbortSignal): Promise<Song[]> {
   if (!storeConfig) throw new Error('AudD is available in the store edition.');
+  if (!storeConfig.recognitionUrl) throw new Error('AudD is not available in this release. Choose SongRec or Local Shazam in Settings.');
   let response: Response;
   try {
     response = await fetch(storeConfig.recognitionUrl, {

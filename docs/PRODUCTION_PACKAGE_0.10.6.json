@@ -1,0 +1,26 @@
+{
+  "version": "0.10.6",
+  "date": "2026-11-23",
+  "edgeId": "jbnlofkgdcmfkpafncbenbhbmoicpnnk",
+  "cloudEnabled": false,
+  "builds": "Edge/Chrome/Firefox/Safari development and Edge local-only store",
+  "typecheck": "passed",
+  "lint": "passed",
+  "extensionTests": 410,
+  "helperTests": 30,
+  "nativeTest": "PRODUCTION_NATIVE_TEST.json",
+  "artifacts": [
+    {
+      "file": "Anioto-0.10.6-edge.zip",
+      "bytes": 144357,
+      "sha256": "d9b011d528dc465003a65a13b438ecd4df4ac88e1448bfe32cfc74f1606ba3fc",
+      "integrity": "passed"
+    },
+    {
+      "file": "Anioto-0.10.6-Windows-x64.zip",
+      "bytes": 23400953,
+      "sha256": "112471e12d4e0a3e3fefd786c4ccaa18081df15991dba3683977469b7ed4037c",
+      "integrity": "passed"
+    }
+  ]
+}

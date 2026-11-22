@@ -38,11 +38,11 @@ Anioto identifies songs playing in your browser tab and finds their documented a
 
 ### Windows companion
 
-SongRec is the default provider. SongRec and Local Shazam require a separate, one-time Windows x64 companion installation. After setup, opening Anioto starts the helper when a local provider is selected. Both create fingerprints on your device and query Shazam through unofficial integrations.
+SongRec is the default provider. SongRec and Local Shazam require a separate, one-time Windows x64 companion installation. The installer downloads the pinned SongRec release from its official GitHub release and verifies its checksum. After setup, opening Anioto starts the helper when a local provider is selected. Both create fingerprints on your device and query Shazam through unofficial integrations. Manual search works without the companion.
 
 ### Provider choices and privacy
 
-Choose SongRec, Local Shazam, or the optional AudD cloud service in Settings. Each scan uses the selected provider. AudD availability depends on the configured service and requires permission to upload a short audio sample. Anime databases receive song and artist queries to look up credits.
+Choose SongRec or Local Shazam in Settings. AudD is marked unavailable in this release. Each scan uses the selected provider. Both local engines create fingerprints on your Windows device and query Shazam online through unofficial integrations. Anime databases receive song and artist queries to look up credits.
 
 Results depend on the recognition catalog and available anime credits. Possible cover connections are labeled, and some recognized songs may have no documented anime connection.
 
@@ -50,4 +50,7 @@ Anioto is open source under the MIT license. Setup instructions, source code, an
 
 ## Before certification
 
-The current package is a release-preparation build. Replace placeholder production URLs, configure the companion for the official Edge extension ID, and complete the remaining work in [store verification](STORE_VERIFICATION.md) before submitting for certification.
+The first release uses the local-only build and the official Edge CRX ID
+`jbnlofkgdcmfkpafncbenbhbmoicpnnk`. Submit only the production archive with no
+`.example` permission. Reviewer setup instructions must include the public
+[companion installation page](https://github.com/mfarhan08a/anioto/blob/main/docs/WINDOWS_COMPANION.md).

@@ -191,8 +191,8 @@ async function readSettings(): Promise<Settings> {
   const localSettings = local[SETTINGS_LOCAL_KEY] as Partial<Settings> | undefined;
   if (storeConfig) return {
     apiKey: '', remember: false, freeAccessConfirmed: false,
-    auddConsent: localSettings?.auddConsent === true,
-    provider: isLocalRecognitionProvider(local.preferredProvider) || local.preferredProvider === 'audd' ? local.preferredProvider : 'songrec',
+    auddConsent: Boolean(storeConfig.recognitionUrl) && localSettings?.auddConsent === true,
+    provider: isLocalRecognitionProvider(local.preferredProvider) || (storeConfig.recognitionUrl && local.preferredProvider === 'audd') ? local.preferredProvider : 'songrec',
   };
   return {
     apiKey: sessionSettings?.apiKey ?? (localSettings?.remember ? localSettings.apiKey ?? '' : ''),

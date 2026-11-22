@@ -36,3 +36,23 @@ it('lists the three store providers in the intended order', async () => {
   expect(providers).toEqual(['songrec', 'local-shazam', 'audd']);
   expect(form).not.toContain('api-key');
 });
+
+it('disables AudD in a local-only release and recovers a stale cloud preference', async () => {
+  const local: Record<string, any> = { preferredProvider: 'audd', settings: { auddConsent: true } };
+  const elements = new Map<string, any>();
+  for (const id of ['provider', 'status', 'audd-consent', 'audd-settings', 'install-companion', 'settings-form', 'save-provider', 'override-form', 'export', 'import', 'clear-overrides']) elements.set(id, { value: '', checked: false, disabled: true });
+  const bundled = await build({ entryPoints: ['src/options.ts'], bundle: true, write: false, format: 'iife', define: { ANIOTO_STORE_CONFIG: JSON.stringify({ recognitionUrl: null, helperUrl: 'https://github.com/mfarhan08a/anioto' }) } });
+  runInNewContext(bundled.outputFiles[0]!.text, { document: { getElementById: (id: string) => elements.get(id) ?? null }, chrome: { storage: { local: { get: async () => local, set: async (value: object) => Object.assign(local, value) } } } });
+  await new Promise(resolve => setTimeout(resolve, 0));
+  expect(elements.get('provider').value).toBe('songrec');
+  expect(elements.get('audd-consent').disabled).toBe(true);
+  expect(elements.get('audd-consent').checked).toBe(false);
+  expect(elements.get('audd-settings').hidden).toBe(true);
+  elements.get('provider').value = 'local-shazam';
+  await elements.get('settings-form').onsubmit({ preventDefault() {} });
+  expect(local).toEqual({ preferredProvider: 'local-shazam', settings: { auddConsent: false } });
+  elements.get('provider').value = 'audd';
+  await elements.get('settings-form').onsubmit({ preventDefault() {} });
+  expect(local.preferredProvider).toBe('local-shazam');
+  expect(elements.get('status').textContent).toContain('not available');
+});

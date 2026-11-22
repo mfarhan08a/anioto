@@ -1,5 +1,5 @@
 interface StoreConfig {
-  recognitionUrl: string;
+  recognitionUrl: string | null;
   helperUrl: string;
 }
 
