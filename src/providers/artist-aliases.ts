@@ -7,6 +7,11 @@ export const CARNIVAL_PHANTASM_OPENING_CAST = 'Minami Kuribayashi, Miyuki Hashim
 // The official anime credit names 7!! (seven oops / セブンウップス):
 // https://www.kimiuso.jp/music/04.html and https://7oops.com/
 const GROUPS = [
+  // The complete opening cast, not an individual member or an inferred character match.
+  // https://asobiasobase.com/products/music.html
+  ['Hina Kino, Rika Nagae, Konomi Kohara',
+    '本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)',
+    '本田華子(CV:木野日菜)、オリヴィア(CV:長江里加)、野村香純(CV:小原好美)'],
   // https://www.kadokawa.co.jp/product/video1107/
   ['Noriko Watanabe', 'Watanabe Noriko', '渡辺典子', '渡辺 典子'],
   // https://www.typemoon.com/products/cp/outline.html

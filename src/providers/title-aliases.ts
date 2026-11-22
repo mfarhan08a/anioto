@@ -13,6 +13,19 @@ export interface VerifiedTitleAlias {
 
 export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
   {
+    artist: 'Hina Kino, Rika Nagae, Konomi Kohara',
+    canonicalTitle: 'Three-Piece',
+    aliases: ['スリピス', 'Suripisu', 'Three-Piece'],
+    evidence: ['https://asobiasobase.com/products/music.html', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Kenshi Yonezu',
+    artistAliases: ['米津玄師'],
+    canonicalTitle: 'Chikyuugi',
+    aliases: ['Chikyuugi', 'Chikyugi', 'Chikyugi - Spinning Globe', '地球儀', '地球儀 - Spinning Globe', 'Spinning Globe'],
+    evidence: ['https://www.youtube.com/watch?v=abKcYyQ1V7Y', 'https://www.youtube.com/watch?v=M98h-ucIcBs', 'https://anisongdb.com/'],
+  },
+  {
     artist: 'Mika Kobayashi',
     artistAliases: ['Hiroyuki Sawano', 'Sawano Hiroyuki', '澤野弘之'],
     canonicalTitle: 'βίος <MK+nZk Version>',

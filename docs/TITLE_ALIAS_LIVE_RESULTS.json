@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-22T14:15:09.387Z",
+  "scope": "Live full anime resolver with screenshot metadata; does not test audio recognition.",
+  "observations": [
+    {
+      "song": {
+        "title": "スリピス",
+        "artist": "本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)"
+      },
+      "elapsedMs": 1371,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 101001,
+          "title": "Asobi Asobase - workshop of fun -",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Three-Piece” by Hina Kino, Rika Nagae, Konomi Kohara, Rika Nagae, Hina Kino, Konomi Kohara for Asobi Asobase: Workshop of Fun.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Asobi Asobase",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101001-UERCW0UGi0P7.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Chikyugi - Spinning Globe",
+        "artist": "Kenshi Yonezu"
+      },
+      "elapsedMs": 646,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 109979,
+          "title": "The Boy and the Heron",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Chikyuugi” by Kenshi Yonezu for The Boy and the Heron.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kimitachi wa Dou Ikiru ka",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx109979-BRHXpBkCw4oc.jpg"
+        }
+      ]
+    }
+  ]
+}
