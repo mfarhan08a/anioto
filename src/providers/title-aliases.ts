@@ -7,11 +7,59 @@ export interface VerifiedTitleAlias {
   artistAliases?: readonly string[];
   canonicalTitle: string;
   aliases: readonly string[];
+  /** Reviewed song nicknames usable for discovery; never imply performer equivalence. */
+  titleOnlyAliases?: readonly string[];
   recordingAliases?: readonly string[];
   evidence: readonly string[];
 }
 
 export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
+  {
+    artist: 'Lia',
+    artistAliases: ['VISUAL ARTS / Key', 'Lia & VISUAL ARTS / Key'],
+    canonicalTitle: 'Toki o Kizamu Uta',
+    aliases: ['Toki o Kizamu Uta', 'Toki wo Kizamu Uta', '時を刻む唄'],
+    evidence: ['https://linkco.re/uPM7YCgu?lang=en'],
+  },
+  {
+    artist: 'Konomi Kohara',
+    canonicalTitle: 'Chikatto Chika Chika♡',
+    aliases: ['Chikatto Chika Chika♡', 'チカっとチカ千花っ♡'],
+    titleOnlyAliases: ['Chika Dance'],
+    evidence: ['https://kaguya.love/1st/goods/?item_id=4671', 'https://www.hobby-wave.com/products/dt170/', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'fhána',
+    canonicalTitle: 'Ai no Supreme!',
+    aliases: ['Ai no Supreme!', 'Love Supreme!', '愛のシュプリーム！'],
+    evidence: ['https://www.youtube.com/watch?v=xiCdLC6bWU4', 'https://maidragon.jp/2nd/special/interview_fhana-elma/'],
+  },
+  {
+    artist: 'Hana Hope',
+    canonicalTitle: 'Tabi no Yukue',
+    aliases: ['Tabi no Yukue', 'Destination of the journey', '旅のゆくえ'],
+    evidence: ['https://www.youtube.com/watch?v=PGB9L8TnvNE', 'https://spice-and-wolf.com/special/specialinterview_op.html'],
+  },
+  {
+    artist: 'Yuiko Ohara',
+    canonicalTitle: 'Mezame no Uta',
+    aliases: ['Mezame no Uta', '目覚めの唄'],
+    evidence: ['https://mushokutensei.jp/music/', 'https://mushokutensei.jp/news/210924-1/'],
+  },
+  {
+    artist: 'Yoshino Aoyama',
+    artistAliases: ['Hitori Gotoh', '後藤ひとり'],
+    canonicalTitle: 'Oshiire yori Ai o Komete',
+    aliases: ['Oshiire yori Ai o Komete', 'With love from the closet', '押入れより愛をこめて'],
+    evidence: ['https://www.youtube.com/watch?v=sPQ7t7lzBQI', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Ainz Ooal Gown Gasshou-dan',
+    artistAliases: ['Syuji Katayama', 'Shuji Katayama', '片山修志'],
+    canonicalTitle: 'Ware koso ga Ainz Ooal Gown',
+    aliases: ['Ware koso ga Ainz Ooal Gown', '我こそがアインズ・ウール・ゴウン'],
+    evidence: ['https://store.kadokawa.co.jp/shop/g/g4935228173211/', 'https://anisongdb.com/'],
+  },
   {
     artist: 'Rie Murakawa',
     canonicalTitle: 'Hajimari no Basho',
@@ -555,10 +603,12 @@ export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
   },
 ];
 
-/** Return a canonical query title only for an exact verified artist and alias pair. */
+/** Prefer artist-scoped aliases; reviewed nicknames may also discover unverified covers. */
 export function canonicalTitleFor(title: string, artist: string): string {
   const queryTitle = withoutFeaturedCredit(withoutAnimeCredit(title));
-  return findAlias(queryTitle, artist, 'aliases') ?? queryTitle;
+  return findAlias(queryTitle, artist, 'aliases') ?? VERIFIED_TITLE_ALIASES.find(entry =>
+    entry.titleOnlyAliases?.some(alias => normalizeSongText(alias) === normalizeSongText(queryTitle)),
+  )?.canonicalTitle ?? queryTitle;
 }
 
 /** Normalize an explicit version label or a documented release-specific title. */

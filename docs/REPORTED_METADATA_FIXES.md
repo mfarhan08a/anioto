@@ -120,3 +120,42 @@ unresolved library track. `reported-metadata-third.test.ts` adds ten positive
 regressions, a solo/duet guard, and a no-catalog-evidence guard for the library
 track. The latter is a mocked negative test, not proof that the song has never
 been used in an anime.
+
+## Seven release-credit and nickname reports
+
+| Recognized metadata | Root cause and fix | Expected confidence |
+| --- | --- | --- |
+| Toki Wo Kizamu Uta (TV Animation Ver.) / VISUAL ARTS / Key | Added shared TV Animation version-label handling, wo/o title equivalence, and a song-scoped publisher credit. The official label release credits Lia and VISUAL ARTS / Key together. | Version association with Clannad: After Story |
+| Chika Dance / Gudrap | The catalog uses Chikatto Chika Chika♡ / Konomi Kohara. Added a reviewed nickname for title discovery, without equating Gudrap with the original performer. | Possible connection to Kaguya-sama: Love is War |
+| Love Supreme! / Fhána | English release title versus Ai no Supreme! | Confirmed association with Miss Kobayashi's Dragon Maid S |
+| Destination of the journey / Hana Hope | English release title versus Tabi no Yukue | Confirmed association with Spice and Wolf: Merchant Meets the Wise Wolf |
+| 目覚めの唄 / Yuiko Ohara | Japanese title versus Mezame no Uta | Confirmed association with Mushoku Tensei |
+| With love from the closet / Hitori Gotoh | Translated title and character credit versus Oshiire yori Ai o Komete / Yoshino Aoyama | Confirmed association with Bocchi the Rock! |
+| 我こそがアインズ・ウール・ゴウン / Syuji Katayama | Japanese title and soundtrack composer credit versus Ware koso ga Ainz Ooal Gown / Ainz Ooal Gown Gasshou-dan | Confirmed association with Overlord |
+
+The optional `titleOnlyAliases` field separates nickname discovery from artist
+identity. It is used only for reviewed nicknames such as Chika Dance. Any cover
+performer can use that nickname to discover the catalog entry; the existing
+credit comparison still determines confidence. Gudrap and a previously unseen
+cover performer remain possible matches. Konomi Kohara can receive a confirmed
+match for the same nickname. Common translated titles such as Comedy retain
+their artist-scoped behavior.
+
+No anime title or ID was added to the production alias records. The live catalog
+still supplies anime associations, including multiple seasons or films where
+available. The composer, character, and publisher credit aliases apply only to
+their documented songs. The shared version parser accepts explicit bracketed or
+separated TV Animation Ver./Version labels; ordinary Animation title words are
+preserved.
+
+Primary sources are stored with the aliases: the Key Sounds Label release,
+official Kaguya-sama goods/music references, fhána's official track, Hana Hope's
+official track and Spice and Wolf interview, Mushoku Tensei's music page,
+Aniplex's Bocchi soundtrack track, and KADOKAWA's Overlord soundtrack release.
+The Gudrap recording itself is not verified as an original anime performance.
+
+The live script now covers 32 inputs, including the required possible-match
+classification for the Chika Dance input. The new regression file also verifies
+that nicknames cannot grant artist identity, unrelated artist-scoped aliases do
+not become globally searchable, and publisher/composer equivalence does not
+apply to unrelated songs. Live timing measures anime lookup after recognition.
