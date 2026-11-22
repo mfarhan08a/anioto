@@ -1,0 +1,38 @@
+{
+  "version": "0.10.6",
+  "configuration": "Test URLs and development/test browser IDs; not ready for store submission.",
+  "builds": [
+    "edge",
+    "chrome",
+    "firefox",
+    "safari",
+    "store-edge",
+    "store-chrome"
+  ],
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "extensionTests": 408,
+    "helperTests": 30
+  },
+  "artifacts": [
+    {
+      "file": "Anioto-0.10.6-test-edge.zip",
+      "bytes": 144054,
+      "sha256": "f3da297f71056437e15f300167a2d6ae066cdc4f6c36523e340040b39cec4f83",
+      "archiveChecks": "passed"
+    },
+    {
+      "file": "Anioto-0.10.6-test-chrome.zip",
+      "bytes": 144054,
+      "sha256": "f3da297f71056437e15f300167a2d6ae066cdc4f6c36523e340040b39cec4f83",
+      "archiveChecks": "passed"
+    },
+    {
+      "file": "Anioto-0.10.6-test-Windows-x64.zip",
+      "bytes": 164139310,
+      "sha256": "3d141c675f14d77c2155e2de7b28f13c57aa59907d4e7a2b80d76be30ecae82d",
+      "archiveChecks": "passed"
+    }
+  ]
+}

@@ -12,7 +12,7 @@
 
 Anioto identifies a song from the current tab’s audio and looks up its documented anime connections. Results bring together anime artwork, English and romaji titles, song credits, and links to the sources.
 
-> **Release status** · Version 0.10.5 is available as source for local development. Microsoft Edge store certification is in preparation. Generated store test packages contain placeholder service links. See the [release checklist](docs/STORE_RELEASE.md) and [verification record](docs/STORE_VERIFICATION.md).
+> **Release status** · Version 0.10.6 is available as source for local development. Microsoft Edge store certification is in preparation. Generated store test packages contain placeholder service links. See the [release checklist](docs/STORE_RELEASE.md) and [verification record](docs/STORE_VERIFICATION.md).
 
 ![Anioto result interface with illustrative song data](docs/store-assets/anioto-result.png)
 

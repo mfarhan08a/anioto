@@ -1,5 +1,17 @@
 # Store edition implementation verification
 
+## Latest package build: 0.10.6 — 23 November 2026
+
+The latest merged lookup fixes have been rebuilt into version 0.10.6. All six
+browser/build variants, typecheck, lint, 408 extension tests, and 30 helper tests
+passed. ZIP integrity, contents, and checksums passed. The current full audit
+reports no high/critical advisories and six moderate development advisories.
+
+These remain **test packages** with `.example` URLs and development/test browser
+IDs. The publisher confirmed production configuration is not set up. They are
+not certification-ready and do not resolve the publication work listed below.
+See [build details](BUILD_0.10.6.md) and [artifact checksums](PACKAGE_0.10.6.json).
+
 ## Verified locally on 2026-11-18
 
 | Check | Result |

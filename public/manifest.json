@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Anioto - Anime Song Finder",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "description": "Identify music in the current tab and find documented anime associations.",
   "icons": { "128": "anioto-icon.png" },
   "action": {
