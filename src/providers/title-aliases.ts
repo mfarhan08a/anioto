@@ -13,6 +13,46 @@ export interface VerifiedTitleAlias {
 
 export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
   {
+    artist: 'Huwie Ishizaki',
+    canonicalTitle: 'Pino to Amélie',
+    aliases: ['Pino to Amélie', 'Pino to Amelie', 'Pino to Ameri', 'ピノとアメリ'],
+    evidence: ['https://www.sonymusic.co.jp/artist/ishizakihuwie/info/471355', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Ai Kayano',
+    artistAliases: ['シルフィエット(CV:茅野愛衣)', 'シルフィエット(CV.茅野愛衣)'],
+    canonicalTitle: 'Hanaemi',
+    aliases: ['Hanaemi', '花咲み'],
+    evidence: ['https://mushokutensei.jp/music/', 'https://nex-tone.link/HkSRMkeZu'],
+  },
+  {
+    artist: 'MAYUKO & Luminous',
+    // The soundtrack release credits its composer; equivalence applies only to this cue.
+    artistAliases: ['Kenichiro Suehiro', '末廣健一郎'],
+    canonicalTitle: 'Owari no Uta',
+    aliases: ['Owari no Uta', '終ワリノ歌'],
+    evidence: ['https://girls-last-tour.com/products/music.html', 'https://www.youtube.com/watch?v=67STFqbZxTM', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Maon Kurosaki',
+    canonicalTitle: 'Gensou no Rondo',
+    aliases: ['Gensou no Rondo', '幻想の輪舞'],
+    evidence: ['https://nbcuni-music.com/maon/contents/hp0007/index00290000.html'],
+  },
+  {
+    artist: 'Sora Amamiya, Rie Takahashi, Ai Kayano',
+    canonicalTitle: 'Chiisana Boukensha',
+    aliases: ['Chiisana Boukensha', 'ちいさな冒険者'],
+    evidence: ['https://columbia.jp/prod-info/COCC-17103/'],
+  },
+  {
+    artist: 'Mass Alert',
+    canonicalTitle: 'Tada Yowai dake ja Nakute Bokura wa...',
+    aliases: ['Tada Yowai dake ja Nakute Bokura wa...', 'Tada Yowai Dakejanakute Bokurawa', 'ただ弱いだけじゃなくて僕らは…'],
+    recordingAliases: ['Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version'],
+    evidence: ['https://www.sonymusic.co.jp/artist/massalert/info/337534', 'https://www.tv-tokyo.co.jp/anime/naruto/news/news04/index.html'],
+  },
+  {
     artist: 'Hina Kino, Rika Nagae, Konomi Kohara',
     canonicalTitle: 'Three-Piece',
     aliases: ['スリピス', 'Suripisu', 'Three-Piece'],

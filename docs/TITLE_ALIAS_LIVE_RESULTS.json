@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-22T14:15:09.387Z",
+  "date": "2026-11-22T14:43:30.616Z",
   "scope": "Live full anime resolver with screenshot metadata; does not test audio recognition.",
   "observations": [
     {
@@ -7,7 +7,7 @@
         "title": "スリピス",
         "artist": "本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)"
       },
-      "elapsedMs": 1371,
+      "elapsedMs": 832,
       "passed": true,
       "requests": [
         {
@@ -37,7 +37,7 @@
         "title": "Chikyugi - Spinning Globe",
         "artist": "Kenshi Yonezu"
       },
-      "elapsedMs": 646,
+      "elapsedMs": 611,
       "passed": true,
       "requests": [
         {
@@ -59,6 +59,186 @@
           "romajiTitle": "Kimitachi wa Dou Ikiru ka",
           "type": "Ending 1",
           "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx109979-BRHXpBkCw4oc.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Pino To Ameri (Anime Size)",
+        "artist": "Huwie Ishizaki"
+      },
+      "elapsedMs": 577,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 1735,
+          "title": "Naruto: Shippuden",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Pino to Amélie” by Huwie Ishizaki for Naruto Shippuuden.",
+          "matchKind": "version",
+          "romajiTitle": "NARUTO: Shippuuden",
+          "type": "Ending 38",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx1735-kGfVm0YqCPcu.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "花咲み",
+        "artist": "シルフィエット(CV:茅野愛衣)"
+      },
+      "elapsedMs": 584,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 146065,
+          "title": "Mushoku Tensei: Jobless Reincarnation Season 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Hanaemi” by Ai Kayano for Mushoku Tensei: Jobless Reincarnation Season 2.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Mushoku Tensei II: Isekai Ittara Honki Dasu",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx146065-IjirxRK26O03.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "終ワリノ歌",
+        "artist": "Kenichiro Suehiro"
+      },
+      "elapsedMs": 706,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 99420,
+          "title": "Girls' Last Tour",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Owari no Uta” by MAYUKO & Luminous for Girls' Last Tour.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Shoujo Shuumatsu Ryokou",
+          "type": "Insert Song",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx99420-k5Tel6yRMwA8.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "幻想の輪舞",
+        "artist": "Maon Kurosaki"
+      },
+      "elapsedMs": 546,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 99470,
+          "title": "Grisaia: Phantom Trigger the Animation",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Gensou no Rondo” by Maon Kurosaki for Grisaia: Phantom Trigger the Animation.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Grisaia: Phantom Trigger THE ANIMATION",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx99470-jYLMg1tKthzD.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "TVアニメ「この素晴らしい世界に祝福を!」エンディング・テーマ「ちいさな冒険者 (TV-size)」",
+        "artist": "Sora Amamiya, Rie Takahashi & Ai Kayano"
+      },
+      "elapsedMs": 576,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21202,
+          "title": "KONOSUBA -God's blessing on this wonderful world!",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Chiisana Boukensha” by Sora Amamiya, Rie Takahashi & Ai Kayano for KONOSUBA: God's Blessing on This Wonderful World!.",
+          "matchKind": "version",
+          "romajiTitle": "Kono Subarashii Sekai ni Shukufuku wo!",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21202-mPOr80AEjUcZ.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version",
+        "artist": "Mass Alert"
+      },
+      "elapsedMs": 605,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 20,
+          "title": "Naruto",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Tada Yowai dake ja Nakute Bokura wa...” by Mass Alert for Naruto.",
+          "matchKind": "version",
+          "romajiTitle": "NARUTO",
+          "type": "Opening 5",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg"
         }
       ]
     }

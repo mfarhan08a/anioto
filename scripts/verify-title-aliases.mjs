@@ -18,14 +18,20 @@ const { resolveAnime } = await import(pathToFileURL(bundle).href);
 const cases = [
   { title: 'スリピス', artist: '本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)', expected: /Asobi Asobase/i },
   { title: 'Chikyugi - Spinning Globe', artist: 'Kenshi Yonezu', expected: /The Boy and the Heron/i },
+  { title: 'Pino To Ameri (Anime Size)', artist: 'Huwie Ishizaki', expected: /Naruto/i, kind: 'version' },
+  { title: '花咲み', artist: 'シルフィエット(CV:茅野愛衣)', expected: /Mushoku Tensei.*Season 2/i },
+  { title: '終ワリノ歌', artist: 'Kenichiro Suehiro', expected: /Girls.? Last Tour/i },
+  { title: '幻想の輪舞', artist: 'Maon Kurosaki', expected: /Grisaia.*Phantom Trigger/i },
+  { title: 'TVアニメ「この素晴らしい世界に祝福を!」エンディング・テーマ「ちいさな冒険者 (TV-size)」', artist: 'Sora Amamiya, Rie Takahashi & Ai Kayano', expected: /KONOSUBA/i, kind: 'version' },
+  { title: 'Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version', artist: 'Mass Alert', expected: /Naruto/i, kind: 'version' },
 ];
 const observations = [];
-for (const { expected, ...song } of cases) {
+for (const { expected, kind = 'confirmed', ...song } of cases) {
   requests = [];
   const start = performance.now();
   try {
     const matches = await resolveAnime(song);
-    observations.push({ song, elapsedMs: Math.round(performance.now() - start), passed: matches.some(match => expected.test(match.title) && match.matchKind === 'confirmed'), requests, matches });
+    observations.push({ song, elapsedMs: Math.round(performance.now() - start), passed: matches.some(match => expected.test(match.title) && match.matchKind === kind), requests, matches });
   } catch (error) {
     observations.push({ song, elapsedMs: Math.round(performance.now() - start), passed: false, requests, error: String(error) });
   }
