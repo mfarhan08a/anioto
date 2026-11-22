@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-22T14:43:30.616Z",
+  "date": "2026-11-22T15:16:02.065Z",
   "scope": "Live full anime resolver with screenshot metadata; does not test audio recognition.",
   "observations": [
     {
@@ -7,7 +7,7 @@
         "title": "スリピス",
         "artist": "本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)"
       },
-      "elapsedMs": 832,
+      "elapsedMs": 859,
       "passed": true,
       "requests": [
         {
@@ -37,7 +37,7 @@
         "title": "Chikyugi - Spinning Globe",
         "artist": "Kenshi Yonezu"
       },
-      "elapsedMs": 611,
+      "elapsedMs": 610,
       "passed": true,
       "requests": [
         {
@@ -67,7 +67,7 @@
         "title": "Pino To Ameri (Anime Size)",
         "artist": "Huwie Ishizaki"
       },
-      "elapsedMs": 577,
+      "elapsedMs": 624,
       "passed": true,
       "requests": [
         {
@@ -97,7 +97,7 @@
         "title": "花咲み",
         "artist": "シルフィエット(CV:茅野愛衣)"
       },
-      "elapsedMs": 584,
+      "elapsedMs": 640,
       "passed": true,
       "requests": [
         {
@@ -127,7 +127,7 @@
         "title": "終ワリノ歌",
         "artist": "Kenichiro Suehiro"
       },
-      "elapsedMs": 706,
+      "elapsedMs": 583,
       "passed": true,
       "requests": [
         {
@@ -157,7 +157,7 @@
         "title": "幻想の輪舞",
         "artist": "Maon Kurosaki"
       },
-      "elapsedMs": 546,
+      "elapsedMs": 590,
       "passed": true,
       "requests": [
         {
@@ -187,7 +187,7 @@
         "title": "TVアニメ「この素晴らしい世界に祝福を!」エンディング・テーマ「ちいさな冒険者 (TV-size)」",
         "artist": "Sora Amamiya, Rie Takahashi & Ai Kayano"
       },
-      "elapsedMs": 576,
+      "elapsedMs": 596,
       "passed": true,
       "requests": [
         {
@@ -217,7 +217,7 @@
         "title": "Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version",
         "artist": "Mass Alert"
       },
-      "elapsedMs": 605,
+      "elapsedMs": 577,
       "passed": true,
       "requests": [
         {
@@ -239,6 +239,216 @@
           "romajiTitle": "NARUTO",
           "type": "Opening 5",
           "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Sound of Destiny (Live at Campus Fes) [TV Anime Ver.]",
+        "artist": "Setsuna Ogiso (CV: Madoka Yonezawa)"
+      },
+      "elapsedMs": 592,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 18245,
+          "title": "White Album 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “SOUND OF DESTINY” by Setsuna Ogiso (CV: Madoka Yonezawa) for White Album 2.",
+          "matchKind": "version",
+          "romajiTitle": "WHITE ALBUM 2",
+          "type": "Insert Song",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx18245-7eMtaBsi00dl.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "夢路らびりんす",
+        "artist": "らびりんず 千矢(CV.原田彩楓)&紺(CV.本渡 楓)&小梅(CV.久保ユリカ)&ノノ(CV.佳村はるか)"
+      },
+      "elapsedMs": 602,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21696,
+          "title": "Urara Meirocho",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Yumeji Labyrinth” by Labyrinths for Urara Meirocho.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Urara Meirochou",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21696-t6vK6om0LJtT.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "LOVE 2000",
+        "artist": "Anna Yanami (CV: Hikaru Tono)"
+      },
+      "elapsedMs": 678,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 171457,
+          "title": "Makeine: Too Many Losing Heroines!",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “LOVE2000” by Hikaru Toono for Makeine: Too Many Losing Heroines!.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Make Heroine ga Oosugiru!",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx171457-nmMIk0gNiWsm.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "STEEL",
+        "artist": "TRUE"
+      },
+      "elapsedMs": 550,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21268,
+          "title": "Mobile Suit GUNDAM Iron Blooded Orphans",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “STEEL -Tekketsu no Kizuna-” by TRUE, Miho Karasawa for Mobile Suit Gundam: Iron-Blooded Orphans.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kidou Senshi Gundam: Tekketsu no Orphans",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx21268-6dKrz26PPUvk.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "After All Tsuduru Omoi '13",
+        "artist": "Rena Uehara"
+      },
+      "elapsedMs": 565,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 18245,
+          "title": "White Album 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “After All ~Tsuzuru Omoi~ '13” by Rena Uehara for White Album 2.",
+          "matchKind": "confirmed",
+          "romajiTitle": "WHITE ALBUM 2",
+          "type": "Ending 4",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx18245-7eMtaBsi00dl.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "夏を見ていた～「蛍火の杜へ」エンディングテーマ",
+        "artist": "Sizzle Ohtaka"
+      },
+      "elapsedMs": 580,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 10408,
+          "title": "Into the Forest of Fireflies' Light",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Natsu o Miteita” by Shizuru Ohtaka for The Light of a Firefly Forest.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Hotarubi no Mori e",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx10408-PlKJ6DAyvMk2.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Wrong World",
+        "artist": "TOGENASHI TOGEARI"
+      },
+      "elapsedMs": 613,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 164212,
+          "title": "Girls Band Cry",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Zattou, Bokura no Machi” by TOGENASHI TOGEARI, Shin Kawasaki (Kari), Shin Kawasaki (Kari)×beni-shouga for Girls Band Cry.",
+          "matchKind": "confirmed",
+          "romajiTitle": "GIRLS BAND CRY",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx164212-eKh15LQxkTEx.jpg"
         }
       ]
     }

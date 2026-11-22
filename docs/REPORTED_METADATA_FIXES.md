@@ -48,3 +48,29 @@ not total audio identification time.
 The regression suite covers all six inputs, one-request resolution, recording
 version classification, title collisions, unrelated songs and performers, and
 the shared parser's positive and negative cases.
+
+## Additional seven reports
+
+All seven additional songs were also present in the live catalog. No bundled
+anime associations were added.
+
+| Recognized metadata | Root cause and change | Live result |
+| --- | --- | --- |
+| SOUND OF DESTINY (Live at Campus Fes) [TV Anime Ver.] / Setsuna Ogiso | The TV Anime Ver. suffix prevented stripping either recording label; the character credit differs from Madoka Yonezawa. Added shared suffix support and a song-scoped credit alias, keeping Nana Mizuki's White Album recording separate. | White Album 2, version association |
+| 夢路らびりんす / full Japanese cast credit | Catalog title is Yumeji Labyrinth and the group is Labyrinths. Added a title-scoped full-group alias; individual cast members remain distinct. | Urara Meirocho |
+| LOVE 2000 / Anna Yanami (CV: Hikaru Tono) | Catalog removes the title space and credits Hikaru Toono. Added verified title and character/actor aliases. | Makeine: Too Many Losing Heroines! |
+| STEEL / TRUE | Catalog includes the subtitle -Tekketsu no Kizuna-. Added a verified artist-scoped short-title alias. | Mobile Suit Gundam: Iron-Blooded Orphans |
+| After All Tsuduru Omoi '13 / Rena Uehara | Catalog romanizes Tsuduru as Tsuzuru. Added a title alias that retains the meaningful '13 recording year. | White Album 2 |
+| 夏を見ていた～「蛍火の杜へ」エンディングテーマ / Sizzle Ohtaka | Unhandled trailing anime-theme metadata, Japanese title, and artist stage name versus Shizuru Ohtaka. Added shared separated-credit removal and song-specific metadata aliases. | Into the Forest of Fireflies' Light |
+| Wrong World / TOGENASHI TOGEARI | Catalog stores the Japanese title's romanization Zattou, Bokura no Machi instead of its English title. Added a verified artist-scoped alias. | Girls Band Cry |
+
+Additional primary sources are preserved alongside each alias in
+`src/providers/title-aliases.ts`: KING RECORDS and AQUAPLUS for White Album 2,
+TBS for Urara Meirocho, Aniplex for Makeine, Lantis for STEEL, the film's official
+music page for Hotarubi no Mori e, and the official Girls Band Cry opening video
+and release announcement for Wrong World.
+
+`verify-title-aliases.mjs` now checks all fifteen accumulated reports. These are
+live metadata resolver tests, not new audio-recognition tests. AnimeThemes HTTP
+503 remains an upstream availability issue; these inputs resolve from AnisongDB
+without needing that fallback.

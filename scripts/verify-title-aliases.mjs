@@ -24,6 +24,13 @@ const cases = [
   { title: '幻想の輪舞', artist: 'Maon Kurosaki', expected: /Grisaia.*Phantom Trigger/i },
   { title: 'TVアニメ「この素晴らしい世界に祝福を!」エンディング・テーマ「ちいさな冒険者 (TV-size)」', artist: 'Sora Amamiya, Rie Takahashi & Ai Kayano', expected: /KONOSUBA/i, kind: 'version' },
   { title: 'Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version', artist: 'Mass Alert', expected: /Naruto/i, kind: 'version' },
+  { title: 'Sound of Destiny (Live at Campus Fes) [TV Anime Ver.]', artist: 'Setsuna Ogiso (CV: Madoka Yonezawa)', expected: /White Album 2/i, kind: 'version' },
+  { title: '夢路らびりんす', artist: 'らびりんず 千矢(CV.原田彩楓)&紺(CV.本渡 楓)&小梅(CV.久保ユリカ)&ノノ(CV.佳村はるか)', expected: /Urara Meirocho/i },
+  { title: 'LOVE 2000', artist: 'Anna Yanami (CV: Hikaru Tono)', expected: /Makeine/i },
+  { title: 'STEEL', artist: 'TRUE', expected: /Iron.Blooded Orphans/i },
+  { title: "After All Tsuduru Omoi '13", artist: 'Rena Uehara', expected: /White Album 2/i },
+  { title: '夏を見ていた～「蛍火の杜へ」エンディングテーマ', artist: 'Sizzle Ohtaka', expected: /Forest of Fireflies|Firefly Forest|Hotarubi/i },
+  { title: 'Wrong World', artist: 'TOGENASHI TOGEARI', expected: /Girls Band Cry/i },
 ];
 const observations = [];
 for (const { expected, kind = 'confirmed', ...song } of cases) {

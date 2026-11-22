@@ -13,6 +13,52 @@ export interface VerifiedTitleAlias {
 
 export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
   {
+    artist: 'Madoka Yonezawa',
+    artistAliases: ['Setsuna Ogiso (CV: Madoka Yonezawa)', '小木曽雪菜(CV:米澤円)'],
+    canonicalTitle: 'SOUND OF DESTINY',
+    aliases: ['SOUND OF DESTINY'],
+    evidence: ['https://store.kingrecords.co.jp/shop/g/gKIGA-23/', 'https://blog.aquaplus.jp/archives/4390'],
+  },
+  {
+    artist: 'Labyrinths',
+    artistAliases: ['らびりんず', 'らびりんず 千矢(CV.原田彩楓)&紺(CV.本渡 楓)&小梅(CV.久保ユリカ)&ノノ(CV.佳村はるか)'],
+    canonicalTitle: 'Yumeji Labyrinth',
+    aliases: ['Yumeji Labyrinth', '夢路らびりんす'],
+    evidence: ['https://www.tbs.co.jp/anime/urara/disc/cd01.html'],
+  },
+  {
+    artist: 'Hikaru Toono',
+    artistAliases: ['Anna Yanami (CV: Hikaru Tono)', 'Anna Yanami (CV: Hikaru Toono)', '八奈見杏菜(CV.遠野ひかる)'],
+    canonicalTitle: 'LOVE2000',
+    aliases: ['LOVE2000', 'LOVE 2000'],
+    evidence: ['https://www.aniplex.co.jp/lineup/makeine/news/detail/?id=65790', 'https://www.youtube.com/watch?v=2czbGCYz6gk'],
+  },
+  {
+    artist: 'TRUE',
+    canonicalTitle: 'STEEL -Tekketsu no Kizuna-',
+    aliases: ['STEEL', 'STEEL -Tekketsu no Kizuna-', 'STEEL -鉄血の絆-'],
+    evidence: ['https://www.lantis.jp/title/g_tekketsu/disco_all.html'],
+  },
+  {
+    artist: 'Rena Uehara',
+    canonicalTitle: "After All ~Tsuzuru Omoi~ '13",
+    aliases: ["After All ~Tsuzuru Omoi~ '13", "After All Tsuduru Omoi '13", "After All ~綴る想い~ '13"],
+    evidence: ['https://store.kingrecords.co.jp/shop/g/gKIGA-23/', 'https://blog.aquaplus.jp/archives/4390'],
+  },
+  {
+    artist: 'Shizuru Ohtaka',
+    artistAliases: ['Sizzle Ohtaka', 'おおたか静流'],
+    canonicalTitle: 'Natsu o Miteita',
+    aliases: ['Natsu o Miteita', '夏を見ていた'],
+    evidence: ['https://www.hotarubi.info/music/'],
+  },
+  {
+    artist: 'TOGENASHI TOGEARI',
+    canonicalTitle: 'Zattou, Bokura no Machi',
+    aliases: ['Zattou, Bokura no Machi', 'Wrong World', '雑踏、僕らの街'],
+    evidence: ['https://www.youtube.com/watch?v=YDLafQ-Rg-k', 'https://girls-band-cry.com/news/post-107.html'],
+  },
+  {
     artist: 'Huwie Ishizaki',
     canonicalTitle: 'Pino to Amélie',
     aliases: ['Pino to Amélie', 'Pino to Amelie', 'Pino to Ameri', 'ピノとアメリ'],
