@@ -1,0 +1,32 @@
+{
+  "note": "Empty catalog responses do not prove absence of anime usage. Source video or episode credits are needed.",
+  "userHint": "Possibly Gintama; unverified",
+  "song": {
+    "title": "Milky Way War History",
+    "artist": "Nash Music Library"
+  },
+  "status": "Unresolved anime association",
+  "date": "2026-11-22T15:45:02.0609340Z",
+  "checks": [
+    {
+      "httpStatus": 200,
+      "filter": {
+        "song_name_search_filter": {
+          "partial_match": false,
+          "search": "Milky Way War History"
+        }
+      },
+      "matches": []
+    },
+    {
+      "httpStatus": 200,
+      "filter": {
+        "artist_search_filter": {
+          "partial_match": false,
+          "search": "Nash Music Library"
+        }
+      },
+      "matches": []
+    }
+  ]
+}

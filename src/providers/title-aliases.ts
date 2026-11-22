@@ -7,11 +7,223 @@ export interface VerifiedTitleAlias {
   artistAliases?: readonly string[];
   canonicalTitle: string;
   aliases: readonly string[];
+  /** Reviewed song nicknames usable for discovery; never imply performer equivalence. */
+  titleOnlyAliases?: readonly string[];
   recordingAliases?: readonly string[];
   evidence: readonly string[];
 }
 
 export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
+  {
+    artist: 'Lia',
+    artistAliases: ['VISUAL ARTS / Key', 'Lia & VISUAL ARTS / Key'],
+    canonicalTitle: 'Toki o Kizamu Uta',
+    aliases: ['Toki o Kizamu Uta', 'Toki wo Kizamu Uta', '時を刻む唄'],
+    evidence: ['https://linkco.re/uPM7YCgu?lang=en'],
+  },
+  {
+    artist: 'Konomi Kohara',
+    canonicalTitle: 'Chikatto Chika Chika♡',
+    aliases: ['Chikatto Chika Chika♡', 'チカっとチカ千花っ♡'],
+    titleOnlyAliases: ['Chika Dance'],
+    evidence: ['https://kaguya.love/1st/goods/?item_id=4671', 'https://www.hobby-wave.com/products/dt170/', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'fhána',
+    canonicalTitle: 'Ai no Supreme!',
+    aliases: ['Ai no Supreme!', 'Love Supreme!', '愛のシュプリーム！'],
+    evidence: ['https://www.youtube.com/watch?v=xiCdLC6bWU4', 'https://maidragon.jp/2nd/special/interview_fhana-elma/'],
+  },
+  {
+    artist: 'Hana Hope',
+    canonicalTitle: 'Tabi no Yukue',
+    aliases: ['Tabi no Yukue', 'Destination of the journey', '旅のゆくえ'],
+    evidence: ['https://www.youtube.com/watch?v=PGB9L8TnvNE', 'https://spice-and-wolf.com/special/specialinterview_op.html'],
+  },
+  {
+    artist: 'Yuiko Ohara',
+    canonicalTitle: 'Mezame no Uta',
+    aliases: ['Mezame no Uta', '目覚めの唄'],
+    evidence: ['https://mushokutensei.jp/music/', 'https://mushokutensei.jp/news/210924-1/'],
+  },
+  {
+    artist: 'Yoshino Aoyama',
+    artistAliases: ['Hitori Gotoh', '後藤ひとり'],
+    canonicalTitle: 'Oshiire yori Ai o Komete',
+    aliases: ['Oshiire yori Ai o Komete', 'With love from the closet', '押入れより愛をこめて'],
+    evidence: ['https://www.youtube.com/watch?v=sPQ7t7lzBQI', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Ainz Ooal Gown Gasshou-dan',
+    artistAliases: ['Syuji Katayama', 'Shuji Katayama', '片山修志'],
+    canonicalTitle: 'Ware koso ga Ainz Ooal Gown',
+    aliases: ['Ware koso ga Ainz Ooal Gown', '我こそがアインズ・ウール・ゴウン'],
+    evidence: ['https://store.kadokawa.co.jp/shop/g/g4935228173211/', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Rie Murakawa',
+    canonicalTitle: 'Hajimari no Basho',
+    aliases: ['Hajimari no Basho', 'はじまりの場所'],
+    evidence: ['https://columbia.jp/artist-info/murakawarie/discography/COCC-17555.html'],
+  },
+  {
+    artist: 'Mitsuki Saiga',
+    // The OST release is credited to its composer; this is not a global artist equivalence.
+    artistAliases: ['Kevin Penkin', 'ベラフ(CV:斎賀みつき)'],
+    canonicalTitle: 'Belaf no Komoriuta',
+    aliases: ['Belaf no Komoriuta', 'ベラフの子守歌', "Belaf's Lullaby"],
+    evidence: ['https://miabyss.com/2nd_music_ost.html', 'https://www.youtube.com/watch?v=BCBcTjDEnmM', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Maki Kawase',
+    artistAliases: ['Yuna (CV: Maki Kawase)', 'ユナ(CV:河瀬茉希)'],
+    canonicalTitle: 'Ano ne.',
+    aliases: ['Ano ne.', 'Anone', 'あのね。'],
+    evidence: ['https://columbia.jp/prod-info/COCC-17809/'],
+  },
+  {
+    artist: 'Masakatsu Takagi',
+    canonicalTitle: 'Hidamari no Mori Uta',
+    aliases: ['Hidamari no Mori Uta', 'Lullaby In the Peaceful Light', '陽だまりの守唄'],
+    evidence: ['https://www.youtube.com/watch?v=8oaYiL_JQaI', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Gen Hoshino',
+    canonicalTitle: 'Kigeki',
+    aliases: ['Kigeki', 'Comedy', '喜劇'],
+    evidence: ['https://www.hoshinogen.com/works/detail/?id=39'],
+  },
+  {
+    artist: 'Akane Kumada',
+    canonicalTitle: 'Happy no Hiketsu',
+    aliases: ['Happy no Hiketsu', 'The secret of happiness', 'ハッピーの秘訣'],
+    evidence: ['https://www.youtube.com/watch?v=DiDDWexFjmg', 'https://www.youtube.com/watch?v=AQYoAXuHqzE'],
+  },
+  {
+    artist: 'fhána',
+    canonicalTitle: 'Aozora no Rhapsody',
+    aliases: ['Aozora no Rhapsody', 'Rhapsody of Blue Sky', '青空のラプソディ'],
+    evidence: ['https://fhana.jp/works/', 'https://www.lantis.jp/artist/fhana/news_1482462002.html'],
+  },
+  {
+    artist: 'MAYUKO & Luminous',
+    artistAliases: ['Kenichirou Suehiro', 'Kenichiro Suehiro', '末廣健一郎'],
+    canonicalTitle: 'Hitomi ni Utsuru Keshiki',
+    aliases: ['Hitomi ni Utsuru Keshiki', '瞳ニ映ル景色'],
+    evidence: ['https://girls-last-tour.com/products/music.html', 'https://www.youtube.com/watch?v=HMAfMwLVLdU', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Hina Kino, Rika Nagae, Konomi Kohara feat. Ikepy & KSKN',
+    artistAliases: ['本田華子(CV:木野日菜), オリヴィア(CV:長江里加), 野村香純(CV:小原好美) feat. Ikepy & KSKN'],
+    canonicalTitle: 'Inkya Impulse',
+    aliases: ['Inkya Impulse', 'インキャインパルス'],
+    evidence: ['https://asobiasobase.com/products/music.html'],
+  },
+  {
+    artist: 'GRANRODEO',
+    canonicalTitle: 'Hengenjizai no Magical Star',
+    aliases: ['Hengenjizai no Magical Star', 'Hengen Jizaino Majikaru Star', '変幻自在のマジカルスター'],
+    evidence: ['https://www.youtube.com/watch?v=c0aDpjEebpw'],
+  },
+  {
+    artist: 'Madoka Yonezawa',
+    artistAliases: ['Setsuna Ogiso (CV: Madoka Yonezawa)', '小木曽雪菜(CV:米澤円)'],
+    canonicalTitle: 'SOUND OF DESTINY',
+    aliases: ['SOUND OF DESTINY'],
+    evidence: ['https://store.kingrecords.co.jp/shop/g/gKIGA-23/', 'https://blog.aquaplus.jp/archives/4390'],
+  },
+  {
+    artist: 'Labyrinths',
+    artistAliases: ['らびりんず', 'らびりんず 千矢(CV.原田彩楓)&紺(CV.本渡 楓)&小梅(CV.久保ユリカ)&ノノ(CV.佳村はるか)'],
+    canonicalTitle: 'Yumeji Labyrinth',
+    aliases: ['Yumeji Labyrinth', '夢路らびりんす'],
+    evidence: ['https://www.tbs.co.jp/anime/urara/disc/cd01.html'],
+  },
+  {
+    artist: 'Hikaru Toono',
+    artistAliases: ['Anna Yanami (CV: Hikaru Tono)', 'Anna Yanami (CV: Hikaru Toono)', '八奈見杏菜(CV.遠野ひかる)'],
+    canonicalTitle: 'LOVE2000',
+    aliases: ['LOVE2000', 'LOVE 2000'],
+    evidence: ['https://www.aniplex.co.jp/lineup/makeine/news/detail/?id=65790', 'https://www.youtube.com/watch?v=2czbGCYz6gk'],
+  },
+  {
+    artist: 'TRUE',
+    canonicalTitle: 'STEEL -Tekketsu no Kizuna-',
+    aliases: ['STEEL', 'STEEL -Tekketsu no Kizuna-', 'STEEL -鉄血の絆-'],
+    evidence: ['https://www.lantis.jp/title/g_tekketsu/disco_all.html'],
+  },
+  {
+    artist: 'Rena Uehara',
+    canonicalTitle: "After All ~Tsuzuru Omoi~ '13",
+    aliases: ["After All ~Tsuzuru Omoi~ '13", "After All Tsuduru Omoi '13", "After All ~綴る想い~ '13"],
+    evidence: ['https://store.kingrecords.co.jp/shop/g/gKIGA-23/', 'https://blog.aquaplus.jp/archives/4390'],
+  },
+  {
+    artist: 'Shizuru Ohtaka',
+    artistAliases: ['Sizzle Ohtaka', 'おおたか静流'],
+    canonicalTitle: 'Natsu o Miteita',
+    aliases: ['Natsu o Miteita', '夏を見ていた'],
+    evidence: ['https://www.hotarubi.info/music/'],
+  },
+  {
+    artist: 'TOGENASHI TOGEARI',
+    canonicalTitle: 'Zattou, Bokura no Machi',
+    aliases: ['Zattou, Bokura no Machi', 'Wrong World', '雑踏、僕らの街'],
+    evidence: ['https://www.youtube.com/watch?v=YDLafQ-Rg-k', 'https://girls-band-cry.com/news/post-107.html'],
+  },
+  {
+    artist: 'Huwie Ishizaki',
+    canonicalTitle: 'Pino to Amélie',
+    aliases: ['Pino to Amélie', 'Pino to Amelie', 'Pino to Ameri', 'ピノとアメリ'],
+    evidence: ['https://www.sonymusic.co.jp/artist/ishizakihuwie/info/471355', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Ai Kayano',
+    artistAliases: ['シルフィエット(CV:茅野愛衣)', 'シルフィエット(CV.茅野愛衣)'],
+    canonicalTitle: 'Hanaemi',
+    aliases: ['Hanaemi', '花咲み'],
+    evidence: ['https://mushokutensei.jp/music/', 'https://nex-tone.link/HkSRMkeZu'],
+  },
+  {
+    artist: 'MAYUKO & Luminous',
+    // The soundtrack release credits its composer; equivalence applies only to this cue.
+    artistAliases: ['Kenichiro Suehiro', '末廣健一郎'],
+    canonicalTitle: 'Owari no Uta',
+    aliases: ['Owari no Uta', '終ワリノ歌'],
+    evidence: ['https://girls-last-tour.com/products/music.html', 'https://www.youtube.com/watch?v=67STFqbZxTM', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Maon Kurosaki',
+    canonicalTitle: 'Gensou no Rondo',
+    aliases: ['Gensou no Rondo', '幻想の輪舞'],
+    evidence: ['https://nbcuni-music.com/maon/contents/hp0007/index00290000.html'],
+  },
+  {
+    artist: 'Sora Amamiya, Rie Takahashi, Ai Kayano',
+    canonicalTitle: 'Chiisana Boukensha',
+    aliases: ['Chiisana Boukensha', 'ちいさな冒険者'],
+    evidence: ['https://columbia.jp/prod-info/COCC-17103/'],
+  },
+  {
+    artist: 'Mass Alert',
+    canonicalTitle: 'Tada Yowai dake ja Nakute Bokura wa...',
+    aliases: ['Tada Yowai dake ja Nakute Bokura wa...', 'Tada Yowai Dakejanakute Bokurawa', 'ただ弱いだけじゃなくて僕らは…'],
+    recordingAliases: ['Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version'],
+    evidence: ['https://www.sonymusic.co.jp/artist/massalert/info/337534', 'https://www.tv-tokyo.co.jp/anime/naruto/news/news04/index.html'],
+  },
+  {
+    artist: 'Hina Kino, Rika Nagae, Konomi Kohara',
+    canonicalTitle: 'Three-Piece',
+    aliases: ['スリピス', 'Suripisu', 'Three-Piece'],
+    evidence: ['https://asobiasobase.com/products/music.html', 'https://anisongdb.com/'],
+  },
+  {
+    artist: 'Kenshi Yonezu',
+    artistAliases: ['米津玄師'],
+    canonicalTitle: 'Chikyuugi',
+    aliases: ['Chikyuugi', 'Chikyugi', 'Chikyugi - Spinning Globe', '地球儀', '地球儀 - Spinning Globe', 'Spinning Globe'],
+    evidence: ['https://www.youtube.com/watch?v=abKcYyQ1V7Y', 'https://www.youtube.com/watch?v=M98h-ucIcBs', 'https://anisongdb.com/'],
+  },
   {
     artist: 'Mika Kobayashi',
     artistAliases: ['Hiroyuki Sawano', 'Sawano Hiroyuki', '澤野弘之'],
@@ -391,10 +603,12 @@ export const VERIFIED_TITLE_ALIASES: readonly VerifiedTitleAlias[] = [
   },
 ];
 
-/** Return a canonical query title only for an exact verified artist and alias pair. */
+/** Prefer artist-scoped aliases; reviewed nicknames may also discover unverified covers. */
 export function canonicalTitleFor(title: string, artist: string): string {
   const queryTitle = withoutFeaturedCredit(withoutAnimeCredit(title));
-  return findAlias(queryTitle, artist, 'aliases') ?? queryTitle;
+  return findAlias(queryTitle, artist, 'aliases') ?? VERIFIED_TITLE_ALIASES.find(entry =>
+    entry.titleOnlyAliases?.some(alias => normalizeSongText(alias) === normalizeSongText(queryTitle)),
+  )?.canonicalTitle ?? queryTitle;
 }
 
 /** Normalize an explicit version label or a documented release-specific title. */

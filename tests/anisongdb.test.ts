@@ -10,6 +10,38 @@ const entry = (overrides: Record<string, unknown> = {}) => ({
 });
 
 describe('resolveAnisongDB', () => {
+  it('maps the Japanese Asobi Asobase trio credit to the live catalog title without another lookup', async () => {
+    const artist = '本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)';
+    const request = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => json([entry({
+      songName: 'Three-Piece', songArtist: 'Hina Kino, Rika Nagae, Konomi Kohara',
+      animeENName: 'Asobi Asobase: Workshop of Fun',
+    })]));
+    vi.stubGlobal('fetch', request);
+    await expect(resolveAnisongDB({ title: 'スリピス', artist })).resolves.toMatchObject([{ matchKind: 'confirmed' }]);
+    expect(request).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(String(request.mock.calls[0]?.[1]?.body)).song_name_search_filter.search).toBe('Three-Piece');
+    await expect(resolveAnisongDB({ title: 'スリピス (instrumental)', artist })).resolves.toMatchObject([{ matchKind: 'version' }]);
+    await expect(resolveAnisongDB({ title: 'スリピス', artist: 'Hina Kino' })).resolves.toEqual([]);
+    await expect(resolveAnisongDB({ title: 'Unrelated song', artist })).resolves.toEqual([]);
+  });
+
+  it('matches the bilingual globe title and keeps the Saint Seiya namesake separate', async () => {
+    const request = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => json([
+      entry({ songName: 'Chikyuugi', songArtist: 'Yumi Matsuzawa', animeENName: 'Saint Seiya', linked_ids: { anilist: 1257 } }),
+      entry({ songName: 'Chikyuugi', songArtist: 'Kenshi Yonezu', animeENName: 'The Boy and the Heron', linked_ids: { anilist: 109979 } }),
+    ]));
+    vi.stubGlobal('fetch', request);
+    for (const title of ['Chikyugi - Spinning Globe', 'Chikyugi', '地球儀', 'Spinning Globe']) {
+      const matches = await resolveAnisongDB({ title, artist: 'Kenshi Yonezu' });
+      expect(matches).toMatchObject([{ id: 109979, matchKind: 'confirmed' }]);
+      expect(matches).toHaveLength(1);
+    }
+    expect(request).toHaveBeenCalledTimes(4);
+    expect(JSON.parse(String(request.mock.calls[0]?.[1]?.body)).song_name_search_filter.search).toBe('Chikyuugi');
+    await expect(resolveAnisongDB({ title: 'Chikyugi - Spinning Globe', artist: 'Unrelated artist' })).resolves.toEqual([]);
+    await expect(resolveAnisongDB({ title: 'Spinning Globe - Different Song', artist: 'Kenshi Yonezu' })).resolves.toEqual([]);
+  });
+
   it('uses the exact Bios arrangement credit and keeps its composer alias scoped to that song', async () => {
     const title = 'Bios <MK+nZk Version>';
     const artist = 'Hiroyuki Sawano';

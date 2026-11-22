@@ -1,0 +1,968 @@
+{
+  "date": "2026-11-22T16:15:13.681Z",
+  "scope": "Live full anime resolver with screenshot metadata; does not test audio recognition.",
+  "observations": [
+    {
+      "song": {
+        "title": "スリピス",
+        "artist": "本田華子(CV:木野日菜), オリヴィア(CV:長江里加) & 野村香純(CV:小原好美)"
+      },
+      "elapsedMs": 1195,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 101001,
+          "title": "Asobi Asobase - workshop of fun -",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Three-Piece” by Hina Kino, Rika Nagae, Konomi Kohara, Rika Nagae, Hina Kino, Konomi Kohara for Asobi Asobase: Workshop of Fun.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Asobi Asobase",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101001-UERCW0UGi0P7.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Chikyugi - Spinning Globe",
+        "artist": "Kenshi Yonezu"
+      },
+      "elapsedMs": 716,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 109979,
+          "title": "The Boy and the Heron",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Chikyuugi” by Kenshi Yonezu for The Boy and the Heron.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kimitachi wa Dou Ikiru ka",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx109979-BRHXpBkCw4oc.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Pino To Ameri (Anime Size)",
+        "artist": "Huwie Ishizaki"
+      },
+      "elapsedMs": 741,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 1735,
+          "title": "Naruto: Shippuden",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Pino to Amélie” by Huwie Ishizaki for Naruto Shippuuden.",
+          "matchKind": "version",
+          "romajiTitle": "NARUTO: Shippuuden",
+          "type": "Ending 38",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx1735-kGfVm0YqCPcu.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "花咲み",
+        "artist": "シルフィエット(CV:茅野愛衣)"
+      },
+      "elapsedMs": 771,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 146065,
+          "title": "Mushoku Tensei: Jobless Reincarnation Season 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Hanaemi” by Ai Kayano for Mushoku Tensei: Jobless Reincarnation Season 2.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Mushoku Tensei II: Isekai Ittara Honki Dasu",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx146065-IjirxRK26O03.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "終ワリノ歌",
+        "artist": "Kenichiro Suehiro"
+      },
+      "elapsedMs": 826,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 99420,
+          "title": "Girls' Last Tour",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Owari no Uta” by MAYUKO & Luminous for Girls' Last Tour.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Shoujo Shuumatsu Ryokou",
+          "type": "Insert Song",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx99420-k5Tel6yRMwA8.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "幻想の輪舞",
+        "artist": "Maon Kurosaki"
+      },
+      "elapsedMs": 778,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 99470,
+          "title": "Grisaia: Phantom Trigger the Animation",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Gensou no Rondo” by Maon Kurosaki for Grisaia: Phantom Trigger the Animation.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Grisaia: Phantom Trigger THE ANIMATION",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx99470-jYLMg1tKthzD.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "TVアニメ「この素晴らしい世界に祝福を!」エンディング・テーマ「ちいさな冒険者 (TV-size)」",
+        "artist": "Sora Amamiya, Rie Takahashi & Ai Kayano"
+      },
+      "elapsedMs": 1033,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21202,
+          "title": "KONOSUBA -God's blessing on this wonderful world!",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Chiisana Boukensha” by Sora Amamiya, Rie Takahashi & Ai Kayano for KONOSUBA: God's Blessing on This Wonderful World!.",
+          "matchKind": "version",
+          "romajiTitle": "Kono Subarashii Sekai ni Shukufuku wo!",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21202-mPOr80AEjUcZ.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Tada Yowai Dakejanakute Bokurawa - NARUTO Syonenhen Version",
+        "artist": "Mass Alert"
+      },
+      "elapsedMs": 996,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 20,
+          "title": "Naruto",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Tada Yowai dake ja Nakute Bokura wa...” by Mass Alert for Naruto.",
+          "matchKind": "version",
+          "romajiTitle": "NARUTO",
+          "type": "Opening 5",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Sound of Destiny (Live at Campus Fes) [TV Anime Ver.]",
+        "artist": "Setsuna Ogiso (CV: Madoka Yonezawa)"
+      },
+      "elapsedMs": 695,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 18245,
+          "title": "White Album 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “SOUND OF DESTINY” by Setsuna Ogiso (CV: Madoka Yonezawa) for White Album 2.",
+          "matchKind": "version",
+          "romajiTitle": "WHITE ALBUM 2",
+          "type": "Insert Song",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx18245-7eMtaBsi00dl.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "夢路らびりんす",
+        "artist": "らびりんず 千矢(CV.原田彩楓)&紺(CV.本渡 楓)&小梅(CV.久保ユリカ)&ノノ(CV.佳村はるか)"
+      },
+      "elapsedMs": 916,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21696,
+          "title": "Urara Meirocho",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Yumeji Labyrinth” by Labyrinths for Urara Meirocho.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Urara Meirochou",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21696-t6vK6om0LJtT.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "LOVE 2000",
+        "artist": "Anna Yanami (CV: Hikaru Tono)"
+      },
+      "elapsedMs": 804,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 171457,
+          "title": "Makeine: Too Many Losing Heroines!",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “LOVE2000” by Hikaru Toono for Makeine: Too Many Losing Heroines!.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Make Heroine ga Oosugiru!",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx171457-nmMIk0gNiWsm.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "STEEL",
+        "artist": "TRUE"
+      },
+      "elapsedMs": 861,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21268,
+          "title": "Mobile Suit GUNDAM Iron Blooded Orphans",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “STEEL -Tekketsu no Kizuna-” by TRUE, Miho Karasawa for Mobile Suit Gundam: Iron-Blooded Orphans.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kidou Senshi Gundam: Tekketsu no Orphans",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx21268-6dKrz26PPUvk.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "After All Tsuduru Omoi '13",
+        "artist": "Rena Uehara"
+      },
+      "elapsedMs": 705,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 18245,
+          "title": "White Album 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “After All ~Tsuzuru Omoi~ '13” by Rena Uehara for White Album 2.",
+          "matchKind": "confirmed",
+          "romajiTitle": "WHITE ALBUM 2",
+          "type": "Ending 4",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx18245-7eMtaBsi00dl.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "夏を見ていた～「蛍火の杜へ」エンディングテーマ",
+        "artist": "Sizzle Ohtaka"
+      },
+      "elapsedMs": 691,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 10408,
+          "title": "Into the Forest of Fireflies' Light",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Natsu o Miteita” by Shizuru Ohtaka for The Light of a Firefly Forest.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Hotarubi no Mori e",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx10408-PlKJ6DAyvMk2.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Wrong World",
+        "artist": "TOGENASHI TOGEARI"
+      },
+      "elapsedMs": 680,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 164212,
+          "title": "Girls Band Cry",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Zattou, Bokura no Machi” by TOGENASHI TOGEARI, Shin Kawasaki (Kari), Shin Kawasaki (Kari)×beni-shouga for Girls Band Cry.",
+          "matchKind": "confirmed",
+          "romajiTitle": "GIRLS BAND CRY",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx164212-eKh15LQxkTEx.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "はじまりの場所",
+        "artist": "Rie Murakawa"
+      },
+      "elapsedMs": 739,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 103049,
+          "title": "Forest of Piano Season 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Hajimari no Basho” by Rie Murakawa for Forest of Piano.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Piano no Mori 2 (TV)",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx103049-amB8jRgCvucH.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "ベラフの子守歌",
+        "artist": "Kevin Penkin"
+      },
+      "elapsedMs": 563,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 114745,
+          "title": "Made in Abyss: The Golden City of the Scorching Sun",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Belaf no Komoriuta” by Mitsuki Saiga for Made in Abyss: The Golden City of the Scorching Sun.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Made in Abyss: Retsujitsu no Ougonkyou",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx114745-fBgTC12T7IAy.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Anone",
+        "artist": "Yuna (CV: Maki Kawase)"
+      },
+      "elapsedMs": 803,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 114340,
+          "title": "Kuma Kuma Kuma Bear",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Ano ne.” by Maki Kawase for Kuma Kuma Kuma Bear.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kuma Kuma Kuma Bear",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx114340-9KovjbYWlNGa.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Lullaby In the Peaceful Light",
+        "artist": "Masakatsu Takagi"
+      },
+      "elapsedMs": 716,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 12355,
+          "title": "Wolf Children",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Hidamari no Mori Uta” by Masakatsu Takagi for Wolf Children.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Ookami Kodomo no Ame to Yuki",
+          "type": "Insert Song",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx12355-wNsvhEsXEgrH.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Comedy",
+        "artist": "Gen Hoshino"
+      },
+      "elapsedMs": 1655,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 140960,
+          "title": "SPY x FAMILY",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Kigeki” by Gen Hoshino for Spy × Family.",
+          "matchKind": "confirmed",
+          "romajiTitle": "SPY×FAMILY",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx140960-Kb6R5nYQfjmP.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "The secret of happiness",
+        "artist": "Akane Kumada"
+      },
+      "elapsedMs": 2496,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 156415,
+          "title": "I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Happy no Hiketsu” by Akane Kumada for I Was Reincarnated as the 7th Prince So I Can Take My Time Perfecting My Magical Ability.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Tensei Shitara Dai Nana Ouji Datta node, Kimamani Majutsu wo Kiwamemasu",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx156415-zwP9deA786S1.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Rhapsody of Blue Sky",
+        "artist": "Fhána"
+      },
+      "elapsedMs": 1253,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 21776,
+          "title": "Miss Kobayashi's Dragon Maid",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Aozora no Rhapsody” by fhána for Miss Kobayashi's Dragon Maid.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kobayashi-san Chi no Maidragon",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21776-bwPaYKhnKfUs.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "瞳ニ映ル景色",
+        "artist": "Kenichirou Suehiro"
+      },
+      "elapsedMs": 904,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 99420,
+          "title": "Girls' Last Tour",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Hitomi ni Utsuru Keshiki” by MAYUKO & Luminous for Girls' Last Tour.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Shoujo Shuumatsu Ryokou",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx99420-k5Tel6yRMwA8.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "インキャインパルス (feat. Ikepy & KSKN)",
+        "artist": "本田華子(CV:木野日菜), オリヴィア(CV:長江里加), 野村香純(CV:小原好美) feat. Ikepy & KSKN"
+      },
+      "elapsedMs": 800,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 101001,
+          "title": "Asobi Asobase - workshop of fun -",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Inkya Impulse” by Hina Kino, Rika Nagae, Konomi Kohara feat. Ikepy & KSKN, Rika Nagae, Hina Kino, Konomi Kohara, Ikepy, KSKN for Asobi Asobase: Workshop of Fun.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Asobi Asobase",
+          "type": "Ending 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101001-UERCW0UGi0P7.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Hengen Jizaino Majikaru Star",
+        "artist": "GRANRODEO"
+      },
+      "elapsedMs": 1323,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 16894,
+          "title": "Kuroko's Basketball 2",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Hengenjizai no Magical Star” by GRANRODEO, GRAN RODEO, Rodeo Spider for Kuroko's Basketball.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kuroko no Basket 2nd SEASON",
+          "type": "Opening 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16894-iXt8GDs1L6dr.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Toki Wo Kizamu Uta (TV Animation Ver.)",
+        "artist": "VISUAL ARTS / Key"
+      },
+      "elapsedMs": 1000,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 4181,
+          "title": "Clannad: After Story",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists a version of “Toki o Kizamu Uta” by VISUAL ARTS / Key for Clannad: After Story.",
+          "matchKind": "version",
+          "romajiTitle": "CLANNAD: After Story",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx4181-zUKE7BZC62OF.png"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Chika Dance",
+        "artist": "Gudrap"
+      },
+      "elapsedMs": 987,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 101921,
+          "title": "Kaguya-sama: Love is War",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Chikatto Chika Chika♡” by Konomi Kohara for Kaguya-sama: Love is War; the performer Gudrap is not confirmed.",
+          "matchKind": "possible",
+          "romajiTitle": "Kaguya-sama wa Kokurasetai: Tensaitachi no Renai Zunousen",
+          "type": "Ending 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101921-ufrjLzhSz7L1.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Love Supreme!",
+        "artist": "Fhána"
+      },
+      "elapsedMs": 771,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 107717,
+          "title": "Miss Kobayashi's Dragon Maid S",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Ai no Supreme!” by fhána for Miss Kobayashi's Dragon Maid S.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Kobayashi-san Chi no Maidragon S",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx107717-bixaW1NTGBra.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "Destination of the journey",
+        "artist": "Hana Hope"
+      },
+      "elapsedMs": 909,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 145728,
+          "title": "Spice and Wolf: MERCHANT MEETS THE WISE WOLF",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Tabi no Yukue” by Hana Hope, HANA for Spice and Wolf: Merchant Meets the Wise Wolf.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF",
+          "type": "Opening 1",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx145728-YUKXjN2E81Pq.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "目覚めの唄",
+        "artist": "Yuiko Ohara"
+      },
+      "elapsedMs": 1182,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 200
+        }
+      ],
+      "matches": [
+        {
+          "id": 108465,
+          "title": "Mushoku Tensei: Jobless Reincarnation",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Mezame no Uta” by Yuiko Ohara for Mushoku Tensei: Jobless Reincarnation.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Mushoku Tensei: Isekai Ittara Honki Dasu",
+          "type": "Opening 2",
+          "coverUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx108465-1ANspF1EWyFx.jpg"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "With love from the closet",
+        "artist": "Hitori Gotoh"
+      },
+      "elapsedMs": 2576,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 429
+        }
+      ],
+      "matches": [
+        {
+          "id": 130003,
+          "title": "Bocchi the Rock!",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Oshiire yori Ai o Komete” by Yoshino Aoyama for Bocchi the Rock!.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Bocchi the Rock!",
+          "type": "Insert Song"
+        }
+      ]
+    },
+    {
+      "song": {
+        "title": "我こそがアインズ・ウール・ゴウン",
+        "artist": "Syuji Katayama"
+      },
+      "elapsedMs": 1482,
+      "passed": true,
+      "requests": [
+        {
+          "host": "anisongdb.com",
+          "status": 200
+        },
+        {
+          "host": "graphql.anilist.co",
+          "status": 429
+        }
+      ],
+      "matches": [
+        {
+          "id": 20832,
+          "title": "Overlord",
+          "sourceUrl": "https://anisongdb.com/",
+          "evidence": "AnisongDB lists “Ware koso ga Ainz Ooal Gown” by Ainz Ooal Gown Gasshou-dan for Overlord.",
+          "matchKind": "confirmed",
+          "romajiTitle": "Overlord",
+          "type": "Insert Song"
+        }
+      ]
+    }
+  ]
+}
