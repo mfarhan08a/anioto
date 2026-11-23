@@ -32,7 +32,7 @@ for (const browser of targets) {
   await rm(outdir, { recursive: true, force: true });
   await mkdir(outdir, { recursive: true });
   const portable = browser === 'firefox' || browser === 'safari';
-  const sharedFiles = ['style.css', 'anioto-tokens.css', 'anioto-icon.png'];
+  const sharedFiles = ['style.css', 'anioto-tokens.css', 'anioto-icon.png', 'wanakana-LICENSE.txt'];
   const files = [...sharedFiles, ...(portable ? ['portable.html', 'workspace.html']
     : ['anioto.css', 'anioto-manga.jpg', 'anioto-icons.svg', 'popup.html', 'options.html', 'offscreen.html', 'audio-capture-worklet.js'])];
   for (const file of files) {

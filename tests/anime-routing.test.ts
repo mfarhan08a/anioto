@@ -14,6 +14,25 @@ beforeEach(() => {
 });
 afterEach(() => { vi.useRealTimers(); clearAnimeCache(); });
 
+it('briefly skips a 503 fallback without disabling primary lookup or caching a false no-match', async () => {
+  vi.useFakeTimers();
+  mocks.primary.mockResolvedValue([]);
+  mocks.fallback.mockRejectedValue(new Error('AnimeThemes is unavailable (HTTP 503).'));
+  await expect(resolveAnime(song)).rejects.toThrow('AnisongDB returned no matching credits. AnimeThemes');
+  await expect(resolveAnime({ title: 'Unseen title', artist: 'New artist' })).rejects.toThrow('30 seconds');
+  expect(mocks.primary).toHaveBeenCalledTimes(2);
+  expect(mocks.fallback).toHaveBeenCalledTimes(1);
+  mocks.primary.mockResolvedValue([match]);
+  await expect(resolveAnime(song)).resolves.toMatchObject([{ id: match.id }]);
+  clearAnimeCache();
+  mocks.primary.mockResolvedValue([]);
+  await expect(resolveAnime(song)).rejects.toThrow('HTTP 503');
+  await vi.advanceTimersByTimeAsync(30_001);
+  mocks.fallback.mockResolvedValue([]);
+  await expect(resolveAnime(song)).resolves.toEqual([]);
+  expect(mocks.fallback).toHaveBeenCalledTimes(3);
+});
+
 it('uses the primary source, publishes before artwork, and never calls the fallback on a hit', async () => {
   const observed = vi.fn();
   const result = await resolveAnime(song, undefined, observed);
@@ -23,6 +42,16 @@ it('uses the primary source, publishes before artwork, and never calls the fallb
   expect(result[0]).not.toHaveProperty('anilistId');
   expect(mocks.enrich).toHaveBeenCalledWith('20665', expect.any(AbortSignal));
   expect(mocks.fallback).not.toHaveBeenCalled();
+});
+
+it('does not let a bundled song mapping hide additional live anime credits', async () => {
+  const known = { ...match, id: 155783, anilistId: 155783, title: 'Cyberpunk: Edgerunners', matchKind: 'confirmed' };
+  const additional = { ...match, id: 999, anilistId: 999, title: 'Another source-documented use', matchKind: 'confirmed' };
+  mocks.primary.mockResolvedValue([known, additional]);
+  const result = await resolveAnime({ title: 'I Really Want to Stay At Your House', artist: 'Rosa Walton' });
+  expect(result.map(value => value.id)).toEqual([155783, 999]);
+  expect(result.every(value => value.sourceUrl === 'https://anisongdb.com/')).toBe(true);
+  expect(mocks.primary).toHaveBeenCalledTimes(1);
 });
 
 const alya = 'アーリャ(CV:上坂すみれ)';
@@ -130,9 +159,10 @@ it('honors cancellation during artwork and before returning cached results', asy
   await expect(pending).rejects.toMatchObject({ name: 'AbortError' });
 });
 
-it('retains reviewed featured songs without network access and ranks the reviewed cover reference cautiously', async () => {
+it('uses reviewed featured songs when the catalog misses and ranks the reviewed cover reference cautiously', async () => {
+  mocks.primary.mockResolvedValue([]);
   await expect(resolveAnime({ title: 'I Really Want to Stay At Your House', artist: 'Rosa Walton' })).resolves.toMatchObject([{ title: 'Cyberpunk: Edgerunners' }]);
-  expect(mocks.primary).not.toHaveBeenCalled();
+  expect(mocks.primary).toHaveBeenCalledTimes(1);
   mocks.primary.mockResolvedValue([{ ...match, id: 1, anilistId: 1, title: 'Another Orange', matchKind: 'possible' }, { ...match, matchKind: 'possible' }]);
   const result = await resolveAnime({ title: 'Orange (Underwater)', artist: 'Kaori Miyazono & Zero Two' });
   expect(result[0]).toMatchObject({ title: match.title, matchKind: 'possible', recordingReferenceUrl: expect.stringContaining('spotify.com') });
@@ -151,7 +181,7 @@ it.each([
     matchKind,
     sourceUrl: 'https://heroaca.com/special/oped-oneforall/',
   }]);
-  expect(mocks.primary).not.toHaveBeenCalled();
+  expect(mocks.primary).toHaveBeenCalledTimes(1);
   expect(mocks.fallback).not.toHaveBeenCalled();
 });
 

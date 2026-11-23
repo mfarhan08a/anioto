@@ -370,7 +370,7 @@ describe('resolveAnisongDB', () => {
       { id: 123, anilistId: 123, title: 'A Show', type: 'OP', matchKind: 'confirmed', sourceUrl: 'https://anisongdb.com/', evidence: expect.stringContaining('AnisongDB') },
     ]);
     expect(JSON.parse(String(calls[0]?.body))).toEqual({
-      song_name_search_filter: { search: 'Theme', partial_match: false, match_case: false }, ignore_duplicate: true,
+      song_name_search_filter: { search: 'Theme', partial_match: false, match_case: false }, ignore_duplicate: false,
     });
     expect(calls).toHaveLength(1);
   });
@@ -404,11 +404,11 @@ describe('resolveAnisongDB', () => {
     vi.stubGlobal('fetch', request);
     await expect(resolveAnisongDB({ title: 'Theme', artist: 'The Artist' })).resolves.toMatchObject([{ id: 2, matchKind: 'confirmed' }]);
     expect(request).toHaveBeenCalledTimes(2);
-    expect(JSON.parse(String(request.mock.calls[1]?.[1]?.body))).toEqual({ artist_search_filter: { search: 'The Artist', partial_match: false, match_case: false }, ignore_duplicate: true });
+    expect(JSON.parse(String(request.mock.calls[1]?.[1]?.body))).toEqual({ artist_search_filter: { search: 'The Artist', partial_match: false, match_case: false }, ignore_duplicate: false });
   });
 
   it('does not pick an artist catalog song with a different title', async () => {
-    const request = vi.fn().mockResolvedValueOnce(json([])).mockResolvedValueOnce(json([entry({ songName: 'Different Song' })]));
+    const request = vi.fn().mockImplementation(() => json([entry({ songName: 'Different Song' })])).mockResolvedValueOnce(json([]));
     vi.stubGlobal('fetch', request);
     await expect(resolveAnisongDB({ title: 'Theme', artist: 'The Artist' })).resolves.toEqual([]);
   });

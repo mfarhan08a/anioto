@@ -1,6 +1,8 @@
 import type { AnimeMatch, Song } from '../contracts';
 import { canonicalArtistForTitle, canonicalBaseTitleFor, canonicalTitleFor } from './title-aliases';
-import { normalizeSongText } from './song-titles';
+import { normalizeSongText, withoutFeaturedCredit } from './song-titles';
+import { performerNames, samePerformers, scriptKey, titleDiscoveryQueries } from './credit-matching';
+import { canonicalArtist } from './artist-aliases';
 
 const API = 'https://anisongdb.com/api/search_request';
 const HOMEPAGE = 'https://anisongdb.com/';
@@ -42,7 +44,7 @@ function classify(candidate: Json, song: Song, exactTitle: string, baseTitle: st
   if (typeof candidate.songName !== 'string' || !candidate.songName.trim()) return undefined;
   const normalize = (value: string) => {
     const normalized = normalizeSongText(value);
-    return ignoreSpacing ? normalized.replaceAll(' ', '') : normalized;
+    return ignoreSpacing ? scriptKey(value) : normalized;
   };
   const title = normalize(canonicalTitleFor(candidate.songName, song.artist));
   const expected = normalize(exactTitle);
@@ -50,9 +52,30 @@ function classify(candidate: Json, song: Song, exactTitle: string, baseTitle: st
   if (!title || (title !== expected && title !== base)) return undefined;
   const creditTitle = baseTitle !== undefined && title === base ? baseTitle : exactTitle;
   const artistKey = canonicalArtistForTitle(creditTitle, song.artist);
-  const artistMatch = candidateArtists(candidate).some(name => canonicalArtistForTitle(creditTitle, name) === artistKey);
+  const credits = Array.isArray(candidate.artists) ? candidate.artists.filter(record) : [];
+  const fullCredits = [typeof candidate.songArtist === 'string' ? candidate.songArtist : '',
+    typeof candidate.songArtist === 'string' ? withoutFeaturedCredit(candidate.songArtist) : '',
+    ...(credits.length === 1 ? aliases(credits[0]!) : [])];
+  const artistMatch = fullCredits.some(name => name.trim() && canonicalArtistForTitle(creditTitle, name) === artistKey)
+    || lineupMatches(candidate, song.artist);
   if (artistMatch) return base && base !== expected && title === base ? 'version' : 'confirmed';
   return ignoreSpacing ? undefined : 'possible';
+}
+
+function aliases(value: Json): string[] {
+  return Array.isArray(value.names) ? value.names.filter((name): name is string => typeof name === 'string' && !!name.trim())
+    : typeof value.name === 'string' ? [value.name] : [];
+}
+
+function lineupMatches(candidate: Json, artist: string): boolean {
+  const credits = Array.isArray(candidate.artists) ? candidate.artists.filter(record) : [];
+  if (credits.length && samePerformers(artist, credits.map(aliases))) return true;
+  // Expand a source-owned group only when the entire credited lineup is known.
+  const expanded = credits.flatMap(credit => Array.isArray(credit.members) && credit.members.length
+    ? credit.members.filter(record).map(aliases) : [aliases(credit)]);
+  if (expanded.length && samePerformers(artist, expanded)) return true;
+  return typeof candidate.songArtist === 'string'
+    && samePerformers(artist, performerNames(candidate.songArtist).map(name => [name]));
 }
 
 function animeName(candidate: Json): string | undefined {
@@ -80,6 +103,7 @@ async function request(body: Json, signal: AbortSignal): Promise<unknown[]> {
 function searchResults(candidates: unknown[], song: Song, exactTitle: string, baseTitle: string | undefined, ignoreSpacing = false): AnisongMatch[] {
   const rank = { possible: 1, version: 2, confirmed: 3 } as const;
   const matches = new Map<number, AnisongMatch>();
+  const matchedTitles = new Set<string>();
   for (const item of candidates) {
     if (!record(item)) continue;
     const matchKind = classify(item, song, exactTitle, baseTitle, ignoreSpacing);
@@ -94,6 +118,7 @@ function searchResults(candidates: unknown[], song: Song, exactTitle: string, ba
     const malId = linkedId(item, 'myanimelist');
     const id = anilistId ?? (malId ? -malId : undefined);
     if (!matchKind || !title || !anime || !id) continue;
+    matchedTitles.add(normalizeSongText(title));
     const evidence = matchKind === 'confirmed'
       ? `AnisongDB lists “${title}” by ${artists.join(', ')} for ${anime}.`
       : matchKind === 'version'
@@ -111,7 +136,9 @@ function searchResults(candidates: unknown[], song: Song, exactTitle: string, ba
   }
   const values = [...matches.values()];
   const hasConfirmed = values.some(match => match.matchKind !== 'possible');
-  if (ignoreSpacing && values.length !== 1) return [];
+  // The same credit can belong to several anime. Ambiguity is competing song
+  // spellings, not the number of anime which legitimately use that credit.
+  if (ignoreSpacing && matchedTitles.size !== 1) return [];
   return values.filter(match => !hasConfirmed || match.matchKind !== 'possible')
     .sort((a, b) => rank[b.matchKind ?? 'possible'] - rank[a.matchKind ?? 'possible'])
     .slice(0, 10);
@@ -139,7 +166,7 @@ export async function resolveAnisongDB(song: Song, signal?: AbortSignal): Promis
     const work = async (): Promise<AnisongMatch[]> => {
       const titleSearch = await request({
         song_name_search_filter: { search: baseTitle ?? exactTitle, partial_match: false, match_case: false },
-        ignore_duplicate: true,
+        ignore_duplicate: false,
       }, controller.signal);
       const primary = searchResults(titleSearch, song, exactTitle, baseTitle);
       if (primary.some(match => match.matchKind !== 'possible')) return primary;
@@ -147,15 +174,45 @@ export async function resolveAnisongDB(song: Song, signal?: AbortSignal): Promis
       // Artist discovery can recover a title with joined or separated words.
       // Only use a spacing-insensitive match when its credit is unambiguous.
       try {
+        // A failed artist query must not suppress independent title discovery.
+        let discoveryError: unknown;
         const discovery = await request({
           artist_search_filter: { search: song.artist, partial_match: false, match_case: false },
-          ignore_duplicate: true,
-        }, controller.signal);
+          ignore_duplicate: false,
+        }, controller.signal).catch(error => {
+          if (controller.signal.aborted || signal?.aborted) throw error;
+          discoveryError = error;
+          return [];
+        });
         const candidates = [...titleSearch, ...discovery];
         const exact = searchResults(candidates, song, exactTitle, baseTitle);
         if (exact.some(match => match.matchKind !== 'possible')) return exact;
         const spacingMatch = searchResults(candidates, song, exactTitle, baseTitle, true);
-        return spacingMatch.length ? spacingMatch : exact;
+        if (spacingMatch.length) return spacingMatch;
+        if (exact.length) return exact;
+        const extraQueries = titleDiscoveryQueries(baseTitle ?? exactTitle);
+        // Search one complete known performer alias when release credits are a
+        // cast list. Group membership is validated above, never inferred here.
+        const firstPerformer = performerNames(song.artist)[0];
+        const artistQuery = firstPerformer ? canonicalArtist(firstPerformer) : '';
+        const requests: Json[] = extraQueries.map(search => ({
+          song_name_search_filter: { search, partial_match: true, match_case: false }, ignore_duplicate: false,
+        }));
+        if (artistQuery && artistQuery !== normalizeSongText(song.artist) && !/\p{Script=Han}/u.test(artistQuery)) {
+          requests.push({ artist_search_filter: { search: artistQuery, partial_match: false, match_case: false }, ignore_duplicate: false });
+        }
+        const responses = await Promise.allSettled(requests.slice(0, 3).map(body => request(body, controller.signal)));
+        if (controller.signal.aborted) throw new DOMException('Aborted', 'AbortError');
+        const recovered = [...candidates, ...responses.flatMap(result => result.status === 'fulfilled' ? result.value : [])];
+        const strict = searchResults(recovered, song, exactTitle, baseTitle);
+        if (strict.some(match => match.matchKind !== 'possible')) return strict;
+        const phonetic = searchResults(recovered, song, exactTitle, baseTitle, true);
+        if (!phonetic.length && !strict.length) {
+          const failed = responses.find(result => result.status === 'rejected');
+          if (failed?.status === 'rejected') throw failed.reason;
+          if (discoveryError) throw discoveryError;
+        }
+        return phonetic.length ? phonetic : strict;
       } catch (error) {
         if (controller.signal.aborted || signal?.aborted) throw error;
         if (primary.length) return primary;
