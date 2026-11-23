@@ -8,8 +8,10 @@ import { resolveSupplemental } from './supplemental-songs';
 import { recordingReference } from './recording-references';
 
 const CACHE_MS = 3_600_000;
+const FALLBACK_COOLDOWN_MS = 30_000;
+let fallbackUnavailableUntil = 0;
 const cache = new Map<string, { expires: number; matches: AnimeMatch[] }>();
-export function clearAnimeCache(): void { cache.clear(); clearThemesCache(); }
+export function clearAnimeCache(): void { cache.clear(); clearThemesCache(); fallbackUnavailableUntil = 0; }
 const aborted = () => new DOMException('Aborted', 'AbortError');
 
 /** Bound optional metadata and the fallback, including requests that ignore abort. */
@@ -40,7 +42,6 @@ export async function resolveAnime(song: Song, signal?: AbortSignal, onMatches?:
   if (cached && cached.expires > Date.now()) return structuredClone(cached.matches);
   cache.delete(key);
   const supplemental = resolveSupplemental(song);
-  if (supplemental.some(match => match.matchKind !== 'possible')) return supplemental;
   let primaryError: unknown;
   let primary: AnisongMatch[] = [];
   try { primary = await resolveAnisongDB(song, signal); }
@@ -51,6 +52,9 @@ export async function resolveAnime(song: Song, signal?: AbortSignal, onMatches?:
   if (signal?.aborted) throw aborted();
   if (!primary.some(match => match.matchKind !== 'possible')) {
     const bundledFallback = resolveSupplemental(song, 'fallback');
+    // Reviewed local evidence is a fallback, not a route which prevents live
+    // discovery of other anime using the same song.
+    if (supplemental.some(match => match.matchKind !== 'possible')) return supplemental;
     if (bundledFallback.length) return bundledFallback;
   }
   let matches: AnimeMatch[];
@@ -81,16 +85,20 @@ export async function resolveAnime(song: Song, signal?: AbortSignal, onMatches?:
   } else {
     let published: AnimeMatch[] = [];
     try {
+      if (Date.now() < fallbackUnavailableUntil) throw new Error('AnimeThemes is temporarily unavailable after HTTP 503. Retrying is paused for up to 30 seconds.');
       matches = await within(child => resolveAnimeThemes(song, child, value => {
         if (!child.aborted) { published = structuredClone(value); return onMatches?.(value); }
       }), 5_000, signal, 'AnimeThemes fallback timed out.');
     } catch (error) {
       if (signal?.aborted) throw aborted();
+      if (error instanceof Error && error.message === 'AnimeThemes is unavailable (HTTP 503).') {
+        fallbackUnavailableUntil = Date.now() + FALLBACK_COOLDOWN_MS;
+      }
       if (published.length) matches = published;
       else {
         if (supplemental.length) return supplemental;
         const fallbackMessage = error instanceof Error ? error.message : 'AnimeThemes fallback is unavailable.';
-        if (!primaryError) throw new Error(fallbackMessage);
+        if (!primaryError) throw new Error(`AnisongDB returned no matching credits. ${fallbackMessage}`);
         const primaryMessage = primaryError instanceof Error ? primaryError.message : 'AnisongDB is unavailable.';
         throw new Error(`${primaryMessage} ${fallbackMessage}`);
       }

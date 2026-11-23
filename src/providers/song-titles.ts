@@ -1,6 +1,6 @@
 /** Normalize credit text without erasing meaningful words from song titles. */
 export function normalizeSongText(value: string): string {
-  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase()
+  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').normalize('NFC').toLocaleLowerCase()
     .replace(/&/g, ' and ').replace(/\b(feat(?:uring)?|ft)\.?\b/g, ' ')
     .replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/\s+/g, ' ');
 }

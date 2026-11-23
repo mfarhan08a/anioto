@@ -1,0 +1,207 @@
+{
+  "date": "2026-11-23T14:38:48.439Z",
+  "scope": "Live AnisongDB metadata only; not browser audio recognition. Empty expectedIds record unresolved cases, not recognition successes.",
+  "runs": [
+    {
+      "variant": "baseline",
+      "observations": [
+        {
+          "song": {
+            "title": "ひとりじゃない",
+            "artist": "DEEN"
+          },
+          "expectedIds": [
+            225
+          ],
+          "elapsedMs": 780,
+          "matches": [],
+          "passed": false
+        },
+        {
+          "song": {
+            "title": "サクラサク",
+            "artist": "Megumi Hayashibara"
+          },
+          "expectedIds": [
+            189,
+            191,
+            192
+          ],
+          "elapsedMs": 1329,
+          "matches": [],
+          "passed": false
+        },
+        {
+          "song": {
+            "title": "ヒトリゴト",
+            "artist": "ClariS"
+          },
+          "expectedIds": [
+            21685,
+            100523
+          ],
+          "elapsedMs": 627,
+          "matches": [],
+          "passed": false
+        },
+        {
+          "song": {
+            "title": "アキハバラ☆だんす☆なう!!",
+            "artist": "Oreno Imoutoga Konnani Kawaii Wakeganai"
+          },
+          "expectedIds": [],
+          "limitation": "Translated loanwords; release credit is the anime name.",
+          "elapsedMs": 647,
+          "matches": [],
+          "passed": true
+        },
+        {
+          "song": {
+            "title": "らぶりぃでびる",
+            "artist": "オカルト研究部ガールズ, リアス・グレモリー(CV:日笠陽子), 姫島朱乃(CV:伊藤 静), アーシア・アルジェント(CV:浅倉杏美), 塔城小猫(CV:竹達彩奈), ゼノヴィア(CV:種田梨沙) & ギャスパー・ヴラディ(CV:佐倉綾音)"
+          },
+          "expectedIds": [],
+          "limitation": "Translated loanwords and Japanese group/actor credits.",
+          "elapsedMs": 603,
+          "matches": [],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "variant": "current",
+      "observations": [
+        {
+          "song": {
+            "title": "ひとりじゃない",
+            "artist": "DEEN"
+          },
+          "expectedIds": [
+            225
+          ],
+          "elapsedMs": 618,
+          "matches": [
+            {
+              "id": 225,
+              "title": "Dragon Ball GT",
+              "sourceUrl": "https://anisongdb.com/",
+              "evidence": "AnisongDB lists “Hitori ja Nai” by DEEN for Dragon Ball GT.",
+              "matchKind": "confirmed",
+              "romajiTitle": "Dragon Ball GT",
+              "hasEnglishTitle": true,
+              "type": "Ending 1",
+              "anilistId": 225
+            }
+          ],
+          "passed": true
+        },
+        {
+          "song": {
+            "title": "サクラサク",
+            "artist": "Megumi Hayashibara"
+          },
+          "expectedIds": [
+            189,
+            191,
+            192
+          ],
+          "elapsedMs": 834,
+          "matches": [
+            {
+              "id": 189,
+              "title": "Love Hina",
+              "sourceUrl": "https://anisongdb.com/",
+              "evidence": "AnisongDB lists “Sakura Saku” by Megumi Hayashibara, MEGUMI for Love Hina.",
+              "matchKind": "confirmed",
+              "romajiTitle": "Love Hina",
+              "hasEnglishTitle": true,
+              "type": "Opening 1",
+              "anilistId": 189
+            },
+            {
+              "id": 191,
+              "title": "Love Hina Christmas Movie",
+              "sourceUrl": "https://anisongdb.com/",
+              "evidence": "AnisongDB lists “Sakura Saku” by Megumi Hayashibara, MEGUMI for Love Hina Christmas Movie.",
+              "matchKind": "confirmed",
+              "romajiTitle": "Love Hina Christmas Special: Silent Eve",
+              "hasEnglishTitle": true,
+              "type": "Opening 1",
+              "anilistId": 191
+            },
+            {
+              "id": 192,
+              "title": "Love Hina Spring Movie",
+              "sourceUrl": "https://anisongdb.com/",
+              "evidence": "AnisongDB lists “Sakura Saku” by Megumi Hayashibara, MEGUMI for Love Hina Spring Movie.",
+              "matchKind": "confirmed",
+              "romajiTitle": "Love Hina Haru Special: Kimi Sakura Chiru Nakare!!",
+              "hasEnglishTitle": true,
+              "type": "Ending 1",
+              "anilistId": 192
+            }
+          ],
+          "passed": true
+        },
+        {
+          "song": {
+            "title": "ヒトリゴト",
+            "artist": "ClariS"
+          },
+          "expectedIds": [
+            21685,
+            100523
+          ],
+          "elapsedMs": 630,
+          "matches": [
+            {
+              "id": 21685,
+              "title": "Eromanga Sensei",
+              "sourceUrl": "https://anisongdb.com/",
+              "evidence": "AnisongDB lists “Hitorigoto” by ClariS for Eromanga Sensei.",
+              "matchKind": "confirmed",
+              "romajiTitle": "Eromanga Sensei",
+              "hasEnglishTitle": true,
+              "type": "Opening 1",
+              "anilistId": 21685
+            },
+            {
+              "id": 100523,
+              "title": "Eromanga Sensei",
+              "sourceUrl": "https://anisongdb.com/",
+              "evidence": "AnisongDB lists “Hitorigoto” by ClariS for Eromanga Sensei.",
+              "matchKind": "confirmed",
+              "romajiTitle": "Eromanga Sensei",
+              "hasEnglishTitle": true,
+              "type": "Opening 1",
+              "anilistId": 100523
+            }
+          ],
+          "passed": true
+        },
+        {
+          "song": {
+            "title": "アキハバラ☆だんす☆なう!!",
+            "artist": "Oreno Imoutoga Konnani Kawaii Wakeganai"
+          },
+          "expectedIds": [],
+          "limitation": "Translated loanwords; release credit is the anime name.",
+          "elapsedMs": 939,
+          "matches": [],
+          "passed": true
+        },
+        {
+          "song": {
+            "title": "らぶりぃでびる",
+            "artist": "オカルト研究部ガールズ, リアス・グレモリー(CV:日笠陽子), 姫島朱乃(CV:伊藤 静), アーシア・アルジェント(CV:浅倉杏美), 塔城小猫(CV:竹達彩奈), ゼノヴィア(CV:種田梨沙) & ギャスパー・ヴラディ(CV:佐倉綾音)"
+          },
+          "expectedIds": [],
+          "limitation": "Translated loanwords and Japanese group/actor credits.",
+          "elapsedMs": 883,
+          "matches": [],
+          "passed": true
+        }
+      ]
+    }
+  ]
+}
